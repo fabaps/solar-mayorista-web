@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 export default function FeaturedBrands() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.unobserve(entry.target)
+          setIsVisible(true);
+          observer.unobserve(entry.target);
         }
       },
       {
@@ -22,18 +22,18 @@ export default function FeaturedBrands() {
         rootMargin: "0px",
         threshold: 0.1,
       },
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   // Datos de las marcas
   const brands = [
@@ -54,24 +54,29 @@ export default function FeaturedBrands() {
     },
     {
       id: 4,
-      name: "Canadian Solar",
-      logo: "/images/canadian-solar-logo.png",
+      name: "Huawei",
+      logo: "/images/huawei-logo.png",
     },
     {
       id: 5,
       name: "DIFFUL",
       logo: "/images/difful-logo.jpeg",
     },
-  ]
+  ];
 
   return (
-    <div ref={sectionRef} className="w-full bg-gray-50 py-8 md:py-16 overflow-x-hidden">
+    <div
+      ref={sectionRef}
+      className="w-full bg-gray-50 py-8 md:py-16 overflow-x-hidden"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         <div className="mb-8 text-center">
           <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-[#333333] md:text-5xl">
             MARCAS DESTACADAS
           </h2>
-          <p className="mt-3 text-gray-500">Trabajamos con las mejores marcas del sector solar</p>
+          <p className="mt-3 text-gray-500">
+            Trabajamos con las mejores marcas del sector solar
+          </p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
@@ -88,14 +93,18 @@ export default function FeaturedBrands() {
                   className="object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <p className="mt-2 text-xs font-medium text-gray-700">{brand.name}</p>
+              <p className="mt-2 text-xs font-medium text-gray-700">
+                {brand.name}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Texto y enlace para ver más productos */}
         <div className="mt-8 md:mt-10 text-center">
-          <p className="text-gray-600 mb-3">¿No encuentras la marca que buscas?</p>
+          <p className="text-gray-600 mb-3">
+            ¿No encuentras la marca que buscas?
+          </p>
           <Link
             href="/productos-solares"
             className="inline-flex items-center text-[#004AAD] font-medium hover:underline transition-all group"
@@ -106,5 +115,5 @@ export default function FeaturedBrands() {
         </div>
       </div>
     </div>
-  )
+  );
 }
