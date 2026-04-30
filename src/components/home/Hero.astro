@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+import Banner from "@imgs/hero/banner.jpg";
+
+import { PILLARS } from "@data/pillars";
+---
+
+<div
+  class="flex flex-row items-center justify-center gap-2 w-screen h-screen px-[5%]"
+>
+  <div class="absolute top-0 left-0 w-screen h-screen">
+    <Image
+      src={Banner}
+      alt="Imagen de fondo"
+      class="w-full h-full object-cover mask-b-from-20% mask-b-to-90%"
+    />
+  </div>
+
+  <div class="group w-full h-46 -translate-y-1/4">
+    <h1
+      class="font-playfair text-6xl text-center border-2 transition-all duration-1000 ease-out group-hover:rotate-x-360"
+    >
+      TODO LO QUE NECESITAS PARA DESARROLLAR TU PROYECTO DE ENERGÍA SOLAR
+    </h1>
+  </div>
+
+  <div class="absolute bottom-0 left-0 grid grid-cols-5 px-4 w-full gap-2">
+    {
+      PILLARS.map((pillar) => (
+        <div class="group relative text-center border-t border-x pt-2 pb-6 transition-all duration-300 ease-in hover:text-white hover:bg-black hover:pt-4 cursor-default">
+          <span>{pillar.titlePreview}</span>
+
+          <div class="fixed inset-0 invisible group-hover:visible top-1/2 left-1/2 -translate-1/2 w-3/4 h-2/4 border border-white/25 bg-white/5 backdrop-blur-sm transition-all duration-500 scale-10 group-hover:scale-100 font-playfair text-black text-4xl">
+            <span>{pillar.titlePreview}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

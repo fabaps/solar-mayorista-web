@@ -1,0 +1,25 @@
+---
+import BgVideo from "@videos/hero/bg.mp4";
+---
+
+<div class="absolute top-0 left-0 w-screen h-screen">
+  <!-- Video -->
+  <video
+    src={BgVideo}
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute top-0 left-0 w-full h-full object-cover"></video>
+
+  <!-- Overlay -->
+  <div class="absolute top-0 left-0 w-full h-full grid grid-cols-3">
+    {
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(() => (
+        <div class="group w-full h-full">
+          <div class="backdrop-blur-md w-full h-full bg-[#16092eEE] transition-all duration-700 ease-out transform group-hover:rotate-y-180" />
+        </div>
+      ))
+    }
+  </div>
+</div>
