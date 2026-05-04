@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import BrandsPanel from "./BrandsPanel.astro";
+import BrandsPanel from "./brands/BrandsPanel.astro";
 ---
 
 <div
@@ -9,7 +9,9 @@ import BrandsPanel from "./BrandsPanel.astro";
 >
   <h2 class="text-6xl">Marcas Destacadas</h2>
   <p>Trabajamos con las mejores marcas del sector solar</p>
+
   <BrandsPanel />
+
   <p>¿No encuentras la marca que buscas?</p>
   <a
     href="/productos-solares"

@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
+
+const GRID_IMAGES = [
+  {
+    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202024-11-27%20at%2008.56.59%20%281%29-gvFk0tPas5HAhWViHKXfs3urqEZqNi.jpeg",
+  },
+  {
+    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5972.jpg-wXPVL3Q82q9wsUErxdrZ1VBFO7MDlQ.jpeg",
+  },
+  {
+    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_8143%20%281%29.png-yAqLBlwtGHcwYrXacrmq849MnFKizC.jpeg",
+  },
+  {
+    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_5582.png-iVIqKorbw3TAiVBmqzB5Ti3QvcpXed.jpeg",
+  },
+];
+---
+
+<section
+  id="specialized-engineering"
+  class="grid grid-cols-1 lg:grid-cols-2 items-center justify-center gap-2 w-full h-screen text-black px-[10%]"
+>
+  <div>
+    <h1 class="text-6xl font-playfair">INGENIERIA ESPECIALIZADA</h1>
+    <h2 class="text-xl">
+      ¿Cuál es el proyecto que te está pidiendo tu cliente?
+    </h2>
+    <p>Nosotros te apoyamos en el proceso.</p>
+
+    <div class="grid grid-cols-2 items-center justify-center gap-2 w-full my-4">
+      {
+        SPECIALIZED_ENGINEERING.map((specializedEngineering) => (
+          <span class="bg-white/5 backdrop-blur-sm border border-white/15 text-start w-full px-4 py-4 min-h-full">
+            {specializedEngineering.title}
+          </span>
+        ))
+      }
+    </div>
+
+    <a
+      href="/productos-solares"
+      class="group flex items-center justify-start gap-2 hover:underline"
+    >
+      <Icon name="mdi:whatsapp" class="text-xl text-black" />
+      <span>Consultar a equio técnico</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
+  </div>
+
+  <div class="grid grid-cols-2 gap-2">
+    {
+      GRID_IMAGES.map((image) => (
+        <img
+          src={image.img}
+          alt="Ingeniero analizando diseño de instalación solar"
+          class="w-full h-62 object-cover transition-all duration-500 hover:scale-95"
+        />
+      ))
+    }
+  </div>
+</section>
