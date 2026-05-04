@@ -1,0 +1,31 @@
+---
+import { BRANDS } from "@data/brands";
+import { Image } from "astro:assets";
+---
+
+<div class="relative w-full h-auto px-[10%]">
+  <div class="grid grid-cols-3 items-center justify-center">
+    {
+      BRANDS.map((brand) => (
+        <div class="flex items-center justify-center w-full h-auto">
+          <Image
+            src={brand.img}
+            alt={brand.title}
+            class={"w-32 h-32 object-contain"}
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Overlay -->
+  <div class="absolute top-0 left-0 w-full h-full grid grid-cols-12 px-[10%]">
+    {
+      Array.from({ length: 60 }).map(() => (
+        <div class="group w-full h-full">
+          <div class="w-full h-full bg-white/15 group-hover:backdrop-blur-sm border border-white/10 forwards transition-all duration-700 ease-out transform group-hover:rotate-y-180" />
+        </div>
+      ))
+    }
+  </div>
+</div>

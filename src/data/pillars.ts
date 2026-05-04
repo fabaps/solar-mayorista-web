@@ -1,43 +1,44 @@
+import SolarPanelImg from "@imgs/hero/solar-panel.png";
+import TechnicalSupportImg from "@imgs/hero/technical-support.png";
+import FinancingImg from "@imgs/hero/financing.webp";
+import AuthorizatedProviderImg from "@imgs/hero/authorizated-provider.png";
+import ProjectExperienceImg from "@imgs/hero/project-experience.png";
+
 export const PILLARS = [
   {
-    img: "https://www.solarmayorista.com/images/slider-image-1.jpeg",
+    img: SolarPanelImg,
     titlePreview: "Productos Solares",
-    title: "Lower your electric bills for decades.",
+    title: "Equipos de última generación para tu hogar.",
     description:
-      "Compare solar quotes and see long-term savings for your home.",
-    url: "/",
+      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
   },
   {
-    img: "https://www.solarmayorista.com/images/hazlo-aci-background.jpeg",
+    img: TechnicalSupportImg,
     titlePreview: "Soporte Técnico",
-    title: "Lower your electric bills for decades.",
+    title: "Asesoría profesional en cada etapa.",
     description:
-      "Compare solar quotes and see long-term savings for your home.",
-    url: "/",
+      "Ingenieros especializados te ayudan a diseñar la mejor solución para tu hogar, con seguimiento post-instalación.",
   },
   {
-    img: "https://www.ceupe.com/images/easyblog_articles/4041/b2ap3_amp_monedas.jpg",
+    img: FinancingImg,
     titlePreview: "Financiamiento",
-    title: "Lower your electric bills for decades.",
+    title: "Facilidades de pago a tu medida.",
     description:
-      "Compare solar quotes and see long-term savings for your home.",
-    url: "/",
+      "Planes de financiamiento competitivos sin historial crediticio complejo. Tu primera instalación solar accesible.",
   },
   {
-    img: "https://energybee.co.za/images/guides/solar-panel-brands-hero.png",
+    img: AuthorizatedProviderImg,
     titlePreview: "Proveedores Autorizados",
-    title: "Lower your electric bills for decades.",
+    title: "Calidad certificada en cada producto.",
     description:
-      "Compare solar quotes and see long-term savings for your home.",
-    url: "/",
+      "Trabajamos solo con fabricantes verificados y certificados. Equipos originales con garantía oficial.",
   },
   {
-    img: "https://solarplak.es/energia/imagenes/Que-es-y-como-funciona-un-panel-solar.jpg",
+    img: ProjectExperienceImg,
     titlePreview: "Experiencia en Proyectos",
-    title: "Lower your electric bills for decades.",
+    title: "Instalaciones probadas en todo el país.",
     description:
-      "Compare solar quotes and see long-term savings for your home.",
-    url: "/",
+      "Más de 500 proyectos residenciales completados. Conocimiento local y estándares de calidad internacionales.",
   },
 ] as const;
 

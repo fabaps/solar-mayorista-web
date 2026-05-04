@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+
+import BrandsPanel from "./BrandsPanel.astro";
+---
+
+<div
+  class="flex flex-col gap-2 items-center justify-center w-full h-screen text-xl font-playfair"
+>
+  <h2 class="text-6xl">Marcas Destacadas</h2>
+  <p>Trabajamos con las mejores marcas del sector solar</p>
+  <BrandsPanel />
+  <p>¿No encuentras la marca que buscas?</p>
+  <a
+    href="/productos-solares"
+    class="group flex items-center justify-center gap-2 hover:underline"
+  >
+    <span>Ver productos solares</span>
+    <Icon
+      name="lucide:arrow-right"
+      class="group-hover:translate-x-2 transition-all duration-500"
+    />
+  </a>
+</div>

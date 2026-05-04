@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+import { NAVBAR_ITEMS } from "@data/navbar";
+---
+
+<div
+  id="navbar"
+  class="text-white fixed top-0 left-0 w-full flex flex-row items-center justify-between gap-2 px-[10%] py-2 z-999 transition-all duration-500"
+>
+  <div class="flex flex-row gap-2 items-center justify-center">
+    <Icon name="lucide:sun" class="text-xl text-white" />
+    Mayorista Solar
+  </div>
+
+  <div class="flex flex-row gap-2 items-center justify-center">
+    {
+      NAVBAR_ITEMS.map((navbarItem) => (
+        <button
+          type="button"
+          class="transition-all duration-500 ease-out hover:bg-white/15 rounded-sm px-2 py-1"
+        >
+          - {navbarItem.name} -
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<script is:inline>
+  const navbar = document.getElementById("navbar");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 200 && currentScroll > lastScroll) {
+      navbar.style.transform = "translateY(-100%)";
+    } else {
+      navbar.style.transform = "translateY(0)";
+    }
+
+    if (currentScroll !== 0) {
+      navbar.classList.add("backdrop-blur-sm", "bg-black/25");
+    } else {
+      navbar.classList.remove("backdrop-blur-sm", "bg-black/25");
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
