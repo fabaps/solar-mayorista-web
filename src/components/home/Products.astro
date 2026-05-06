@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
+import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
+import XenatecEnergyLogo from "@imgs/logos/xenatec-energy.png";
+---
+
+<section
+  class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full h-screen min-h-screen px-[10%] py-[5%]"
+>
+  <h1 class="flex flex-col gap-2 text-6xl font-black">
+    <span class="text-[#004ea9]">KITS DE</span>
+    <span>PRODUCTOS</span>
+  </h1>
+  <p class="w-3/4 text-xl">
+    EL EQUIPO QUE NECESITAS PARA TU PROYECTO DE ENERGIA SOLAR
+  </p>
+
+  <div class="flex flex-row gap-2 my-2" id="category-buttons">
+    {
+      SPECIALIZED_ENGINEERING.map((item, index) => (
+        <button
+          type="button"
+          data-index={index}
+          class="category-btn border border-[#004fa8] text-[#004fa8] rounded-md px-3 py-2 transition-colors hover:bg-[#2066b1] hover:text-white"
+        >
+          {item.title}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="grid grid-cols-3 items-center justify-center gap-2 w-full flex-1">
+    <div class="col-span-2 w-full h-full" id="products-grid">
+      {
+        SPECIALIZED_ENGINEERING.map((category, catIndex) => (
+          <div
+            class="product-category hidden grid grid-cols-3 gap-2 w-full h-full"
+            data-category-index={catIndex}
+          >
+            {category.products.map((item) => (
+              <div class="flex flex-col items-center justify-center gap-2">
+                <Image
+                  src={item.img}
+                  alt={item.description}
+                  class={
+                    "w-full h-auto object-cover transition-all duration-300 hover:scale-105"
+                  }
+                />
+                <span class="font-semibold">{item.title}</span>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex flex-col gap-2 w-full h-full">
+      <div class="border border-gray-400 px-3 py-2 rounded-md">
+        <span class="text-[#004fa8] font-bold">Distribuidores autorizados</span>
+        <p>
+          Aprovecha nuestra garantía y soporte técnico local, buenos precios y
+          calidad.
+        </p>
+
+        <div class="grid grid-cols-2 items-center justify-center gap-4 p-2">
+          <Image
+            src={CanadianSolarLogo}
+            alt={"Logo de canadian solar"}
+            class={"w-full h-auto object-cover"}
+          />
+          <Image
+            src={XenatecEnergyLogo}
+            alt={"Logo de xenatec energy solar"}
+            class={"w-full h-auto object-cover"}
+          />
+        </div>
+      </div>
+
+      <a
+        href="/"
+        class="group grid grid-cols-12 items-center justify-center gap-2 px-3 py-2"
+      >
+        <div class="col-span-10">
+          <span class="text-[#004fa8] font-bold">Cátalogo completo</span>
+          <p class="group-hover:underline">
+            Estructuras, cableados, todo el repertorio.
+          </p>
+        </div>
+
+        <Icon
+          name="lucide:arrow-right"
+          class="col-span-2 group-hover:translate-x-2 transition-all duration-500"
+        />
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", initProductTabs);
+  document.addEventListener("DOMContentLoaded", initProductTabs);
+
+  function initProductTabs() {
+    const buttons =
+      document.querySelectorAll<HTMLButtonElement>(".category-btn");
+    const categories =
+      document.querySelectorAll<HTMLDivElement>(".product-category");
+
+    if (!buttons.length || !categories.length) return;
+
+    categories[0].classList.remove("hidden");
+    categories[0].classList.add("grid");
+    buttons[0].setAttribute("aria-pressed", "true");
+    buttons[0].classList.add("bg-[#004fa8]", "text-white");
+    buttons[0].classList.remove("border-[#004fa8]", "text-[#004fa8]");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const index = Number(btn.dataset.index);
+
+        categories.forEach((cat, i) => {
+          cat.classList.toggle("hidden", i !== index);
+          cat.classList.toggle("grid", i === index);
+        });
+
+        buttons.forEach((b, i) => {
+          const isActive = i === index;
+          b.setAttribute("aria-pressed", String(isActive));
+          b.classList.toggle("bg-[#004fa8]", isActive);
+          b.classList.toggle("text-white", isActive);
+          b.classList.toggle("border-[#004fa8]", !isActive);
+          b.classList.toggle("text-[#004fa8]", !isActive);
+        });
+      });
+    });
+  }
+</script>

@@ -1,21 +1,38 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 
-import BrandsPanel from "./brands/BrandsPanel.astro";
+import { BRANDS } from "@data/brands";
 ---
 
 <div
-  class="flex flex-col gap-2 items-center justify-center w-full h-screen text-xl font-playfair"
+  class="bg-gray-100 flex flex-col gap-2 items-center justify-center w-full h-auto text-xl py-12 text-black"
 >
-  <h2 class="text-6xl">Marcas Destacadas</h2>
+  <h2 class="text-6xl font-bold">Marcas Destacadas</h2>
   <p>Trabajamos con las mejores marcas del sector solar</p>
 
-  <BrandsPanel />
+  <div
+    class="relative grid grid-cols-5 gap-2 items-center justify-center w-full h-auto px-[10%]"
+  >
+    {
+      BRANDS.map((brand) => (
+        <div class="group bg-gray-100 flex items-center justify-center w-full h-auto rounded-lg border transition-all duration-300 hover:border-[#004ea9] hover:scale-105">
+          <Image
+            src={brand.img}
+            alt={brand.title}
+            class={
+              "w-32 h-32 object-contain transition-all duration-500 group-hover:scale-105"
+            }
+          />
+        </div>
+      ))
+    }
+  </div>
 
   <p>¿No encuentras la marca que buscas?</p>
   <a
     href="/productos-solares"
-    class="group flex items-center justify-center gap-2 hover:underline"
+    class="group flex items-center justify-center gap-2 hover:underline text-[#004cab]"
   >
     <span>Ver productos solares</span>
     <Icon

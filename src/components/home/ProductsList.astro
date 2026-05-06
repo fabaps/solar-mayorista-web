@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+import { PRODUCTS } from "@data/products";
+---
+
+<div
+  class="bg-gray-100 flex flex-col gap-2 items-center justify-center w-full h-auto text-xl px-[10%] py-12 text-black"
+>
+  <h2 class="text-3xl font-bold text-start w-full mb-4">Productos Solares</h2>
+
+  <div
+    class="relative grid grid-cols-6 gap-2 items-center justify-center w-full h-auto"
+  >
+    {
+      PRODUCTS.map((product) => (
+        <a
+          href={product.url}
+          class="group bg-gray-100 flex flex-col items-center justify-center w-full h-auto"
+        >
+          <div class="w-32 h-32 rounded-full border-3 border-[#004fa822] p-4">
+            <Image
+              src={product.img}
+              alt={product.title}
+              class={
+                "w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+              }
+            />
+          </div>
+
+          <span class="text-nowrap text-sm">{product.title}</span>
+        </a>
+      ))
+    }
+  </div>
+</div>

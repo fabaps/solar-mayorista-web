@@ -1,26 +1,31 @@
+import KevynGarciaProject from "@imgs/home/proyectos/kevyn-garcia.jpeg";
+import ErickVillatoroProject from "@imgs/home/proyectos/erick-villatoro.jpeg";
+import BodegaSatProject from "@imgs/home/proyectos/bodega-sat.jpeg";
+import AutoHotelProject from "@imgs/home/proyectos/autohotel.jpeg";
+
 export const PROJECTS = [
   {
-    img: "https://app.seeker.uy/UpLoad/Tenant_Resources/20043/Video/IMG_20200708_141328.jpg",
+    img: KevynGarciaProject,
     place: "Jutiapa",
-    title: "Sistema residencial",
+    title: "Proyecto Kevyn García - Sistema Atado a Red",
     description: "Ahorro anual Q10,000",
   },
   {
-    img: "https://app.seeker.uy/UpLoad/Tenant_Resources/20043/Video/IMG_20200708_141328.jpg",
+    img: ErickVillatoroProject,
     place: "Jutiapa",
-    title: "Sistema residencial",
+    title: "Proyecto Erick Villatoro - Sistema Atado a Red",
     description: "Ahorro anual Q10,000",
   },
   {
-    img: "https://app.seeker.uy/UpLoad/Tenant_Resources/20043/Video/IMG_20200708_141328.jpg",
+    img: BodegaSatProject,
     place: "Jutiapa",
-    title: "Sistema residencial",
+    title: "Proyecto Bodega SAT",
     description: "Ahorro anual Q10,000",
   },
   {
-    img: "https://app.seeker.uy/UpLoad/Tenant_Resources/20043/Video/IMG_20200708_141328.jpg",
+    img: AutoHotelProject,
     place: "Jutiapa",
-    title: "Sistema residencial",
+    title: "Proyecto AutoHotel",
     description: "Ahorro anual Q10,000",
   },
 ] as const;

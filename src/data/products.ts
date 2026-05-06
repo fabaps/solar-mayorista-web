@@ -1,31 +1,33 @@
+import SolarPanelImg from "@imgs/home/productos/panel-solar.png";
+
 export const PRODUCTS = [
   {
-    img: "https://cmsdata.solisinverters.com/uploads/image/5d414122d4914.png",
+    img: SolarPanelImg,
     title: "Paneles Solares",
     url: "/productos-solares?category=paneles",
   },
   {
-    img: "https://cmsdata.solisinverters.com/uploads/image/5d414122d4914.png",
+    img: SolarPanelImg,
     title: "Inversores",
     url: "/productos-solares?category=inversores",
   },
   {
-    img: "https://cmsdata.solisinverters.com/uploads/image/5d414122d4914.png",
+    img: SolarPanelImg,
     title: "Baterías",
     url: "/productos-solares?category=baterias",
   },
   {
-    img: "https://cmsdata.solisinverters.com/uploads/image/5d414122d4914.png",
+    img: SolarPanelImg,
     title: "Estructuras",
     url: "/productos-solares?category=estructuras",
   },
   {
-    img: "https://cmsdata.solisinverters.com/uploads/image/5d414122d4914.png",
+    img: SolarPanelImg,
     title: "Interruptores",
     url: "/productos-solares?category=interruptores",
   },
   {
-    img: "https://cmsdata.solisinverters.com/uploads/image/5d414122d4914.png",
+    img: SolarPanelImg,
     title: "Kits Solares",
     url: "/productos-solares?category=kits",
   },

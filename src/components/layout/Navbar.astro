@@ -5,7 +5,7 @@ import { NAVBAR_ITEMS } from "@data/navbar";
 
 <div
   id="navbar"
-  class="text-white fixed top-0 left-0 w-full flex flex-row items-center justify-between gap-2 px-[10%] py-2 z-999 transition-all duration-500"
+  class="text-white backdrop-blur-xl fixed top-0 left-0 w-full flex flex-row items-center justify-between gap-2 px-[10%] py-2 transition-all duration-500 z-99"
 >
   <div class="flex flex-row gap-2 items-center justify-center">
     <Icon name="lucide:sun" class="text-xl text-white" />
@@ -19,7 +19,7 @@ import { NAVBAR_ITEMS } from "@data/navbar";
           type="button"
           class="transition-all duration-500 ease-out hover:bg-white/15 rounded-sm px-2 py-1"
         >
-          - {navbarItem.name} -
+          {navbarItem.name}
         </button>
       ))
     }

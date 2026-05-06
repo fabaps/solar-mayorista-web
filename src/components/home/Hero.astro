@@ -3,33 +3,50 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import Banner from "@imgs/hero/banner.jpg";
+import CarouselImg1 from "@imgs/hero/carousel/img-1.jpg";
+import CarouselImg2 from "@imgs/hero/carousel/img-2.jpg";
+import CarouselImg3 from "@imgs/hero/carousel/img-3.jpg";
+import CarouselImg4 from "@imgs/hero/carousel/img-4.jpeg";
 
 import BottomCards from "./BottomCards.astro";
+
+const GRID_IMAGES = [
+  { img: CarouselImg1 },
+  { img: CarouselImg2 },
+  { img: CarouselImg3 },
+  { img: CarouselImg4 },
+];
 ---
 
 <div
-  class="relative flex flex-col items-center justify-center gap-2 w-full h-screen px-[5%]"
+  class="relative flex flex-col items-start justify-center gap-2 w-full h-screen px-[5%]"
 >
-  <div class="fixed top-0 left-0 w-screen h-screen -z-1">
-    <Image
-      src={Banner}
-      alt="Imagen de fondo"
-      class="w-full h-full object-cover mask-b-from-20% mask-b-to-90%"
-    />
+  <div
+    class="absolute top-0 left-0 gap-[1px] w-full h-screen min-h-screen -z-1"
+  >
+    {
+      GRID_IMAGES.map((image, index) => (
+        <Image
+          src={image.img}
+          alt="Imagen de fondo"
+          class="slide w-full min-w-full h-full min-h-full max-h-full object-cover grayscale-25"
+        />
+      ))
+    }
   </div>
 
+  <div class="absolute top-0 left-0 w-full h-full bg-black/15"></div>
+
   <div class="flex flex-col gap-2 -translate-y-1/4">
-    <div class="group w-full">
-      <h1
-        class="font-playfair text-6xl text-center border-2 transition-all duration-1000 ease-out group-hover:rotate-x-360"
-      >
+    <div class="group w-[50%]">
+      <h1 class="text-6xl w-full py-2 text-start font-bold text-white">
         TODO LO QUE NECESITAS PARA DESARROLLAR TU PROYECTO DE ENERGÍA SOLAR
       </h1>
     </div>
 
     <a
       href="/"
-      class="group relative flex items-center justify-center gap-2 w-fit bg-black text-white px-3 py-1 text-xl"
+      class="group relative flex items-center justify-center gap-2 w-fit bg-[#004bac] text-white px-3 py-1 text-xl"
     >
       <Icon name="mdi:whatsapp" class="text-xl text-white" />
       <span class="relative"> Contactar </span>
@@ -42,3 +59,41 @@ import BottomCards from "./BottomCards.astro";
 
   <BottomCards />
 </div>
+
+<style>
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: fadeCycle 40s;
+  }
+
+  .slide:nth-of-type(1) {
+    animation-delay: 0s;
+    opacity: 1;
+  }
+  .slide:nth-of-type(2) {
+    animation-delay: 10s;
+  }
+  .slide:nth-of-type(3) {
+    animation-delay: 20s;
+  }
+  .slide:nth-of-type(4) {
+    animation-delay: 30s;
+  }
+
+  @keyframes fadeCycle {
+    0% {
+      opacity: 0;
+    }
+    3% {
+      opacity: 1;
+    }
+    93% {
+      opacity: 1;
+    }
+  }
+</style>

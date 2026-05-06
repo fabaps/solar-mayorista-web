@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import AciBg from "@imgs/home/aci-metodologia/hazlo-aci-background.jpeg";
+---
+
+<section
+  class="relative bg-[#004ea9] text-white flex flex-col items-center justify-center gap-8 w-full h-screen min-h-screen px-[10%]"
+>
+  <Image
+    src={AciBg}
+    alt={"ACI fondo"}
+    class={"absolute top-0 left-0 w-full h-full object-cover z-1"}
+  />
+  <div class="absolute top-0 left-0 w-full h-full bg-[#004fa8EE] z-1"></div>
+
+  <div class="flex flex-col items-start justify-start gap-4 z-2">
+    <h1 class="flex flex-col gap-2 font-black text-6xl">
+      HAZLO TU, HAZLO
+      <span class="text-[#ffd600]">ACI</span>
+    </h1>
+    <p class="text-xl">
+      Nuestro programa "Adquiere, Capacítate, Instala" (ACI) te brinda las
+      herramientas y el conocimiento para desarrollar tus proyectos solares de
+      manera exitosa.
+    </p>
+
+    <div class="grid grid-cols-2 items-start justify-center gap-2 w-full my-4">
+      <div
+        class="group flex flex-col items-start justify-start bg-white/5 border border-white/15 px-6 py-4 w-full min-h-full"
+      >
+        <span class="font-bold"> FASE DE PRE-PROYECTO </span>
+        <hr class="w-full bg-white my-2" />
+        <span> Te apoyamos a abrir el negocio sin ningún costo. </span>
+
+        <div
+          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
+        >
+          <Icon name="bi:1-circle-fill" class="text-2xl" />
+          <span>Identifica tu proyecto</span>
+        </div>
+        <div
+          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
+        >
+          <Icon name="bi:2-circle-fill" class="text-2xl" />
+          <span>Te apoyamos en diseño y planificación</span>
+        </div>
+      </div>
+
+      <div
+        class="group flex flex-col items-start justify-center bg-white/5 border border-white/15 px-6 py-4 w-full"
+      >
+        <span class="font-bold"> FASE EJECUCIÓN DE PROYECTO </span>
+        <hr class="w-full bg-white my-2" />
+        <span>Esta fase comienza una vez se confirme el proyecto.</span>
+
+        <div
+          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
+        >
+          <Icon name="bi:3-circle-fill" class="text-2xl" />
+          <span>Adquiere tus productos con nosotros.</span>
+        </div>
+        <div
+          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
+        >
+          <Icon name="bi:4-circle-fill" class="text-2xl" />
+          <span>Capacitamos a tu equipo técnico.</span>
+        </div>
+        <div
+          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
+        >
+          <Icon name="bi:5-circle-fill" class="text-2xl" />
+          <span>Instala tu proyecto.</span>
+        </div>
+        <div
+          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
+        >
+          <Icon name="bi:6-circle-fill" class="text-2xl" />
+          <span>
+            Te brindamos soporte técnico en la instalación y puesta en marcha.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
