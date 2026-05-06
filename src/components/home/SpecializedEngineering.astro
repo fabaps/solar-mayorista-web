@@ -20,8 +20,8 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
 
     <div class="flex flex-col items-center justify-center gap-2 w-full my-4">
       {
-        SPECIALIZED_ENGINEERING.map((specializedEngineering) => (
-          <div class="group flex items-center justify-between bg-white/5 border border-white/15 text-start w-full pl-4 pr-8 py-4 min-h-full">
+      SPECIALIZED_ENGINEERING.map((specializedEngineering, index) => (
+        <div class="group first:z-2 flex items-center justify-between bg-white/5 border border-white/15 hover:bg-white/25 text-start w-full pl-4 pr-8 py-4 min-h-full hover:z-3">
             {specializedEngineering.title}
             <Icon
               name="lucide:chevrons-right"
@@ -29,22 +29,25 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
             />
 
             <!-- Modal -->
-            <div class="group absolute top-0 left-0 w-full h-full invisible">
-              <div class="absolute flex flex-col items-center justify-center invisible group-hover:visible top-1/2 right-[10%] -translate-y-1/2 flex flex-col gap-4 p-2 w-1/3 h-4/5  text-4xl rounded-lg">
-                <div class="flex flex-row items-center justify-center w-full transition-all duration-400 -translate-x-[-100%] group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
+            <article class="absolute top-0 left-0 w-full h-full invisible">
+              <div
+                class="absolute flex flex-col items-center justify-center visible top-1/2 right-[10%] -translate-y-1/2 gap-2 p-2 w-1/3 h-4/6 max-h-4/6 text-4xl transition-all duration-1000 ease-out bg-[#0d57ad] border border-white/15 px-3 py-2 group-hover:rotate-y-360"
+              >
+                <div class="flex flex-row items-center justify-center w-full">
                   <Image
                     src={specializedEngineering.img}
                     alt={specializedEngineering.description}
                     width={200}
                     height={64}
-                    class={"w-auto h-64 object-cover"}
+                    class={"w-full h-64 object-cover rounded-md"}
                   />
                 </div>
-                <div class="flex w-full h-full items-center justify-center transition-all duration-500 -translate-x-[-100%] group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
-                  <p class="text-xl">{specializedEngineering.description}</p>
+                <div class="flex flex-col gap-2 w-full h-full items-center justify-start">
+                  <span class="text-xl font-bold">{specializedEngineering.title}</span>
+                  <p class="text-lg text-wrap truncate">{specializedEngineering.description}</p>
                 </div>
               </div>
-            </div>
+            </article>
           </div>
         ))
       }
@@ -52,9 +55,9 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
 
     <a
       href="/productos-solares"
-      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2"
+      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2 rounded-md"
     >
-      <Icon name="mdi:whatsapp" class="text-xl text-green-200" />
+      <Icon name="mdi:whatsapp" class="text-xl text-green-400" />
       <span>Consultar a equio técnico</span>
       <Icon
         name="lucide:arrow-right"
@@ -63,3 +66,23 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
     </a>
   </div>
 </section>
+
+<style>
+@keyframes rotate-card {
+  0% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(50%);
+  }
+}
+
+.animate-rotate-card {
+  animation: rotate-card 5s ease-out;
+}
+</style>
