@@ -11,10 +11,10 @@ import CarouselImg4 from "@imgs/hero/carousel/img-4.jpeg";
 import BottomCards from "./BottomCards.astro";
 
 const GRID_IMAGES = [
-  { img: CarouselImg1 },
   { img: CarouselImg2 },
   { img: CarouselImg3 },
   { img: CarouselImg4 },
+  { img: CarouselImg1 },
 ];
 ---
 
@@ -46,9 +46,9 @@ const GRID_IMAGES = [
 
     <a
       href="/"
-      class="group relative flex items-center justify-center gap-2 w-fit bg-[#004bac] text-white px-3 py-1 text-xl"
+      class="group relative flex items-center justify-center gap-2 w-fit bg-[#004bac] text-white px-3 py-1 text-xl rounded-md"
     >
-      <Icon name="mdi:whatsapp" class="text-xl text-white" />
+      <Icon name="mdi:whatsapp" class="text-xl text-green-400" />
       <span class="relative"> Contactar </span>
 
       <span

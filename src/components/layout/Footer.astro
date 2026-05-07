@@ -1,13 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import { FOOTER_SECTIONS, FOOTER_COPYRIGHT } from "@data/footer";
+
+import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
 ---
 
 <footer
   class="flex flex-col items-center justify-center gap-2 bg-[#004fa8] text-white px-[10%] py-4"
 >
   <div class="grid grid-cols-4 w-full">
-    <div></div>
+    <div class="flex flex-col gap-2 items-center w-fit">
+      <Image
+        src={MayoristaSolarLogo}
+        alt={"Mayorista solar logo"}
+        class={"w-18 h-18 object-contain bg-white rounded-full p-1"}
+      />
+      <span class="font-bold">Mayorista Solar</span>
+    </div>
     {
       FOOTER_SECTIONS.map((section) => (
         <ul>
@@ -34,4 +44,3 @@ import { FOOTER_SECTIONS, FOOTER_COPYRIGHT } from "@data/footer";
 
   <span class="text-gray-300 text-xs">{FOOTER_COPYRIGHT}</span>
 </footer>
-

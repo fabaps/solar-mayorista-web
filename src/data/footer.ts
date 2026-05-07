@@ -29,19 +29,19 @@ export const FOOTER_SECTIONS = [
     title: "Contacto",
     items: [
       {
-        label: "WhatsApp: +502 1234 5678",
-        href: "https://wa.me/50212345678",
-        icon: "mdi:whatsapp",
+        label: "Ruta 4 5-58, Guatemala",
+        href: "https://maps.app.goo.gl/AFCPKPf3eUZiXN766",
+        icon: "mdi:map-marker",
       },
       {
-        label: "info@mayoristasolar.com",
+        label: "+502 3091 6300",
+        href: "https://wa.me/50212345678",
+        icon: "mdi:phone",
+      },
+      {
+        label: "janice@adepenlinea.com",
         href: "mailto:info@mayoristasolar.com",
         icon: "mdi:email",
-      },
-      {
-        label: "Ciudad de Guatemala",
-        href: "#",
-        icon: "mdi:map-marker",
       },
     ],
   },
@@ -49,4 +49,3 @@ export const FOOTER_SECTIONS = [
 
 export const FOOTER_COPYRIGHT =
   "© 2026 Mayorista Solar. Todos los derechos reservados.";
-

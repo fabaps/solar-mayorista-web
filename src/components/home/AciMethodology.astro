@@ -1,6 +1,7 @@
 ---
 import { ACI_METHODOLOGY_ITEMS } from "@data/aciMethodology";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 ---
 
 <section
@@ -19,10 +20,10 @@ import { Image } from "astro:assets";
 
   <div class="grid grid-cols-2 items-start justify-center gap-2 w-full">
     <div
-      class="group flex flex-col items-start justify-center bg-white/5 border border-white/15 px-6 py-4 w-full"
+      class="group flex flex-col items-start justify-start bg-white/5 border border-white/15 px-6 py-4 w-full min-h-full"
     >
-      <span class="font-bold">
-        <span class="bg-white px-2 rounded-full text-[#0d58ac] mr-1">1</span>
+      <span class="font-bold flex items-center gap-2 mb-2">
+        <Icon name="bi:1-circle-fill" class="text-2xl" />
         Para instalar plantas solares a tus clientes potenciales
       </span>
       <span>Capacita a tu equipo técnico y ejecutua tus propios proyectos.</span
@@ -30,10 +31,10 @@ import { Image } from "astro:assets";
     </div>
 
     <div
-      class="group flex flex-col items-start justify-center bg-white/5 border border-white/15 px-6 py-4 w-full"
+      class="group flex flex-col items-start justify-start bg-white/5 border border-white/15 px-6 py-4 w-full"
     >
-      <span class="font-bold">
-        <span class="bg-white px-1.5 rounded-full text-[#0d58ac] mr-1">2</span>
+      <span class="font-bold flex items-center gap-2 mb-2">
+        <Icon name="bi:2-circle-fill" class="text-2xl" />
         Para instalar una planta solar en tu empresa
       </span>
       <span>
@@ -44,7 +45,7 @@ import { Image } from "astro:assets";
     </div>
   </div>
 
-  <div class="grid grid-cols-3 items-center justify-center gap-2 w-full h-auto">
+  <div class="grid grid-cols-3 gap-2 w-full h-auto">
     {
       ACI_METHODOLOGY_ITEMS.map((item) => (
         <div class="flex flex-col">

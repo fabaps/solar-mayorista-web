@@ -1,26 +1,36 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import { NAVBAR_ITEMS } from "@data/navbar";
+
+import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
 ---
 
 <div
   id="navbar"
   class="text-white backdrop-blur-xl fixed top-0 left-0 w-full flex flex-row items-center justify-between gap-2 px-[10%] py-2 transition-all duration-500 z-99"
 >
-  <div class="flex flex-row gap-2 items-center justify-center">
-    <Icon name="lucide:sun" class="text-xl text-white" />
-    Mayorista Solar
-  </div>
+  <a
+    href="/"
+    class="flex flex-row gap-2 items-center justify-center w-fit transition-all duration-500 ease-out hover:bg-white/15 px-3 py-1 rounded-md"
+  >
+    <Image
+      src={MayoristaSolarLogo}
+      alt={"Mayorista solar logo"}
+      class={"w-8 h-8 object-cover bg-white p-1 rounded-full"}
+    />
+    <span>Mayorista Solar</span>
+  </a>
 
   <div class="flex flex-row gap-2 items-center justify-center">
     {
       NAVBAR_ITEMS.map((navbarItem) => (
-        <button
-          type="button"
-          class="transition-all duration-500 ease-out hover:bg-white/15 rounded-sm px-2 py-1"
+        <a
+          href={navbarItem.url}
+          class="transition-all duration-500 ease-out hover:bg-white/15 rounded-md px-2 py-1"
         >
           {navbarItem.name}
-        </button>
+        </a>
       ))
     }
   </div>

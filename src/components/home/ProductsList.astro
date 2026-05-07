@@ -1,13 +1,27 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 import { PRODUCTS } from "@data/products";
 ---
 
 <div
-  class="bg-gray-100 flex flex-col gap-2 items-center justify-center w-full h-auto text-xl px-[10%] py-12 text-black"
+  class="bg-gray-100 flex flex-col gap-2 items-center justify-center w-full h-auto text-xl px-[10%] pt-12 pb-22 text-black"
 >
-  <h2 class="text-3xl font-bold text-start w-full mb-4">Productos Solares</h2>
+  <div class="flex flex-row items-end justify-between w-full mb-4">
+    <h2 class="text-3xl font-bold text-start w-full">Productos Solares</h2>
+
+    <a
+      href="/productos-solares"
+      class="group flex items-center justify-start gap-2 hover:underline w-fit px-5 py-2 text-[#004fa8] text-sm text-nowrap"
+    >
+      <span>Ver todos los productos</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
+  </div>
 
   <div
     class="relative grid grid-cols-6 gap-2 items-center justify-center w-full h-auto"
