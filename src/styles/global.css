@@ -28,3 +28,62 @@ html {
 button {
   cursor: pointer;
 }
+
+/* infinite carousel */
+
+.carousel-hero {
+  margin: 0 auto;
+  max-width: auto;
+  display: flex;
+  overflow: hidden;
+  height: 50%;
+  > * {
+    flex: 0 0 auto;
+  }
+}
+
+.group-carousel {
+  display: flex;
+  gap: 2px;
+  padding-right: 2px;
+  will-change: transform;
+}
+
+.group-carousel img {
+  width: auto;
+  height: 100%;
+  object-fit: cover();
+  flex: 0 0 auto;
+}
+
+.group-carousel img:hover {
+  scale: 0.993;
+}
+
+.group-carousel-top {
+  will-change: transform;
+  animation: carousel-scroll-left 75s linear infinite;
+}
+
+.group-carousel-bottom {
+  will-change: transform;
+  animation: carousel-scroll-right 75s linear infinite;
+}
+
+@keyframes carousel-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes carousel-scroll-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

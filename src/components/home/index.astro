@@ -1,23 +1,84 @@
 ---
+import { Image } from "astro:assets";
+
 import Hero from "./Hero.astro";
+import Carousel from "./Carousel.astro";
 import SpecializedEngineering from "./SpecializedEngineering.astro";
 import Brands from "@components/home/Brands.astro";
 import TechnicalSupport from "@components/home/TechnicalSupport.astro";
 import AciMethodology from "@components/home/AciMethodology.astro";
 import AciSteps from "@components/home/AciSteps.astro";
 import Products from "@components/home/Products.astro";
-import ProductsList from "@components/home/ProductsList.astro";
 import Projects from "@components/home/Projects.astro";
+
+import CarouselImg from "@imgs/hero/carousel/img-5.jpg";
+
+import BottomCards from "./BottomCards.astro";
 ---
 
 <section class="relative w-full overflow-hidden">
-  <Hero />
+  <section class="relative grid grid-cols-12 w-full h-full bg-black">
+    <BottomCards />
+    <div class="absolute top-0 left-0 w-full h-full bg-[#004ea922] z-3"></div>
+    <div class="absolute top-0 left-0 w-[45%] h-screen min-h-screen -z-1 z-5">
+      <Image
+        src={CarouselImg}
+        alt="Imagen de fondo"
+        class="w-full min-w-full h-full min-h-full max-h-full object-cover grayscale-25 mask-r-from-10% mask-r-to-100%"
+      />
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-linear-to-r from-[#004ea9] to-inherit"
+      >
+      </div>
+    </div>
+
+    <Hero />
+    <Carousel />
+  </section>
+
   <Brands />
   <SpecializedEngineering />
   <TechnicalSupport />
   <AciMethodology />
   <AciSteps />
   <Products />
-  <ProductsList />
   <Projects />
 </section>
+
+<!-- <style> -->
+<!--   .slide { -->
+<!--     position: absolute; -->
+<!--     top: 0; -->
+<!--     left: 0; -->
+<!--     width: 100%; -->
+<!--     height: 100%; -->
+<!--     opacity: 0; -->
+<!--     animation: fadeCycle 40s; -->
+<!--   } -->
+<!---->
+<!--   .slide:nth-of-type(1) { -->
+<!--     animation-delay: 0s; -->
+<!--     opacity: 1; -->
+<!--   } -->
+<!--   .slide:nth-of-type(2) { -->
+<!--     animation-delay: 10s; -->
+<!--   } -->
+<!--   .slide:nth-of-type(3) { -->
+<!--     animation-delay: 20s; -->
+<!--   } -->
+<!--   .slide:nth-of-type(4) { -->
+<!--     animation-delay: 30s; -->
+<!--   } -->
+<!---->
+<!--   @keyframes fadeCycle { -->
+<!--     0% { -->
+<!--       opacity: 0; -->
+<!--     } -->
+<!--     3% { -->
+<!--       opacity: 1; -->
+<!--     } -->
+<!--     93% { -->
+<!--       opacity: 1; -->
+<!--     } -->
+<!--   } -->
+<!-- </style> -->

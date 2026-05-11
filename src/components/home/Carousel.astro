@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import Img11 from "@imgs/hero/carousel/img-1.jpg";
+import Img12 from "@imgs/hero/carousel/img-2.jpg";
+import Img13 from "@imgs/hero/carousel/img-3.jpg";
+import Img14 from "@imgs/hero/carousel/img-4.jpeg";
+import Img15 from "@imgs/hero/carousel/img-5.jpeg";
+import Img21 from "@imgs/hero/carousel/img-6.png";
+import Img22 from "@imgs/hero/carousel/img-7.png";
+import Img23 from "@imgs/hero/carousel/img-8.png";
+import Img24 from "@imgs/hero/carousel/img-1.jpg";
+import Img25 from "@imgs/hero/carousel/img-1.jpg";
+
+const { hidden = "" } = Astro.props as props;
+---
+
+<section
+  class={`${hidden} relative col-span-8 row-span-5 lg:row-span-0 bg-[#06183D] flex flex-col gap-0.5 overflow-hidden w-full lg:min-h-screen lg:max-h-screen z-1`}
+>
+  <div
+    class="absolute top-0 left-0 w-full h-full bg-linear-to-r from-black via-black/5 to-inherit z-9"
+  >
+  </div>
+  <!-- TOP CAROUSEL -->
+  <div class="carousel-hero">
+    <div class="group-carousel group-carousel-top">
+      <Image src={Img11} alt="Imagen 1 del carrusel superior" />
+      <Image src={Img12} alt="Imagen 2 del carrusel superior" />
+      <Image src={Img13} alt="Imagen 3 del carrusel superior" />
+      <Image src={Img14} alt="Imagen 4 del carrusel superior" />
+      <Image src={Img15} alt="Imagen 5 del carrusel superior" />
+    </div>
+
+    <div class="group-carousel group-carousel-top" aria-hidden>
+      <Image src={Img11} alt="Imagen 1 del carrusel superior" />
+      <Image src={Img12} alt="Imagen 2 del carrusel superior" />
+      <Image src={Img13} alt="Imagen 3 del carrusel superior" />
+      <Image src={Img14} alt="Imagen 4 del carrusel superior" />
+      <Image src={Img15} alt="Imagen 5 del carrusel superior" />
+    </div>
+  </div>
+
+  <!-- BOTTOM CAROUSEL -->
+  <div class="carousel-hero">
+    <div class="group-carousel group-carousel-bottom">
+      <Image src={Img21} alt="Imagen 1 del carrusel inferior" />
+      <Image src={Img22} alt="Imagen 2 del carrusel inferior" />
+      <Image src={Img23} alt="Imagen 3 del carrusel inferior" />
+      <Image src={Img24} alt="Imagen 4 del carrusel inferior" />
+      <Image src={Img25} alt="Imagen 5 del carrusel inferior" />
+    </div>
+
+    <div class="group-carousel group-carousel-bottom" aria-hidden>
+      <Image src={Img21} alt="Imagen 1 del carrusel inferior" />
+      <Image src={Img22} alt="Imagen 2 del carrusel inferior" />
+      <Image src={Img23} alt="Imagen 3 del carrusel inferior" />
+      <Image src={Img24} alt="Imagen 4 del carrusel inferior" />
+      <Image src={Img25} alt="Imagen 5 del carrusel inferior" />
+    </div>
+  </div>
+</section>

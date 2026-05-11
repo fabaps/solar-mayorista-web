@@ -5,51 +5,27 @@ import { PILLARS } from "@data/pillars";
 ---
 
 <div
-  id="bottom-cards"
-  class="absolute bottom-4 right-0 grid grid-rows-5 px-4 w-fit overflow-hidden gap-2 transition-all duration-500 ease-in-out cursor-pointer"
+  class="absolute bottom-4 right-0 grid grid-rows-5 px-4 w-fit overflow-hidden gap-2 transition-all duration-500 ease-in-out cursor-pointer z-99"
 >
   {
     PILLARS.map((pillar) => (
-      <div class="group relative text-center text-white bg-[#004cab] px-2 py-2 transition-all hover:bg-[#0d57ad] rounded-md">
+    <div class="group relative flex">
         <!-- Hover Button -->
-        <button type="button" class="text-nowrap truncate px-3">{pillar.titlePreview}</button>
+        <a href="#ingenieria" class="text-nowrap truncate text-center text-white bg-black/75 backdrop-blur-sm px-4 py-4 rounded-md group-hover:underline w-full">{pillar.titlePreview}</a>
 
         <!-- Modal -->
-        <div class="group fixed inset-0 top-12 w-full h-[calc(100%-48px)] invisible hover:visible">
-          <div class="absolute flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/15 invisible group-hover:visible top-1/2 left-4 -translate-y-1/2 flex flex-col gap-4 p-2 w-3/4 h-4/5 transition-all duration-500 -translate-x-[100%] group-hover:translate-x-0 text-black text-4xl rounded-lg z-999">
-            <div class="flex w-full h-auto items-center justify-center">
-              <span class="font-playfair">{pillar.titlePreview}</span>
-            </div>
-
-            <div class="grid grid-cols-2 w-full flex-1">
-              <div class="flex flex-row items-center justify-center w-full">
-                <Image
-                  src={pillar.img}
-                  alt={pillar.titlePreview}
-                  class={"w-auto h-64 object-cover"}
-                />
-              </div>
-              <div class="flex w-full h-full items-center justify-center">
-                <p class="text-xl text-black/50">{pillar.description}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- <div class="group fixed inset-0 top-12 w-full h-[calc(100%-48px)] invisible hover:visible"> -->
+        <!--   <div class="absolute flex items-center justify-center bg-black/75 backdrop-blur-sm border border-white/50 invisible group-hover:visible bottom-4 left-4 flex flex-col gap-4 p-2 w-3/4 h-1/3 transition-all duration-500 translate-y-[100%] group-hover:translate-y-0 text-white text-4xl rounded-lg z-999"> -->
+        <!--     <div class="flex w-full h-auto items-center justify-center"> -->
+        <!--       <span>{pillar.titlePreview}</span> -->
+        <!--     </div> -->
+        <!---->
+        <!--     <div class="flex w-full h-full items-center justify-center"> -->
+        <!--       <p class="text-xl">{pillar.description}</p> -->
+        <!--     </div> -->
+        <!--   </div> -->
+        <!-- </div> -->
       </div>
     ))
   }
 </div>
-
-<script is:inline>
-  const bottomCards = document.getElementById("bottom-cards");
-
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
-
-    if (currentScroll !== 0) {
-      bottomCards.style.opacity = "0";
-    } else {
-      bottomCards.style.opacity = "1";
-    }
-  });
-</script>

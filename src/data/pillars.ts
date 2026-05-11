@@ -6,18 +6,25 @@ import ProjectExperienceImg from "@imgs/hero/project-experience.png";
 
 export const PILLARS = [
   {
-    img: SolarPanelImg,
-    titlePreview: "Productos Solares",
-    title: "Equipos de última generación para tu hogar.",
+    img: AuthorizatedProviderImg,
+    titlePreview: "Ingeniería Especializada",
+    title: "Calidad certificada en cada producto.",
     description:
-      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
+      "Trabajamos solo con fabricantes verificados y certificados. Equipos originales con garantía oficial.",
   },
   {
     img: TechnicalSupportImg,
-    titlePreview: "Soporte Técnico",
+    titlePreview: "Soporte Pos-Venta",
     title: "Asesoría profesional en cada etapa.",
     description:
       "Ingenieros especializados te ayudan a diseñar la mejor solución para tu hogar, con seguimiento post-instalación.",
+  },
+  {
+    img: ProjectExperienceImg,
+    titlePreview: "Capacitación",
+    title: "Instalaciones probadas en todo el país.",
+    description:
+      "Más de 500 proyectos residenciales completados. Conocimiento local y estándares de calidad internacionales.",
   },
   {
     img: FinancingImg,
@@ -27,18 +34,11 @@ export const PILLARS = [
       "Planes de financiamiento competitivos sin historial crediticio complejo. Tu primera instalación solar accesible.",
   },
   {
-    img: AuthorizatedProviderImg,
-    titlePreview: "Proveedores Autorizados",
-    title: "Calidad certificada en cada producto.",
+    img: SolarPanelImg,
+    titlePreview: "Productos Solares",
+    title: "Equipos de última generación para tu hogar.",
     description:
-      "Trabajamos solo con fabricantes verificados y certificados. Equipos originales con garantía oficial.",
-  },
-  {
-    img: ProjectExperienceImg,
-    titlePreview: "Experiencia en Proyectos",
-    title: "Instalaciones probadas en todo el país.",
-    description:
-      "Más de 500 proyectos residenciales completados. Conocimiento local y estándares de calidad internacionales.",
+      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
   },
 ] as const;
 
