@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+
+const STATS = [
+  {
+    number: "500+",
+    label: "Proyectos Completados",
+    icon: "lucide:solar-panel",
+  },
+  { number: "15 MW", label: "Energía Instalada", icon: "lucide:zap" },
+  { number: "50+", label: "Técnicos Certificados", icon: "lucide:users" },
+  { number: "8", label: "Años de Experiencia", icon: "lucide:calendar" },
+];
+---
+
+<div
+  class="relative bg-white flex flex-col items-center justify-center w-full h-auto text-black py-12"
+>
+  <div class="absolute inset-0 opacity-10">
+    <div
+      class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 text-center mb-4">
+    <h2 class="text-4xl md:text-6xl font-black mb-4">
+      <span class="text-[#004ea9]">Nuestra</span>
+      <span>Trayectoria</span>
+    </h2>
+    <p class="text-xl max-w-2xl mx-auto">
+      Años de experiencia creando soluciones sostenibles de energía solar
+    </p>
+  </div>
+
+  <div
+    class="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-6xl px-8 cursor-default"
+  >
+    {
+      STATS.map((stat) => (
+        <div class="group flex flex-col items-center text-center p-4 rounded-2xl border border-black/25 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2">
+          <div class="mb-2 rounded-full">
+            <Icon name={stat.icon} class="w-8 h-8 text-[#004ea9]" />
+          </div>
+          <span class="text-3xl md:text-2xl font-bold mb-2 text-gray-800">
+            {stat.number}
+          </span>
+          <span class="text-sm md:text-base">{stat.label}</span>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="relative z-10 mt-4 flex flex-col items-center gap-4">
+    <a
+      href="/productos-solares"
+      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2 rounded-md"
+    >
+      <Icon name="mdi:whatsapp" class="text-2xl text-[#004fa8]" />
+      <span>Escríbenos</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
+  </div>
+</div>

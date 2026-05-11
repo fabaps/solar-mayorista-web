@@ -11,20 +11,23 @@ export const PILLARS = [
     title: "Calidad certificada en cada producto.",
     description:
       "Trabajamos solo con fabricantes verificados y certificados. Equipos originales con garantía oficial.",
+    url: "#ingenieria-especializada",
   },
   {
     img: TechnicalSupportImg,
-    titlePreview: "Soporte Pos-Venta",
+    titlePreview: "Capacitación",
     title: "Asesoría profesional en cada etapa.",
     description:
       "Ingenieros especializados te ayudan a diseñar la mejor solución para tu hogar, con seguimiento post-instalación.",
+    url: "#soporte-tecnico",
   },
   {
     img: ProjectExperienceImg,
-    titlePreview: "Capacitación",
+    titlePreview: "Productos Solares",
     title: "Instalaciones probadas en todo el país.",
     description:
       "Más de 500 proyectos residenciales completados. Conocimiento local y estándares de calidad internacionales.",
+    url: "#capacitacion",
   },
   {
     img: FinancingImg,
@@ -32,13 +35,15 @@ export const PILLARS = [
     title: "Facilidades de pago a tu medida.",
     description:
       "Planes de financiamiento competitivos sin historial crediticio complejo. Tu primera instalación solar accesible.",
+    url: "#financiamiento",
   },
   {
     img: SolarPanelImg,
-    titlePreview: "Productos Solares",
+    titlePreview: "Soporte Post Venta",
     title: "Equipos de última generación para tu hogar.",
     description:
       "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
+    url: "#productos-solares",
   },
 ] as const;
 

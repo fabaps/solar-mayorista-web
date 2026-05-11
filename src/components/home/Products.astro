@@ -8,15 +8,29 @@ import XenatecEnergyLogo from "@imgs/logos/xenatec-energy.png";
 ---
 
 <section
+  id="productos-solares"
   class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full h-screen min-h-screen px-[10%] py-[5%]"
 >
   <h1 class="flex flex-col gap-2 text-6xl font-black">
     <span class="text-[#004ea9]">KITS DE</span>
     <span>PRODUCTOS</span>
   </h1>
-  <p class="w-3/4 text-xl">
-    EL EQUIPO QUE NECESITAS PARA TU PROYECTO DE ENERGIA SOLAR
-  </p>
+
+  <div class="flex flex-row items-end justify-start gap-16 w-full">
+    <p class="text-xl">
+      EL EQUIPO QUE NECESITAS PARA TU PROYECTO DE ENERGIA SOLAR
+    </p>
+    <a
+      href="/productos-solares"
+      class="group flex items-center justify-start gap-2 hover:underline w-fit text-[#004fa8] rounded-md"
+    >
+      <span>Ver todos los productos</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
+  </div>
 
   <div class="flex flex-row gap-2 my-2" id="category-buttons">
     {

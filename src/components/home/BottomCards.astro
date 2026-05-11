@@ -11,7 +11,7 @@ import { PILLARS } from "@data/pillars";
     PILLARS.map((pillar) => (
     <div class="group relative flex">
         <!-- Hover Button -->
-        <a href="#ingenieria" class="text-nowrap truncate text-center text-white bg-black/75 backdrop-blur-sm px-4 py-4 rounded-md group-hover:underline w-full">{pillar.titlePreview}</a>
+        <a href={pillar.url} class="text-nowrap truncate text-center text-white bg-black/75 backdrop-blur-sm px-4 py-4 rounded-md group-hover:underline w-full">{pillar.titlePreview}</a>
 
         <!-- Modal -->
         <!-- <div class="group fixed inset-0 top-12 w-full h-[calc(100%-48px)] invisible hover:visible"> -->

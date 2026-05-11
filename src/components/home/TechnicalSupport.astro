@@ -4,6 +4,7 @@ import { TECHNICAL_SUPPORT_ITEMS } from "@data/technicalSupport";
 ---
 
 <section
+  id="soporte-tecnico"
   class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full h-screen min-h-screen px-[10%]"
 >
   <h1 class="flex flex-col gap-2 text-6xl font-black">
@@ -15,7 +16,7 @@ import { TECHNICAL_SUPPORT_ITEMS } from "@data/technicalSupport";
     y asegurar el éxito de tus proyectos solares.
   </p>
 
-  <div class="grid grid-cols-3 gap-8 text-xl mt-8">
+  <div class="grid grid-cols-3 gap-8 text-xl my-8">
     {
       TECHNICAL_SUPPORT_ITEMS.map((item) => (
         <div class="flex flex-col items-start justify-center gap-2 text-xl">
@@ -28,5 +29,19 @@ import { TECHNICAL_SUPPORT_ITEMS } from "@data/technicalSupport";
         </div>
       ))
     }
+  </div>
+
+  <div class="flex items-center justify-center w-full">
+    <a
+      href="/productos-solares"
+      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2 rounded-md"
+    >
+      <Icon name="mdi:whatsapp" class="text-2xl text-[#004fa8]" />
+      <span>Contáctanos</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
   </div>
 </section>
