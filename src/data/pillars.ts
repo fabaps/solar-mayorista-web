@@ -14,12 +14,20 @@ export const PILLARS = [
     url: "#ingenieria-especializada",
   },
   {
+    img: SolarPanelImg,
+    titlePreview: "Soporte Post Venta",
+    title: "Equipos de última generación para tu hogar.",
+    description:
+      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
+    url: "#soporte-tecnico",
+  },
+  {
     img: TechnicalSupportImg,
     titlePreview: "Capacitación",
     title: "Asesoría profesional en cada etapa.",
     description:
       "Ingenieros especializados te ayudan a diseñar la mejor solución para tu hogar, con seguimiento post-instalación.",
-    url: "#soporte-tecnico",
+    url: "#capacitacion",
   },
   {
     img: ProjectExperienceImg,
@@ -27,7 +35,7 @@ export const PILLARS = [
     title: "Instalaciones probadas en todo el país.",
     description:
       "Más de 500 proyectos residenciales completados. Conocimiento local y estándares de calidad internacionales.",
-    url: "#capacitacion",
+    url: "#productos-solares",
   },
   {
     img: FinancingImg,
@@ -36,14 +44,6 @@ export const PILLARS = [
     description:
       "Planes de financiamiento competitivos sin historial crediticio complejo. Tu primera instalación solar accesible.",
     url: "#financiamiento",
-  },
-  {
-    img: SolarPanelImg,
-    titlePreview: "Soporte Post Venta",
-    title: "Equipos de última generación para tu hogar.",
-    description:
-      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
-    url: "#productos-solares",
   },
 ] as const;
 
