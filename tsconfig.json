@@ -11,6 +11,7 @@
     "baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],
+			"@layouts/*": ["src/layouts/*"],
 			"@data/*": ["src/data/*"],
 			"@imgs/*": ["src/assets/imgs/*"],
 			"@videos/*": ["src/assets/videos/*"],
