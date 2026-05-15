@@ -5,10 +5,12 @@ import { PROJECTS } from "@data/projects";
 ---
 
 <section
-  class="bg-gray-200 flex flex-col items-start justify-center gap-2 w-full h-screen min-h-screen px-[10%] py-[5%]"
+  class="bg-gray-200 flex flex-col items-start justify-center gap-2 w-full h-auto lg:h-screen lg:min-h-screen px-[10%] py-12 lg:py-[5%]"
 >
-  <div class="flex flex-row items-end justify-between w-full mb-4">
-    <h1 class="flex flex-col gap-2 text-6xl font-black">
+  <div
+    class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-4 lg:gap-0 w-full mb-4"
+  >
+    <h1 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black">
       <span class="text-[#004ea9]">PROYECTOS</span>
       <span>DESTACADOS</span>
     </h1>
@@ -25,10 +27,12 @@ import { PROJECTS } from "@data/projects";
     </a>
   </div>
 
-  <ul class="grid grid-cols-4 gap-2">
+  <ul
+    class="flex flex-row max-w-full min-w-full overflow-x-auto lg:overflow-hidden lg:grid lg:grid-cols-4 gap-2"
+  >
     {
       PROJECTS.slice(0, 4).map((project) => (
-        <li class="relative transition-all duration-500 hover:scale-102">
+        <li class="relative transition-all duration-500 hover:scale-102 min-w-64">
           <Image
             src={project.img}
             alt={project.description}
