@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { PRODUCTS_ITEMS } from "@data/products-items";
 ---
@@ -14,7 +13,7 @@ import { PRODUCTS_ITEMS } from "@data/products-items";
         data-category={product.Categoria}
         data-brand={product.Marca ?? ""}
         data-search={product.Nombre.toLowerCase()}
-        class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+        class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-md"
       >
         <div class="flex h-56 items-center justify-center overflow-hidden bg-gray-50 p-4">
           <img
@@ -41,12 +40,19 @@ import { PRODUCTS_ITEMS } from "@data/products-items";
           </p>
 
           <div class="mt-auto flex items-center gap-3 pt-3">
+            <a
+              href={`/productos-solares/${product.id}`}
+              class="flex items-center gap-1 text-sm font-semibold bg-[#004ea9] text-white transition-colors hover:bg-[#004ed9] px-2 py-1 rounded-md"
+            >
+              <Icon name="lucide:info" />
+              Ver detalle
+            </a>
             {product.FichaTecnica ? (
               <a
                 href={product.FichaTecnica}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-1 text-sm font-semibold text-[#004fa8] transition-colors hover:text-blue-700"
+                class="flex items-center gap-1 text-sm font-semibold text-gray-500 transition-colors hover:text-[#004fa8]"
               >
                 <Icon name="lucide:file-text" />
                 Ficha Técnica
@@ -66,7 +72,7 @@ import { PRODUCTS_ITEMS } from "@data/products-items";
         data-category={product.Categoria}
         data-brand={product.Marca ?? ""}
         data-search={product.Nombre.toLowerCase()}
-        class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white hidden"
+        class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow hover:shadow-md hidden"
       >
         <div class="flex h-56 items-center justify-center overflow-hidden bg-gray-50 p-4">
           <img
@@ -93,12 +99,19 @@ import { PRODUCTS_ITEMS } from "@data/products-items";
           </p>
 
           <div class="mt-auto flex items-center gap-3 pt-3">
+            <a
+              href={`/productos-solares/${product.id}`}
+              class="flex items-center gap-1 text-sm font-semibold text-[#004fa8] transition-colors hover:text-blue-700"
+            >
+              <Icon name="lucide:info" />
+              Ver detalle
+            </a>
             {product.FichaTecnica ? (
               <a
                 href={product.FichaTecnica}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-1 text-sm font-semibold text-[#004fa8] transition-colors hover:text-blue-700"
+                class="flex items-center gap-1 text-sm font-semibold text-gray-500 transition-colors hover:text-[#004fa8]"
               >
                 <Icon name="lucide:file-text" />
                 Ficha Técnica
