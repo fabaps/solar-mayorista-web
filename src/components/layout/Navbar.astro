@@ -22,11 +22,11 @@ import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
 
     <div class="flex flex-col items-start justify-center">
       <span class="font-bold">Mayorista Solar</span>
-      <span class="text-sm">Red de Asesores Técnicos</span>
+      <span class="text-sm hidden sm:block">Red de Asesores Técnicos</span>
     </div>
   </a>
 
-  <div class="flex flex-row gap-2 items-center justify-center">
+  <div class="hidden lg:flex flex-row gap-2 items-center justify-center">
     {
       NAVBAR_ITEMS.map((navbarItem) => (
         <a
@@ -38,11 +38,67 @@ import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
       ))
     }
   </div>
+
+  <button
+    id="menu-toggle"
+    class="lg:hidden flex items-center justify-center p-2 rounded-md hover:bg-white/15 transition-all duration-300"
+    aria-label="Abrir menú"
+  >
+    <Icon name="lucide:menu" class="w-6 h-6" id="menu-icon" />
+  </button>
+</div>
+
+<div
+  id="mobile-menu"
+  class="fixed top-0 left-0 w-full h-full bg-black/60 backdrop-blur-xl z-100 flex flex-col items-center justify-center gap-6 transition-all duration-500 opacity-0 pointer-events-none"
+>
+  <button
+    id="menu-close"
+    class="absolute top-6 right-[10%] p-2 text-white rounded-md hover:bg-white/15 transition-all duration-300"
+    aria-label="Cerrar menú"
+  >
+    <Icon name="lucide:x" class="w-7 h-7" />
+  </button>
+
+  {
+    NAVBAR_ITEMS.map((navbarItem) => (
+      <a
+        href={navbarItem.url}
+        class="mobile-link text-2xl font-bold text-white transition-all duration-300 hover:text-gray-300"
+      >
+        {navbarItem.name}
+      </a>
+    ))
+  }
 </div>
 
 <script is:inline>
   const navbar = document.getElementById("navbar");
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
   let lastScroll = 0;
+
+  function openMenu() {
+    mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+    mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+    mobileMenu.classList.add("opacity-0", "pointer-events-none");
+    document.body.style.overflow = "";
+  }
+
+  menuToggle.addEventListener("click", openMenu);
+  menuClose.addEventListener("click", closeMenu);
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
 
   const updateNavbar = () => {
     const currentScroll = window.scrollY;
