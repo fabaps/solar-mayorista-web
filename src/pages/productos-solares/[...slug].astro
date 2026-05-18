@@ -70,14 +70,16 @@ const whatsappUrl = `https://api.whatsapp.com/send/?phone=50230916300&text=${enc
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-3">
+      <div
+        class="flex flex-wrap items-center gap-3 border border-black/25 p-4 rounded-md"
+      >
         {
           product.FichaTecnica && (
             <a
               href={product.FichaTecnica}
               target="_blank"
               rel="noopener noreferrer"
-              class="flex w-fit items-center gap-2 rounded-md bg-[#004fa8] px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+              class="flex w-full items-center gap-2 rounded-md border border-[#004fa8] text-[#004fa8] px-6 py-3 font-semibold transition-colors hover:bg-blue-700 hover:text-white"
             >
               <Icon name="lucide:file-text" />
               Descargar ficha técnica
@@ -88,9 +90,9 @@ const whatsappUrl = `https://api.whatsapp.com/send/?phone=50230916300&text=${enc
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex w-fit items-center gap-2 rounded-md bg-green-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-700"
+          class="flex w-full items-center gap-2 rounded-md border border-green-600 px-6 py-3 font-semibold text-green-600 hover:bg-green-600 hover:text-white"
         >
-          <Icon name="lucide:message-circle" />
+          <Icon name="mdi:whatsapp" />
           Consultar por WhatsApp
         </a>
       </div>
