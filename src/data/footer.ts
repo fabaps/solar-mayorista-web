@@ -5,6 +5,7 @@ export const FOOTER_SECTIONS = [
     title: "Enlaces Rápidos",
     items: [
       { label: "Inicio", href: "/" },
+      { label: "Contácto", href: "/contacto" },
       { label: "Productos Solares", href: "/productos-solares" },
       { label: "Proyectos Solares", href: "/proyectos" },
     ],

@@ -1,23 +1,23 @@
 export const NAVBAR_ITEMS = [
   {
     name: "Ingeniería",
-    url: "#ingenieria-especializada",
-  },
-  {
-    name: "Soporte",
-    url: "#soporte-tecnico",
+    url: "/#ingenieria-especializada",
   },
   {
     name: "Capacitación",
-    url: "#capacitacion",
+    url: "/#capacitacion",
   },
   {
     name: "Productos",
-    url: "#productos-solares",
+    url: "/#productos-solares",
   },
   {
     name: "Financiamiento",
-    url: "#financiamiento",
+    url: "/#financiamiento",
+  },
+  {
+    name: "Soporte",
+    url: "/#soporte-tecnico",
   },
 ] as const;
 

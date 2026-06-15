@@ -1,0 +1,108 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout>
+  <section
+    class="bg-gray-100 flex flex-col items-center justify-center w-full min-h-screen"
+  >
+    <div class="flex flex-col items-center w-full">
+      <div
+        class="bg-[#004ea9] text-white flex flex-col items-start justify-start gap-2 pt-28 pb-16 w-full px-[10%]"
+      >
+        <h1 class="text-4xl lg:text-7xl font-black uppercase">Contáctanos</h1>
+        <span class="text-gray-100 text-xl">
+          Cuéntanos qué necesitas para tu proyecto solar y nuestro equipo te
+          asesorará.
+        </span>
+      </div>
+
+      <form id="contact-form" class="flex flex-col gap-4 w-full px-[10%] py-12">
+        <div class="flex flex-col gap-1">
+          <label for="name" class="font-semibold text-sm">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Nombre"
+            class="bg-white border border-black/10 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#004ea9]"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="email" class="font-semibold text-sm"
+            >Correo electrónico</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="email@correo.com"
+            class="bg-white border border-black/10 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#004ea9]"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="phone" class="font-semibold text-sm">Teléfono</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="(+502) 1234 5678"
+            class="bg-white border border-black/10 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#004ea9]"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="message" class="font-semibold text-sm">Mensaje</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            placeholder="Cuéntanos sobre tu proyecto o consulta..."
+            class="bg-white border border-black/10 rounded-md px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-[#004ea9]"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="flex items-center justify-center gap-2 bg-[#004ea9] text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:bg-[#003d8a]"
+        >
+          <Icon name="mdi:whatsapp" class="text-xl" />
+          <span>Enviar por WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const PHONE = "50249475458";
+  const form = document.getElementById("contact-form");
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+    const name = data.get("name")?.toString().trim() || "";
+    const email = data.get("email")?.toString().trim() || "";
+    const phone = data.get("phone")?.toString().trim() || "";
+    const message = data.get("message")?.toString().trim() || "";
+
+    const whatsappMsg = [
+      `Nombre: ${name}`,
+      `Email: ${email}`,
+      `Teléfono: ${phone}`,
+      `Mensaje: ${message}`,
+    ].join("\n");
+
+    const url = `https://api.whatsapp.com/send/?phone=${PHONE}&text=${encodeURIComponent(whatsappMsg)}&type=phone_number&app_absent=0`;
+
+    window.open(url, "_blank");
+  });
+</script>

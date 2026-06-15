@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import { FINANCING_ITEMS } from "@data/financing";
+---
+
+<section
+  id="financiamiento"
+  class="bg-gray-200 flex flex-col items-start justify-center gap-2 w-full h-auto lg:h-screen lg:min-h-screen px-[10%] py-12 lg:py-[5%]"
+>
+  <h1 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
+    <span class="text-[#004ea9]">Financia tu proyecto</span>
+    <span>con BAC</span>
+  </h1>
+
+  <p class="w-full lg:w-3/4 text-sm lg:text-xl">
+    Accede a soluciones financieras diseñadas para impulsar el crecimiento de tu
+    negocio:
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full my-4">
+    {
+      FINANCING_ITEMS.map((item) => (
+        <div class="flex items-start gap-4 rounded-md py-5">
+          <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-[#004ea9] rounded-md">
+            <Icon name={item.icon} class="text-white text-2xl" />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg">{item.title}</span>
+            <span class="text-gray-600">{item.description}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="flex items-center justify-center w-full mt-2">
+    <a
+      href="/contacto"
+      class="group flex items-center justify-start gap-2 px-6 py-3 rounded-md hover:underline"
+    >
+      <Icon name="lucide:notepad-text" class="text-xl" />
+      <span>Contáctanos y recibe asesoría personalizada</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
+  </div>
+</section>

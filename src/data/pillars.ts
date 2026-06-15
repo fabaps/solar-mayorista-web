@@ -14,14 +14,6 @@ export const PILLARS = [
     url: "#ingenieria-especializada",
   },
   {
-    img: SolarPanelImg,
-    titlePreview: "Soporte Post Venta",
-    title: "Equipos de última generación para tu hogar.",
-    description:
-      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
-    url: "#soporte-tecnico",
-  },
-  {
     img: TechnicalSupportImg,
     titlePreview: "Capacitación",
     title: "Asesoría profesional en cada etapa.",
@@ -44,6 +36,14 @@ export const PILLARS = [
     description:
       "Planes de financiamiento competitivos sin historial crediticio complejo. Tu primera instalación solar accesible.",
     url: "#financiamiento",
+  },
+  {
+    img: SolarPanelImg,
+    titlePreview: "Soporte Post Venta",
+    title: "Equipos de última generación para tu hogar.",
+    description:
+      "Paneles, inversores y componentes de las mejores marcas internacionales, garantía directa y rendimiento probado.",
+    url: "#soporte-tecnico",
   },
 ] as const;
 
