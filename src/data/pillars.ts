@@ -23,11 +23,11 @@ export const PILLARS = [
   },
   {
     img: ProjectExperienceImg,
-    titlePreview: "Productos Solares",
+    titlePreview: "Soluciones Solares",
     title: "Instalaciones probadas en todo el país.",
     description:
       "Más de 500 proyectos residenciales completados. Conocimiento local y estándares de calidad internacionales.",
-    url: "#productos-solares",
+    url: "#soluciones-solares",
   },
   {
     img: FinancingImg,
