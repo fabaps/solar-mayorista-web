@@ -9,10 +9,10 @@ import SolarPanelImg from "@imgs/home/productos/panel-solar.png";
 import InversorImg from "@imgs/home/productos/inversor.png";
 import BoxImg from "@imgs/home/productos/caja-sobreponer.webp";
 
-export const SPECIALIZED_ENGINEERING = [
+export const SOLAR_SOLUTIONS = [
   {
     img: AcBombImg,
-    title: "Diseño y Cuantificación de Productos",
+    title: "Bombeo en AC",
     description:
       "Sistemas de bombeo solar con bombas centrífugas alimentadas por paneles AC. Ideal para irrigation y reservas de agua.",
     products: [
@@ -38,7 +38,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: AislateSystemImg,
-    title: "Análisis Técnico - Financiero ",
+    title: "Sistema aislado de la red",
     description:
       "Sistemas independientes para zonas sin red eléctrica. Incluyen baterías para almacenamiento nocturno.",
     products: [
@@ -64,7 +64,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: HibridSystemImg,
-    title: "Análisis Electrico",
+    title: "Sistema híbrido",
     description:
       "Combina energía solar, red eléctrica y baterías. Máxima eficiencia con respaldo continuo.",
     products: [
@@ -90,7 +90,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: BindSystemImg,
-    title: "Visita Técnica (Según proyecto)",
+    title: "Atado a red industrial o comercial",
     description:
       "Sistemas conectados a la red con net metering.Ideal para reducir costos eléctricos masivos.",
     products: [
@@ -116,7 +116,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: DcBombImg,
-    title: "Software Especializado",
+    title: "Bombeo en DC",
     description:
       "Sistemas de bombeo solar con bombas DC directas. Máximo rendimiento sin inversor.",
     products: [
@@ -141,4 +141,4 @@ export const SPECIALIZED_ENGINEERING = [
   },
 ] as const;
 
-export type SpecializedEngineering = (typeof SPECIALIZED_ENGINEERING)[number];
+export type SolarSolutions = (typeof SOLAR_SOLUTIONS)[number];

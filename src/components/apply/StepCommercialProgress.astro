@@ -1,0 +1,192 @@
+<div data-step="3" class="step-section hidden flex-col gap-4">
+  <div
+    class="bg-white rounded-xl shadow-sm border border-black/5 p-6 flex flex-col gap-5"
+  >
+    <div class="flex flex-col gap-1">
+      <label
+        for="commercial-status"
+        class="font-semibold text-sm text-gray-800"
+      >
+        ¿Cuál es el estado comercial de tu proyecto?
+      </label>
+      <select
+        id="commercial-status"
+        name="commercial-status"
+        class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+      >
+        <option value="" disabled selected>Selecciona el estado actual</option>
+        <option value="explorando">Explorando opciones</option>
+        <option value="esperando-cotizacion">Esperando cotización</option>
+        <option value="negociando">Negociando</option>
+        <option value="decision-final">Decisión final</option>
+        <option value="listo">Listo para ejecutar</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <span class="font-semibold text-sm text-gray-800">Avance comercial</span>
+
+      <div class="flex items-center gap-3 flex-wrap">
+        <label
+          class="flex items-center gap-2 cursor-pointer bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 hover:border-[#004ea9] transition-all duration-200 has-[:checked]:border-[#004ea9] has-[:checked]:bg-blue-50"
+        >
+          <input
+            type="radio"
+            name="worked-before"
+            value="si"
+            class="accent-[#004ea9]"
+          />
+          <span class="text-sm font-medium text-gray-800">Sí</span>
+        </label>
+        <label
+          class="flex items-center gap-2 cursor-pointer bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 hover:border-[#004ea9] transition-all duration-200 has-[:checked]:border-[#004ea9] has-[:checked]:bg-blue-50"
+        >
+          <input
+            type="radio"
+            name="worked-before"
+            value="no"
+            class="accent-[#004ea9]"
+          />
+          <span class="text-sm font-medium text-gray-800">No</span>
+        </label>
+        <span class="text-sm text-gray-500"
+          >— ¿Es un cliente con el que has trabajado antes?</span
+        >
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label for="who-contacted" class="font-semibold text-sm text-gray-800"
+          >¿Lo contactó el cliente o tú al cliente?</label
+        >
+        <select
+          id="who-contacted"
+          name="who-contacted"
+          class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+        >
+          <option value="" disabled selected>Selecciona</option>
+          <option value="cliente-contacto">El cliente me contactó</option>
+          <option value="yo-contacte">Yo contacté al cliente</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label for="has-quotes" class="font-semibold text-sm text-gray-800"
+          >¿Tu cliente ya tiene cotizaciones o es la primera?</label
+        >
+        <select
+          id="has-quotes"
+          name="has-quotes"
+          class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+        >
+          <option value="" disabled selected>Selecciona</option>
+          <option value="primera">Es la primera vez</option>
+          <option value="tiene-cotizaciones"
+            >Ya tiene cotizaciones de otros</option
+          >
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label
+          for="knows-investment"
+          class="font-semibold text-sm text-gray-800"
+          >¿Tu cliente tiene idea de cuánto tiene que invertir?</label
+        >
+        <select
+          id="knows-investment"
+          name="knows-investment"
+          class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+        >
+          <option value="" disabled selected>Selecciona</option>
+          <option value="no-idea">No tiene idea</option>
+          <option value="mas-menos">Más o menos</option>
+          <option value="sabe">Sí, sabe exactamente</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label for="payment-method" class="font-semibold text-sm text-gray-800"
+          >¿Busca financiamiento al contado, por visa cuotas u otro?</label
+        >
+        <select
+          id="payment-method"
+          name="payment-method"
+          class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+        >
+          <option value="" disabled selected>Selecciona</option>
+          <option value="contado">Al contado</option>
+          <option value="visa-cuotas">Visa cuotas</option>
+          <option value="financiamiento">Financiamiento</option>
+          <option value="sin-definir">Aún no lo sabe</option>
+        </select>
+      </div>
+
+      <div class="flex items-center gap-3 flex-wrap">
+        <label
+          class="flex items-center gap-2 cursor-pointer bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 hover:border-[#004ea9] transition-all duration-200 has-[:checked]:border-[#004ea9] has-[:checked]:bg-blue-50"
+        >
+          <input
+            type="radio"
+            name="done-solar-project"
+            value="si"
+            class="accent-[#004ea9]"
+          />
+          <span class="text-sm font-medium text-gray-800">Sí</span>
+        </label>
+        <label
+          class="flex items-center gap-2 cursor-pointer bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 hover:border-[#004ea9] transition-all duration-200 has-[:checked]:border-[#004ea9] has-[:checked]:bg-blue-50"
+        >
+          <input
+            type="radio"
+            name="done-solar-project"
+            value="no"
+            class="accent-[#004ea9]"
+          />
+          <span class="text-sm font-medium text-gray-800">No</span>
+        </label>
+        <span class="text-sm text-gray-500"
+          >— ¿Ya has hecho algún proyecto solar?</span
+        >
+      </div>
+
+      <hr class="border-gray-200" />
+
+      <div class="flex flex-col gap-1">
+        <label for="budget" class="font-semibold text-sm text-gray-800">
+          ¿Cuál es el rango de precio del proyecto?
+        </label>
+        <div class="flex flex-col gap-2 pt-1">
+          <input
+            type="range"
+            id="budget"
+            name="budget"
+            min="1000"
+            max="50000"
+            step="1000"
+            value="25000"
+            class="w-full accent-[#004ea9]"
+          />
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>Q1000</span>
+            <span>Q25,000</span>
+            <span>Q50,000</span>
+          </div>
+          <output
+            for="budget"
+            id="budget-output"
+            class="text-center text-sm font-semibold text-[#004ea9]"
+            >Q25,000</output
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const budget = document.getElementById("budget");
+  const output = document.getElementById("budget-output");
+  budget?.addEventListener("input", () => {
+    output.textContent = `Q${Number(budget.value).toLocaleString()}`;
+  });
+</script>

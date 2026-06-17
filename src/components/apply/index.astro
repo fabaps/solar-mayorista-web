@@ -1,0 +1,283 @@
+---
+import { Icon } from "astro-icon/components";
+import StepPersonalData from "./StepPersonalData.astro";
+import StepPreQuote from "./StepPreQuote.astro";
+import StepCommercialProgress from "./StepCommercialProgress.astro";
+
+const STEPS = [
+  { number: 1, label: "Datos personales" },
+  { number: 2, label: "Pre cotiza" },
+  { number: 3, label: "Avance comercial" },
+];
+---
+
+<section class="bg-gray-100 flex flex-col w-full min-h-screen">
+  <div class="flex flex-col items-center w-full">
+    <div class="bg-[#004ea9] w-full px-[10%] pt-24 pb-10 mb-4">
+      <h1 class="text-4xl lg:text-6xl font-black text-center mb-2 text-white">
+        <span>Aplica</span>
+      </h1>
+      <p class="text-sm lg:text-xl text-center text-gray-100">
+        Si tu proyecto aplica serás contactado por nuestro departamento de
+        ingeniería
+      </p>
+    </div>
+
+    <!-- Step indicators -->
+    <div class="flex items-center justify-center gap-3 w-full mb-6 px-4">
+      {
+        STEPS.map((step, i) => (
+          <>
+            <div class="flex items-center gap-2">
+              <div
+                class="step-indicator flex items-center justify-center w-11 h-11 rounded-full text-base font-bold transition-all duration-300 bg-gray-300 text-gray-500"
+                data-step={step.number}
+              >
+                <span class="step-number">{step.number}</span>
+                <Icon name="lucide:check" class="step-check hidden text-xl" />
+              </div>
+              <span
+                class="step-label hidden sm:block text-sm font-medium transition-all duration-300 text-gray-400"
+                data-step={step.number}
+              >
+                {step.label}
+              </span>
+            </div>
+            {i < STEPS.length - 1 && (
+              <div
+                class="step-line flex-1 h-1 max-w-16 rounded transition-all duration-300 bg-gray-300"
+                data-step={step.number}
+              />
+            )}
+          </>
+        ))
+      }
+    </div>
+
+    <form
+      id="aplica-form"
+      class="flex flex-col gap-4 w-full px-[5%] lg:px-[10%]"
+    >
+      <StepPersonalData />
+      <StepPreQuote />
+      <StepCommercialProgress />
+
+      <!-- Navigation buttons -->
+      <div class="flex items-center justify-between gap-4 my-2">
+        <button
+          type="button"
+          id="prev-btn"
+          class="hidden flex items-center justify-center gap-2 border border-[#004ea9] text-[#004ea9] font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:bg-[#004ea9] hover:text-white"
+        >
+          <Icon name="lucide:arrow-left" class="text-lg" />
+          <span>Anterior</span>
+        </button>
+
+        <div class="flex-1"></div>
+
+        <button
+          type="button"
+          id="next-btn"
+          class="flex items-center justify-center gap-2 bg-[#004ea9] text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:bg-[#003d8a]"
+        >
+          <span>Siguiente</span>
+          <Icon name="lucide:arrow-right" class="text-lg" />
+        </button>
+
+        <button
+          type="submit"
+          id="submit-btn"
+          class="hidden flex items-center justify-center gap-2 bg-[#004ea9] text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:bg-[#003d8a]"
+        >
+          <span>Enviar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  const PHONE = "50212345678";
+  const form = document.getElementById("aplica-form");
+  const steps = document.querySelectorAll(".step-section");
+  const stepIndicators = document.querySelectorAll(".step-indicator");
+  const stepNumbers = document.querySelectorAll(".step-number");
+  const stepChecks = document.querySelectorAll(".step-check");
+  const stepLabels = document.querySelectorAll(".step-label");
+  const stepLines = document.querySelectorAll(".step-line");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const submitBtn = document.getElementById("submit-btn");
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  function updateStepUI() {
+    steps.forEach((el) => {
+      const step = Number(el.dataset.step);
+      if (step === currentStep) {
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+      }
+    });
+
+    stepIndicators.forEach((el) => {
+      const step = Number(el.dataset.step);
+      el.classList.remove(
+        "bg-[#004ea9]",
+        "text-white",
+        "bg-gray-300",
+        "text-gray-500",
+        "shadow-md",
+      );
+      if (step <= currentStep) {
+        el.classList.add("bg-[#004ea9]", "text-white", "shadow-md");
+      } else {
+        el.classList.add("bg-gray-300", "text-gray-500");
+      }
+    });
+
+    stepNumbers.forEach((el) => {
+      const step = Number(el.closest("[data-step]")?.dataset.step);
+      el.classList.toggle("hidden", step < currentStep);
+    });
+
+    stepChecks.forEach((el) => {
+      const step = Number(el.closest("[data-step]")?.dataset.step);
+      el.classList.toggle("hidden", step >= currentStep);
+    });
+
+    stepLabels.forEach((el) => {
+      const step = Number(el.dataset.step);
+      el.classList.remove("text-[#004ea9]", "text-gray-600", "text-gray-400");
+      if (step <= currentStep) {
+        el.classList.add("text-gray-600");
+      } else {
+        el.classList.add("text-gray-400");
+      }
+    });
+
+    stepLines.forEach((el) => {
+      const step = Number(el.dataset.step);
+      el.classList.remove("bg-[#004ea9]", "bg-gray-300");
+      if (step < currentStep) {
+        el.classList.add("bg-[#004ea9]");
+      } else {
+        el.classList.add("bg-gray-300");
+      }
+    });
+
+    prevBtn.classList.toggle("hidden", currentStep === 1);
+
+    if (currentStep === totalSteps) {
+      nextBtn.classList.add("hidden");
+      submitBtn.classList.remove("hidden");
+    } else {
+      nextBtn.classList.remove("hidden");
+      submitBtn.classList.add("hidden");
+    }
+  }
+
+  function validateStep(step) {
+    const stepEl = document.querySelector(`[data-step="${step}"]`);
+    const requiredFields = stepEl.querySelectorAll("[required]");
+    let valid = true;
+
+    requiredFields.forEach((field) => {
+      field.classList.remove("border-red-500");
+      if (!field.value || field.value === "") {
+        field.classList.add("border-red-500");
+        valid = false;
+      }
+      if (field.tagName === "SELECT" && field.value === "") {
+        field.classList.add("border-red-500");
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
+
+  nextBtn?.addEventListener("click", () => {
+    if (!validateStep(currentStep)) return;
+    if (currentStep < totalSteps) {
+      currentStep++;
+      updateStepUI();
+    }
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    if (currentStep > 1) {
+      currentStep--;
+      updateStepUI();
+    }
+  });
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!validateStep(currentStep)) return;
+
+    const fd = new FormData(form);
+    const name = fd.get("name")?.toString().trim() || "";
+    const email = fd.get("email")?.toString().trim() || "";
+    const phone = fd.get("phone")?.toString().trim() || "";
+    const projectType = fd.get("project-type")?.toString().trim() || "";
+    const location = fd.get("location")?.toString().trim() || "";
+    const solutionType = fd.get("solution-type")?.toString().trim() || "";
+    const clientWants = fd.get("client-wants")?.toString().trim() || "";
+    const commercialStatus =
+      fd.get("commercial-status")?.toString().trim() || "";
+    const budget = fd.get("budget")?.toString().trim() || "";
+    const workedBefore = fd.get("worked-before")?.toString().trim() || "";
+    const whoContacted = fd.get("who-contacted")?.toString().trim() || "";
+    const hasQuotes = fd.get("has-quotes")?.toString().trim() || "";
+    const knowsInvestment = fd.get("knows-investment")?.toString().trim() || "";
+    const paymentMethod = fd.get("payment-method")?.toString().trim() || "";
+    const doneSolarProject =
+      fd.get("done-solar-project")?.toString().trim() || "";
+
+    const solutionLabels = {
+      "bombeo-ac": "Bombeo en AC",
+      "bombeo-dc": "Bombeo en DC",
+      "solar-hibrido": "Solar Híbrido",
+      aislado: "Sistema Aislado",
+      "atado-red": "Sistema Atado a Red",
+    };
+    const clientWantsLabels = {
+      ahorro: "Ahorro",
+      energia: "Energía",
+      "bombear-agua": "Bombear agua",
+    };
+
+    const whatsappMsg = [
+      `*Nueva solicitud - Aplica Solar Mayorista*`,
+      ``,
+      `*--- DATOS PERSONALES ---*`,
+      `*Nombre:* ${name}`,
+      `*Email:* ${email}`,
+      `*Teléfono:* ${phone}`,
+      ``,
+      `*--- PRE COTIZA ---*`,
+      `*Tipo de proyecto:* ${projectType}`,
+      `*Ubicación:* ${location}`,
+      `*Solución:* ${solutionLabels[solutionType] || solutionType}`,
+      `*Cliente quiere:* ${clientWantsLabels[clientWants] || clientWants}`,
+      ``,
+      `*--- AVANCE COMERCIAL ---*`,
+      `*Estado comercial:* ${commercialStatus}%`,
+      `*Rango de precio:* Q${Number(budget).toLocaleString()}`,
+      `*Cliente trabajado antes:* ${workedBefore}`,
+      `*Quién contactó:* ${whoContacted}`,
+      `*Cotizaciones:* ${hasQuotes}`,
+      `*Sabe inversión:* ${knowsInvestment}`,
+      `*Método de pago:* ${paymentMethod}`,
+      `*Ha hecho proyecto solar:* ${doneSolarProject}`,
+    ].join("\n");
+
+    const url = `https://api.whatsapp.com/send/?phone=${PHONE}&text=${encodeURIComponent(whatsappMsg)}&type=phone_number&app_absent=0`;
+    window.open(url, "_blank");
+  });
+
+  updateStepUI();
+</script>

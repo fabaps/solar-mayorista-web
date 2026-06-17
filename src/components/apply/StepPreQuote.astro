@@ -1,0 +1,63 @@
+<div data-step="2" class="step-section hidden flex-col gap-4">
+  <div class="bg-white rounded-xl shadow-sm border border-black/5 p-6 flex flex-col gap-5">
+    <div class="flex flex-col gap-1">
+      <label for="project-type" class="font-semibold text-sm text-gray-800">¿Qué tipo de proyecto es?</label>
+      <select
+        id="project-type"
+        name="project-type"
+        required
+        class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+      >
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="residencial">Residencial</option>
+        <option value="comercial">Comercial</option>
+        <option value="industrial">Industrial</option>
+        <option value="agricola">Agrícola</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label for="location" class="font-semibold text-sm text-gray-800">¿Dónde es tu proyecto?</label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        required
+        placeholder="Ej: Ciudad de Guatemala, Antigua, etc."
+        class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+      />
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label for="solution-type" class="font-semibold text-sm text-gray-800">¿Qué tipo de solución es?</label>
+      <select
+        id="solution-type"
+        name="solution-type"
+        required
+        class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+      >
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="bombeo-ac">Bombeo en AC</option>
+        <option value="bombeo-dc">Bombeo en DC</option>
+        <option value="solar-hibrido">Solar Híbrido</option>
+        <option value="aislado">Sistema Aislado</option>
+        <option value="atado-red">Sistema Atado a Red</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label for="client-wants" class="font-semibold text-sm text-gray-800">¿Qué quiere tu cliente?</label>
+      <select
+        id="client-wants"
+        name="client-wants"
+        required
+        class="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#004ea9] focus:border-transparent transition-all duration-200"
+      >
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="ahorro">Ahorro</option>
+        <option value="energia">Energía</option>
+        <option value="bombear-agua">Bombear agua</option>
+      </select>
+    </div>
+  </div>
+</div>

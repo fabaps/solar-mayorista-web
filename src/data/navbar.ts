@@ -4,8 +4,8 @@ export const NAVBAR_ITEMS = [
     url: "/#ingenieria-especializada",
   },
   {
-    name: "Capacitación",
-    url: "/#capacitacion",
+    name: "Aplica",
+    url: "/aplica",
   },
   {
     name: "Productos",
