@@ -1,47 +1,58 @@
 ---
 import { Icon } from "astro-icon/components";
-import { TECHNICAL_SUPPORT_ITEMS } from "@data/technicalSupport";
+import { SUPPORT_PLANS } from "@data/technicalSupport";
 ---
 
 <section
   id="soporte-tecnico"
-  class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full h-screen min-h-screen px-[10%]"
+  class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full min-h-screen px-[10%] py-12 lg:py-[5%]"
 >
   <h1 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
     <span class="text-[#004ea9]">Soporte Técnico</span>
     <span class="text-gray-900">Post Venta</span>
   </h1>
-  <p class="w-full lg:w-3/4 text-sm lg:text-xl">
+  <p class="w-full lg:w-3/4 text-sm lg:text-xl mb-4">
     Nuestro equipo de expertos está listo para brindarte el mejor acompañamiento
     y asegurar el éxito de tus proyectos solares.
   </p>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-xl my-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
     {
-      TECHNICAL_SUPPORT_ITEMS.map((item) => (
-        <div class="flex flex-col items-start justify-center gap-2 text-xl">
+      SUPPORT_PLANS.map((plan) => (
+        <div
+          class={`flex flex-col gap-2 rounded-xl p-6 border ${
+            plan.type === "premium"
+              ? "bg-[#004ea9] text-white border-[#004ea9]"
+              : "bg-white text-gray-900 border-black/10"
+          }`}
+        >
           <div class="flex items-center gap-2">
-            <Icon name={item.icon} class="text-[#004ea9] font-bold text-3xl" />
-            <span class="font-semibold">{item.title}</span>
+            <Icon
+              name={plan.type === "premium" ? "lucide:crown" : "lucide:shield"}
+              class={`text-3xl ${plan.type === "premium" ? "text-white" : "text-[#004ea9]"}`}
+            />
+            <span class="font-bold text-xl">{plan.title}</span>
           </div>
-
-          <span class="text-lg">{item.description}</span>
+          <p
+            class={`text-sm ${plan.type === "premium" ? "text-gray-100" : "text-gray-600"}`}
+          >
+            {plan.subtitle}
+          </p>
+          <ul class="flex flex-col gap-3 mt-2">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-2 text-sm">
+                <Icon
+                  name={
+                    plan.type === "premium" ? "lucide:circle" : "lucide:circle"
+                  }
+                  class={`mt-0.5 shrink-0 ${plan.type === "premium" ? "text-white" : "text-[#004ea9]"}`}
+                />
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))
     }
-  </div>
-
-  <div class="flex items-center justify-center w-full">
-    <a
-      href="/aplica"
-      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2 rounded-md"
-    >
-      <Icon name="lucide:notepad-text" class="text-2xl text-[#004fa8]" />
-      <span>Aplica ahora</span>
-      <Icon
-        name="lucide:arrow-right"
-        class="group-hover:translate-x-2 transition-all duration-500"
-      />
-    </a>
   </div>
 </section>

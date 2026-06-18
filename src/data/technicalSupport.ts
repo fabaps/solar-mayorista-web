@@ -1,24 +1,24 @@
-export const TECHNICAL_SUPPORT_ITEMS = [
+export const SUPPORT_PLANS = [
   {
-    icon: "lucide:circle-check",
-    title: "100% tickets resueltos",
-    description: "Solución garantizada para cada consulta.",
+    type: "premium",
+    title: "Soporte Premium",
+    subtitle:
+      "Aplica de forma automática al seguir nuestro proceso técnico integral de ingeniería y control de calidad",
+    features: [
+      "Garantía: Cobertura y gestión prioritaria ante fallas de fábrica de los componentes.",
+      "Apoyo Remoto para la Instalación: Asistencia técnica a distancia para asegurar la correcta interconexión del sistema.",
+      "Revisión Eléctrica Especializada: Diagnóstico y auditoría del sistema eléctrico en caso de fallas o caídas de rendimiento imprevistas desde oficinas ADEP.",
+      "Gestión del Medidor Bidireccional: Nos encargamos de apoyarte en el trámite y gestión administrativa ante la empresa eléctrica para el cambio de tu contador.",
+    ],
   },
   {
-    icon: "lucide:wrench",
-    title: "Acompañamiento continuo",
-    description: "Seguimiento post-venta para buen funcionamiento.",
+    type: "basic",
+    title: "Soporte Básico",
+    subtitle:
+      "Aplica cuando se realiza la compra individual de componentes o equipos",
+    features: [
+      "Garantía Estándar: Cobertura por desperfectos o fallas de fábrica dependiendo de la marca utilizada.",
+      "No incluye diagnóstico remoto ni asistencia en la instalación.",
+    ],
   },
-  {
-    icon: "lucide:zap",
-    title: "Resolución rápida",
-    description: "Eficiente solución a inconvenientes técnicos.",
-  },
-  {
-    icon: "lucide:handshake",
-    title: "Confianza y fidelización",
-    description: "Soporte constante que mejora la experiencia.",
-  },
-] as const;
-
-export type TechnicalSupportItem = (typeof TECHNICAL_SUPPORT_ITEMS)[number];
+];

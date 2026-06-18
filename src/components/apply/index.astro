@@ -72,6 +72,7 @@ const STEPS = [
 
     <form
       id="aplica-form"
+      novalidate
       class="flex flex-col gap-4 w-full px-[5%] lg:px-[10%]"
     >
       <StepPersonalData />
@@ -105,7 +106,8 @@ const STEPS = [
           id="submit-btn"
           class="hidden flex items-center justify-center gap-2 bg-[#004ea9] text-white font-semibold px-6 py-3 rounded-md transition-all duration-300 hover:bg-[#003d8a]"
         >
-          <span>Enviar</span>
+          <Icon name="lucide:mail" class="text-xl" />
+          <span>Enviar por correo</span>
         </button>
       </div>
     </form>
@@ -113,7 +115,7 @@ const STEPS = [
 </section>
 
 <script>
-  const PHONE = "50212345678";
+  const EMAIL = "cris.01000011@gmail.com";
   const form = document.getElementById("aplica-form");
   const steps = document.querySelectorAll(".step-section");
   const stepIndicators = document.querySelectorAll(".step-indicator");
@@ -265,33 +267,35 @@ const STEPS = [
       "bombear-agua": "Bombear agua",
     };
 
-    const whatsappMsg = [
-      `*Nueva solicitud - Aplica Solar Mayorista*`,
+    const subject = `Nueva solicitud - Aplica Solar Mayorista - ${name}`;
+
+    const body = [
+      `NUEVA SOLICITUD - APLICA SOLAR MAYORISTA`,
       ``,
-      `*--- DATOS PERSONALES ---*`,
-      `*Nombre:* ${name}`,
-      `*Email:* ${email}`,
-      `*Teléfono:* ${phone}`,
+      `--- DATOS PERSONALES ---`,
+      `Nombre: ${name}`,
+      `Email: ${email}`,
+      `Teléfono: ${phone}`,
       ``,
-      `*--- PRE COTIZA ---*`,
-      `*Tipo de proyecto:* ${projectType}`,
-      `*Ubicación:* ${location}`,
-      `*Solución:* ${solutionLabels[solutionType] || solutionType}`,
-      `*Cliente quiere:* ${clientWantsLabels[clientWants] || clientWants}`,
+      `--- PRE COTIZA ---`,
+      `Tipo de proyecto: ${projectType}`,
+      `Ubicación: ${location}`,
+      `Solución: ${solutionLabels[solutionType] || solutionType}`,
+      `Cliente quiere: ${clientWantsLabels[clientWants] || clientWants}`,
       ``,
-      `*--- AVANCE COMERCIAL ---*`,
-      `*Estado comercial:* ${commercialStatus}%`,
-      `*Rango de precio:* Q${Number(budget).toLocaleString()}`,
-      `*Cliente trabajado antes:* ${workedBefore}`,
-      `*Quién contactó:* ${whoContacted}`,
-      `*Cotizaciones:* ${hasQuotes}`,
-      `*Sabe inversión:* ${knowsInvestment}`,
-      `*Método de pago:* ${paymentMethod}`,
-      `*Ha hecho proyecto solar:* ${doneSolarProject}`,
+      `--- AVANCE COMERCIAL ---`,
+      `Estado comercial: ${commercialStatus}%`,
+      `Rango de precio: Q${Number(budget).toLocaleString()}`,
+      `Cliente trabajado antes: ${workedBefore}`,
+      `Quién contactó: ${whoContacted}`,
+      `Cotizaciones: ${hasQuotes}`,
+      `Sabe inversión: ${knowsInvestment}`,
+      `Método de pago: ${paymentMethod}`,
+      `Ha hecho proyecto solar: ${doneSolarProject}`,
     ].join("\n");
 
-    const url = `https://api.whatsapp.com/send/?phone=${PHONE}&text=${encodeURIComponent(whatsappMsg)}&type=phone_number&app_absent=0`;
-    window.open(url, "_blank");
+    const mailtoUrl = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
   });
 
   updateStepUI();

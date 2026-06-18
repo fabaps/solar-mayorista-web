@@ -1,45 +1,35 @@
 export const BAC_BENEFITS = [
   {
-    title: "Créditos sostenibles",
+    title: "Crédito sostenible",
     description: "Plazos adaptados a tu flujo de caja.",
     icon: "lucide:leaf",
   },
   {
-    title: "Leasing",
+    title: "Para proyectos comerciales e industriales",
     description: "Para equipos, maquinaria y tecnología.",
     icon: "lucide:building-2",
   },
   {
-    title: "Financiamiento flexible",
-    description: "Opciones según tus objetivos.",
-    icon: "lucide:percent",
-  },
-  {
-    title: "Respaldo BAC",
-    description: "Asesoría especializada durante todo el proceso.",
-    icon: "lucide:shield-check",
+    title: "Proveedores autorizados",
+    description: "Somos proveedores autorizados del BAC.",
+    icon: "lucide:badge-check",
   },
 ];
 
-export const COMPANY_BENEFITS = [
+export const PAYMENT_BENEFITS = [
   {
-    title: "Ingeniería especializada",
-    description: "Diseñamos la solución óptima para cada proyecto.",
-    icon: "lucide:microscope",
+    title: "Visacuotas",
+    description: "Facilidad de pago con tu tarjeta Visa.",
+    icon: "lucide:credit-card",
   },
   {
-    title: "Equipo de primera",
-    description: "Paneles, inversores y estructuras de alta calidad.",
-    icon: "lucide:solar-panel",
+    title: "Credomatic",
+    description: "Procesamos tus pagos de forma segura.",
+    icon: "lucide:shield",
   },
   {
-    title: "Soporte técnico",
-    description: "Acompañamiento durante instalación y puesta en marcha.",
-    icon: "lucide:headphones",
-  },
-  {
-    title: "Garantía y respaldo",
-    description: "Proveedores autorizados con cobertura regional.",
-    icon: "lucide:badge-check",
+    title: "Hasta 48 cuotas",
+    description: "Plazos cómodos que se ajustan a tu presupuesto.",
+    icon: "lucide:calendar-clock",
   },
 ];

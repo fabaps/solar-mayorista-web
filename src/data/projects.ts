@@ -28,27 +28,27 @@ export const PROJECTS: Project[] = [
     name: "Gary Cano",
     title: "Proyecto de Bombeo Solar",
     images: [
-      { src: EmersonImg1, alt: "Emerson proyecto imagen 1" },
-      { src: EmersonImg2, alt: "Emerson proyecto imagen 2" },
-      { src: EmersonImg3, alt: "Emerson proyecto imagen 3" },
-    ],
-  },
-  {
-    name: "Manuel Mendez",
-    title: "Proyecto Residencial Atado a Red",
-    images: [
       { src: GaryCanoImg1, alt: "Gary Cano proyecto imagen 1" },
       { src: GaryCanoImg2, alt: "Gary Cano proyecto imagen 2" },
       { src: GaryCanoImg3, alt: "Gary Cano proyecto imagen 3" },
     ],
   },
   {
-    name: "Emerson Rios",
-    title: "Proyecto Atado a Red",
+    name: "Manuel Mendez",
+    title: "Proyecto Residencial Atado a Red",
     images: [
       { src: ManuelMendezImg1, alt: "Manuel Méndez proyecto imagen 1" },
       { src: ManuelMendezImg2, alt: "Manuel Méndez proyecto imagen 2" },
       { src: ManuelMendezImg3, alt: "Manuel Méndez proyecto imagen 3" },
+    ],
+  },
+  {
+    name: "Emerson Rios",
+    title: "Proyecto Atado a Red",
+    images: [
+      { src: EmersonImg1, alt: "Emerson proyecto imagen 1" },
+      { src: EmersonImg2, alt: "Emerson proyecto imagen 2" },
+      { src: EmersonImg3, alt: "Emerson proyecto imagen 3" },
     ],
   },
 ];

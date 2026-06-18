@@ -31,7 +31,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
             <!-- Modal -->
             <article class="hidden lg:flex absolute top-0 left-0 w-full h-full invisible text-white">
               <div
-                class="absolute flex flex-col items-center justify-center p-4 visible top-1/2 right-[10%] -translate-y-1/2 gap-2 w-1/3 h-4/6 max-h-128 text-4xl transition-all duration-300 ease-out bg-[#0d57ad] border border-[#0d57ad11] group-hover:scale-105"
+                class="absolute flex flex-col items-center justify-center p-4 visible top-1/2 right-[10%] -translate-y-1/2 gap-2 w-1/3 h-4/6 h-156 text-4xl transition-all duration-300 ease-out bg-[#0d57ad] border border-[#0d57ad11] group-hover:scale-105"
               >
                 <div class="flex flex-row items-center justify-center w-full">
                   <Image
@@ -40,9 +40,21 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
                     class={"w-full h-64 object-cover"}
                   />
                 </div>
-                <div class="flex flex-col gap-2 w-full h-full items-center justify-start">
-                  <span class="text-xl font-bold text-white">{specializedEngineering.title}</span>
-                  <p class="text-sm text-wrap truncate text-gray-100">{specializedEngineering.description}</p>
+                <div class="flex flex-col gap-1 w-full h-full items-center justify-start">
+                  <span class="text-lg font-bold text-white">{specializedEngineering.title}</span>
+                  <div class="flex flex-col gap-2 text-sm text-gray-100 overflow-y-auto">
+                    {
+                      specializedEngineering.description.map((block) =>
+                        typeof block === "string" ? (
+                          <p>{block}</p>
+                        ) : (
+                          <ul class="list-disc list-inside">
+                            {block.map((item) => <li>{item}</li>)}
+                          </ul>
+                        )
+                      )
+                    }
+                  </div>
                 </div>
               </div>
             </article>
@@ -58,7 +70,19 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
               class="w-full h-48 object-cover rounded-md"
             />
             <span class="text-xl font-bold">{specializedEngineering.title}</span>
-            <p class="text-sm text-base text-pretty">{specializedEngineering.description}</p>
+            <div class="flex flex-col gap-2 text-sm text-pretty max-h-32 overflow-y-auto">
+              {
+                specializedEngineering.description.map((block) =>
+                  typeof block === "string" ? (
+                    <p>{block}</p>
+                  ) : (
+                    <ul class="list-disc list-inside">
+                      {block.map((item) => <li>{item}</li>)}
+                    </ul>
+                  )
+                )
+              }
+            </div>
           </div>
         </>
         ))
