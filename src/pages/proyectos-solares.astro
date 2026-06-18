@@ -7,7 +7,7 @@ import { PROJECTS } from "@data/projects";
 const projectsData = PROJECTS.map((p) => ({
   place: p.place,
   title: p.title,
-  img: p.img.src,
+  img: p.images[0].src.src,
 }));
 ---
 
@@ -34,8 +34,8 @@ const projectsData = PROJECTS.map((p) => ({
         PROJECTS.slice(0, 4).map((project) => (
           <li class="project-card group relative transition-all duration-500 hover:scale-102">
             <Image
-              src={project.img}
-              alt={project.description}
+              src={project.images[0].src}
+              alt={project.images[0].alt}
               class={"w-full h-64 object-cover rounded-lg"}
             />
 

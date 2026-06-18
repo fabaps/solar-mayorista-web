@@ -1,9 +1,3 @@
-import AcBombImg from "@imgs/home/ingenieria-especializada/bombeo-en-ac.webp";
-import AislateSystemImg from "@imgs/home/ingenieria-especializada/sistema-aislado-de-la-red.webp";
-import HibridSystemImg from "@imgs/home/ingenieria-especializada/sistema-hibrido-solar.jpg";
-import BindSystemImg from "@imgs/home/ingenieria-especializada/sistema-atado-a-red.webp";
-import DcBombImg from "@imgs/home/ingenieria-especializada/bombeo-en-dc.webp";
-
 // products
 import SolarPanelImg from "@imgs/home/productos/panel-solar.png";
 import InversorImg from "@imgs/home/productos/inversor.png";
@@ -11,7 +5,6 @@ import BoxImg from "@imgs/home/productos/caja-sobreponer.webp";
 
 export const SOLAR_SOLUTIONS = [
   {
-    img: AcBombImg,
     title: "Bombeo en AC",
     description:
       "Sistemas de bombeo solar con bombas centrífugas alimentadas por paneles AC. Ideal para irrigation y reservas de agua.",
@@ -37,7 +30,6 @@ export const SOLAR_SOLUTIONS = [
     ],
   },
   {
-    img: AislateSystemImg,
     title: "Sistema aislado de la red",
     description:
       "Sistemas independientes para zonas sin red eléctrica. Incluyen baterías para almacenamiento nocturno.",
@@ -63,7 +55,6 @@ export const SOLAR_SOLUTIONS = [
     ],
   },
   {
-    img: HibridSystemImg,
     title: "Sistema híbrido",
     description:
       "Combina energía solar, red eléctrica y baterías. Máxima eficiencia con respaldo continuo.",
@@ -89,7 +80,6 @@ export const SOLAR_SOLUTIONS = [
     ],
   },
   {
-    img: BindSystemImg,
     title: "Atado a red industrial o comercial",
     description:
       "Sistemas conectados a la red con net metering.Ideal para reducir costos eléctricos masivos.",
@@ -115,7 +105,6 @@ export const SOLAR_SOLUTIONS = [
     ],
   },
   {
-    img: DcBombImg,
     title: "Bombeo en DC",
     description:
       "Sistemas de bombeo solar con bombas DC directas. Máximo rendimiento sin inversor.",

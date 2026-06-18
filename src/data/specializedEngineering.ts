@@ -1,118 +1,40 @@
-import AcBombImg from "@imgs/home/ingenieria-especializada/bombeo-en-ac.webp";
-import AislateSystemImg from "@imgs/home/ingenieria-especializada/sistema-aislado-de-la-red.webp";
-import HibridSystemImg from "@imgs/home/ingenieria-especializada/sistema-hibrido-solar.jpg";
-import BindSystemImg from "@imgs/home/ingenieria-especializada/sistema-atado-a-red.webp";
-import DcBombImg from "@imgs/home/ingenieria-especializada/bombeo-en-dc.webp";
+import designAndQuantificationImg from "@imgs/home/ingenieria-especializada/diseño-y-cuantificacion-de-productos.webp";
+import technicalAnalysisImg from "@imgs/home/ingenieria-especializada/foto-de-factura.jpeg";
+import technicalVisitImg from "@imgs/home/ingenieria-especializada/visita-tecnica.jpg";
+import specializedSoftwareImg from "@imgs/home/ingenieria-especializada/software-especializado.png";
 
-// products
-import SolarPanelImg from "@imgs/home/productos/panel-solar.png";
-import InversorImg from "@imgs/home/productos/inversor.png";
-import BoxImg from "@imgs/home/productos/caja-sobreponer.webp";
+import solarPanelImg from "@imgs/home/productos/panel-solar.png";
+import inverterImg from "@imgs/home/productos/inversor.png";
+import junctionBoxImg from "@imgs/home/productos/caja-sobreponer.webp";
 
 export const SPECIALIZED_ENGINEERING = [
   {
-    img: AcBombImg,
+    img: designAndQuantificationImg,
+    alt: "Diseño y cuantificación de productos solares",
     title: "Diseño y Cuantificación de Productos",
     description:
       "Diseño y cuantificación de productos Ponemos a tu disposición nuestra herramienta de precotización; a partir de tus datos, nuestro equipo de ingeniería audita el diseño y selecciona los componentes óptimos para garantizar la máxima eficiencia en tu propuesta final.",
-    products: [
-      {
-        img: InversorImg,
-        title: "Inversor para Bomba",
-        description:
-          "Inversor especial para bombas solares AC, permite variar la velocidad según necesidad de caudal.",
-      },
-      {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel monocristalino de alta eficiencia para alimentar sistemas de bombeo.",
-      },
-      {
-        img: BoxImg,
-        title: "Caja de Conexión",
-        description:
-          "Caja de proteccion y conexion IP65 para instalacion exterior.",
-      },
-    ],
   },
   {
-    img: AislateSystemImg,
+    img: technicalAnalysisImg,
+    alt: "Análisis técnico de factura eléctrica",
     title: "Análisis Técnico",
     description:
-      "Sistemas independientes para zonas sin red eléctrica. Incluyen baterías para almacenamiento nocturno.",
-    products: [
-      {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel monocristalino de alta eficiencia para maxima generacion en espacios reducidos.",
-      },
-      {
-        img: InversorImg,
-        title: "Inversor Off-Grid",
-        description:
-          "Inversor-cargador hibrido con capacidad de gestion de bateria y generador auxiliar.",
-      },
-      {
-        img: BoxImg,
-        title: "Batería Lithium",
-        description:
-          "Bateria LiFePO4 de 48V, ciclo profundo, con BMS integrado.",
-      },
-    ],
+      "Te respaldamos en el análisis e interpretación de los historiales de consumo y facturas eléctricas de tus clientes, asegurando proyecciones de ahorro de alta precisión para tus propuestas.",
   },
   {
-    img: HibridSystemImg,
+    img: technicalVisitImg,
+    alt: "Visita técnica a proyecto solar",
     title: "Visita Técnica (aplican criterios de selección)",
     description:
-      "Combina energía solar, red eléctrica y baterías. Máxima eficiencia con respaldo continuo.",
-    products: [
-      {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel de alta potencia compatible con inversores híbridos.",
-      },
-      {
-        img: InversorImg,
-        title: "Inversor Híbrido",
-        description:
-          "Inversor bidireccional que gestiona solar, red y baterías automaticamente.",
-      },
-      {
-        img: BoxImg,
-        title: "Batería Lithium",
-        description:
-          "Bateria de alta capacidad con comunicación para gestion inteligente.",
-      },
-    ],
+      "Ponemos a tu disposición nuestro checklist digital de visita técnica para que realices el levantamiento en sitio con total autonomía y precisión técnica. Nuestro equipo de ingeniería te brindara acompañamiento presencial en las visitas clave. *Aplican criterios de selección",
   },
   {
-    img: BindSystemImg,
+    img: specializedSoftwareImg,
+    alt: "Software especializado para diseño solar",
     title: "Software Especializado",
     description:
-      "Sistemas conectados a la red con net metering.Ideal para reducir costos eléctricos masivos.",
-    products: [
-      {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel de grado comercial con 25 años de garantía de rendimiento.",
-      },
-      {
-        img: InversorImg,
-        title: "Inversor String",
-        description:
-          "Inversor central de string para grandes instalaciones comerciales.",
-      },
-      {
-        img: BoxImg,
-        title: "Medidor Bidireccional",
-        description:
-          "Medidor inteligente para net metering y monitoreo de energia.",
-      },
-    ],
+      "Ponemos a tu disposición herramientas especializadas para el diseño, simulación y análisis de sistemas fotovoltaicos, permitiéndote optimizar configuraciones, evaluar escenarios de generación y presentar propuestas técnicas respaldadas por información precisa y confiable.",
   },
 ] as const;
 
