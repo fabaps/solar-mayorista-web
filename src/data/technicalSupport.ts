@@ -7,7 +7,7 @@ export const SUPPORT_PLANS = [
     features: [
       "Garantía: Cobertura y gestión prioritaria ante fallas de fábrica de los componentes.",
       "Apoyo Remoto para la Instalación: Asistencia técnica a distancia para asegurar la correcta interconexión del sistema.",
-      "Revisión Eléctrica Especializada: Diagnóstico y auditoría del sistema eléctrico en caso de fallas o caídas de rendimiento imprevistas desde oficinas ADEP.",
+      "Revisión Eléctrica Especializada: Diagnóstico y auditoría del sistema eléctrico en caso de fallas o caídas de rendimiento imprevistos de manera remota.",
       "Gestión del Medidor Bidireccional: Nos encargamos de apoyarte en el trámite y gestión administrativa ante la empresa eléctrica para el cambio de tu contador.",
     ],
   },

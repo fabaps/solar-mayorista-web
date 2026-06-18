@@ -11,17 +11,17 @@ interface Project {
   images: ProjectImage[];
 }
 
-import EmersonImg1 from "@imgs/home/proyectos/emerson/img-1.jpg";
-import EmersonImg2 from "@imgs/home/proyectos/emerson/img-2.jpg";
-import EmersonImg3 from "@imgs/home/proyectos/emerson/img-3.jpg";
+import EmersonImg1 from "@imgs/home/proyectos/emerson/img-1.webp";
+import EmersonImg2 from "@imgs/home/proyectos/emerson/img-2.webp";
+import EmersonImg3 from "@imgs/home/proyectos/emerson/img-3.webp";
 
-import GaryCanoImg1 from "@imgs/home/proyectos/gary-cano/img-1.jpg";
-import GaryCanoImg2 from "@imgs/home/proyectos/gary-cano/img-2.jpg";
-import GaryCanoImg3 from "@imgs/home/proyectos/gary-cano/img-3.jpg";
+import GaryCanoImg1 from "@imgs/home/proyectos/gary-cano/img-1.webp";
+import GaryCanoImg2 from "@imgs/home/proyectos/gary-cano/img-2.webp";
+import GaryCanoImg3 from "@imgs/home/proyectos/gary-cano/img-3.webp";
 
-import ManuelMendezImg1 from "@imgs/home/proyectos/manuel-mendez/img-1.jpg";
-import ManuelMendezImg2 from "@imgs/home/proyectos/manuel-mendez/img-2.jpg";
-import ManuelMendezImg3 from "@imgs/home/proyectos/manuel-mendez/img-3.jpg";
+import ManuelMendezImg1 from "@imgs/home/proyectos/manuel-mendez/img-1.webp";
+import ManuelMendezImg2 from "@imgs/home/proyectos/manuel-mendez/img-2.webp";
+import ManuelMendezImg3 from "@imgs/home/proyectos/manuel-mendez/img-3.webp";
 
 export const PROJECTS: Project[] = [
   {

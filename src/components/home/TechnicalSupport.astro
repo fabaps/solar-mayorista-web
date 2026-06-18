@@ -47,7 +47,7 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
                   }
                   class={`mt-0.5 shrink-0 ${plan.type === "premium" ? "text-white" : "text-[#004ea9]"}`}
                 />
-                <span>{feature}</span>
+                <span>{feature.split(":").length > 1 ? <><strong>{feature.split(":")[0]}:</strong>{feature.slice(feature.indexOf(":") + 1)}</> : feature}</span>
               </li>
             ))}
           </ul>
