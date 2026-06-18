@@ -4,7 +4,6 @@ import { Icon } from "astro-icon/components";
 
 import { SOLAR_SOLUTIONS } from "@data/solarSolutions";
 import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
-import XenatecEnergyLogo from "@imgs/logos/xenatec-energy.png";
 ---
 
 <section
@@ -37,31 +36,32 @@ import XenatecEnergyLogo from "@imgs/logos/xenatec-energy.png";
   </div>
 
   <div
-    class="grid grid-cols-3 items-center justify-center gap-2 w-full mt-4 lg:py-0 lg:flex-1"
+    class="flex items-center justify-center gap-2 w-full mt-4 lg:py-0 lg:flex-1"
+    id="products-grid"
   >
-    <div class="col-span-3 lg:col-span-2 w-full h-full" id="products-grid">
-      {
-        SOLAR_SOLUTIONS.map((category, catIndex) => (
-          <div
-            class="product-category hidden grid grid-cols-3 gap-2 w-full h-full"
-            data-category-index={catIndex}
-          >
-            {category.products.map((item) => (
-              <div class="flex flex-col items-center justify-center gap-2">
-                <Image
-                  src={item.img}
-                  alt={item.description}
-                  class={
-                    "w-full h-auto object-cover transition-all duration-300 hover:scale-105"
-                  }
-                />
-                <span class="font-semibold">{item.title}</span>
-              </div>
-            ))}
-          </div>
-        ))
-      }
-    </div>
+    {
+      SOLAR_SOLUTIONS.map((category, catIndex) => (
+        <div
+          class="product-category hidden flex-row overflow-x-auto gap-8 w-full pb-2"
+          data-category-index={catIndex}
+        >
+          {category.products.map((item) => (
+            <div class="flex flex-col items-center gap-2 min-w-40 shrink-0">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                class={
+                  "w-64 h-64 object-cover transition-all duration-300 hover:scale-105"
+                }
+              />
+              <span class="font-semibold text-sm text-center">
+                {item.title}
+              </span>
+            </div>
+          ))}
+        </div>
+      ))
+    }
   </div>
 </section>
 
@@ -70,15 +70,13 @@ import XenatecEnergyLogo from "@imgs/logos/xenatec-energy.png";
   document.addEventListener("DOMContentLoaded", initProductTabs);
 
   function initProductTabs() {
-    const buttons =
-      document.querySelectorAll<HTMLButtonElement>(".category-btn");
-    const categories =
-      document.querySelectorAll<HTMLDivElement>(".product-category");
+    const buttons = document.querySelectorAll(".category-btn");
+    const categories = document.querySelectorAll(".product-category");
 
     if (!buttons.length || !categories.length) return;
 
     categories[0].classList.remove("hidden");
-    categories[0].classList.add("grid");
+    categories[0].classList.add("flex");
     buttons[0].setAttribute("aria-pressed", "true");
     buttons[0].classList.add("bg-[#004fa8]", "text-white");
     buttons[0].classList.remove("border-[#004fa8]", "text-[#004fa8]");
@@ -89,7 +87,7 @@ import XenatecEnergyLogo from "@imgs/logos/xenatec-energy.png";
 
         categories.forEach((cat, i) => {
           cat.classList.toggle("hidden", i !== index);
-          cat.classList.toggle("grid", i === index);
+          cat.classList.toggle("flex", i === index);
         });
 
         buttons.forEach((b, i) => {

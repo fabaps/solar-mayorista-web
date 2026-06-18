@@ -31,15 +31,16 @@ export const SPECIALIZED_ENGINEERING = [
   {
     img: technicalVisitImg,
     alt: "Visita técnica a proyecto solar",
-    title: "Visita Técnica (aplican criterios de selección)",
+    title: "Visita Técnica",
     description: [
-      "Ponemos a tu disposición nuestro checklist digital de visita técnica para que realices el levantamiento en sitio con total autonomía y precisión técnica. Nuestro equipo de ingeniería te brindara acompañamiento presencial en las visitas clave. *Aplican criterios de selección",
+      "Ponemos a tu disposición nuestro checklist digital de visita técnica para que realices el levantamiento en sitio con total autonomía y precisión técnica. Nuestro equipo de ingeniería te brindara acompañamiento presencial en las visitas clave.",
+      "*Aplican restricciones",
     ] as DescriptionContent,
   },
   {
     img: specializedSoftwareImg,
     alt: "Software especializado para diseño solar",
-    title: "Software Especializado",
+    title: "Diseño Especializado",
     description: [
       "Es un servicio de Ingeniería Avanzada para Proyectos Comerciales e Industriales. Desarrollamos tu proyecto de principio a fin.",
       [

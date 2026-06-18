@@ -1,133 +1,215 @@
-// products
-import SolarPanelImg from "@imgs/home/productos/panel-solar.png";
-import InversorImg from "@imgs/home/productos/inversor.png";
-import BoxImg from "@imgs/home/productos/caja-sobreponer.webp";
+import panelesJaSolar from "@imgs/home/soluciones-solares/paneles-ja-solar.jpeg";
+import variadoresFrecuencia from "@imgs/home/soluciones-solares/variadores-de-frecuencia.jpeg";
+import cableDcFotovoltaico from "@imgs/home/soluciones-solares/cable-dc-fotovoltaico.jpeg";
+import cajasProteccionesAcDc from "@imgs/home/soluciones-solares/cajas-y-proteccions-ac-y-dc.jpeg";
+import mc4 from "@imgs/home/soluciones-solares/mc4.jpeg";
+import cajas from "@imgs/home/soluciones-solares/cajas.jpeg";
+import estructuraSoportes from "@imgs/home/soluciones-solares/estructura-y-soportes.jpeg";
+import protecciones from "@imgs/home/soluciones-solares/protecciones.jpeg";
+
+import inversorHuawei from "@imgs/home/soluciones-solares/inversor-huawei.jpeg";
+import inversorHuawei2 from "@imgs/home/soluciones-solares/inversor-huawei-2.jpeg";
+import controladorBateriaHuawei from "@imgs/home/soluciones-solares/controlador-y-bateria-huawei.jpeg";
+import controladorBateriasHuawei from "@imgs/home/soluciones-solares/controlador-y-baterias-huawei.jpeg";
+import backupBoxHuawei from "@imgs/home/soluciones-solares/backup-box-huawei.jpeg";
+import autotransformadorHuawei from "@imgs/home/soluciones-solares/autotransformador-huawei.jpeg";
+import bateriasPowerBox from "@imgs/home/soluciones-solares/baterias-power-box.jpeg";
+import bombasDifful from "@imgs/home/soluciones-solares/bombas-difful.jpeg";
+import inversorSolarPowerBox from "@imgs/home/soluciones-solares/inversor-solar-power-box.jpeg";
 
 export const SOLAR_SOLUTIONS = [
   {
     title: "Bombeo en AC",
-    description:
-      "Sistemas de bombeo solar con bombas centrífugas alimentadas por paneles AC. Ideal para irrigation y reservas de agua.",
     products: [
       {
-        img: InversorImg,
-        title: "Inversor para Bomba",
-        description:
-          "Inversor especial para bombas solares AC, permite variar la velocidad según necesidad de caudal.",
+        img: variadoresFrecuencia,
+        title: "Variadores de Frecuencia",
+        alt: "Variador de frecuencia para bomba de agua",
       },
       {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel monocristalino de alta eficiencia para alimentar sistemas de bombeo.",
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles solares JA Solar para bombeo en AC",
       },
       {
-        img: BoxImg,
-        title: "Caja de Conexión",
-        description:
-          "Caja de proteccion y conexion IP65 para instalacion exterior.",
+        img: cableDcFotovoltaico,
+        title: "Cable DC Fotovoltaico",
+        alt: "Cable fotovoltaico DC para instalación solar",
+      },
+      {
+        img: mc4,
+        title: "Conectores MC4",
+        alt: "Conectores MC4 para paneles solares",
+      },
+      {
+        img: cajas,
+        title: "Cajas de Conexión",
+        alt: "Caja de conexión para sistema solar",
+      },
+      {
+        img: estructuraSoportes,
+        title: "Estructura y Soportes",
+        alt: "Estructura y soportes para paneles solares",
+      },
+      {
+        img: cajasProteccionesAcDc,
+        title: "Cajas y Protecciones AC/DC",
+        alt: "Cajas de protección AC y DC",
+      },
+      {
+        img: protecciones,
+        title: "Protecciones Eléctricas",
+        alt: "Protecciones eléctricas para sistema solar",
       },
     ],
   },
   {
-    title: "Sistema aislado de la red",
-    description:
-      "Sistemas independientes para zonas sin red eléctrica. Incluyen baterías para almacenamiento nocturno.",
+    title: "Sistema aislado de la Red",
     products: [
       {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel monocristalino de alta eficiencia para maxima generacion en espacios reducidos.",
+        img: inversorHuawei,
+        title: "Inversor Huawei",
+        alt: "Inversor Huawei para sistema aislado",
       },
       {
-        img: InversorImg,
-        title: "Inversor Off-Grid",
-        description:
-          "Inversor-cargador hibrido con capacidad de gestion de bateria y generador auxiliar.",
+        img: controladorBateriaHuawei,
+        title: "Controlador y Batería Huawei",
+        alt: "Controlador y batería Huawei para almacenamiento",
       },
       {
-        img: BoxImg,
-        title: "Batería Lithium",
-        description:
-          "Bateria LiFePO4 de 48V, ciclo profundo, con BMS integrado.",
+        img: inversorSolarPowerBox,
+        title: "Inversor Solar Power Box",
+        alt: "Inversor Solar Power Box",
+      },
+      {
+        img: bateriasPowerBox,
+        title: "Baterías Power Box",
+        alt: "Baterías Power Box para almacenamiento",
+      },
+      {
+        img: cableDcFotovoltaico,
+        title: "Cable DC Fotovoltaico",
+        alt: "Cable fotovoltaico DC",
+      },
+      { img: mc4, title: "Conectores MC4", alt: "Conectores MC4" },
+      {
+        img: estructuraSoportes,
+        title: "Estructura y Soportes",
+        alt: "Estructura y soportes",
+      },
+      {
+        img: cajasProteccionesAcDc,
+        title: "Cajas y Protecciones AC/DC",
+        alt: "Cajas de protección AC y DC",
+      },
+      {
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para sistema aislado",
       },
     ],
   },
   {
     title: "Sistema híbrido",
-    description:
-      "Combina energía solar, red eléctrica y baterías. Máxima eficiencia con respaldo continuo.",
     products: [
       {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel de alta potencia compatible con inversores híbridos.",
+        img: inversorHuawei,
+        title: "Inversor Huawei",
+        alt: "Inversor Huawei para sistema híbrido",
       },
       {
-        img: InversorImg,
-        title: "Inversor Híbrido",
-        description:
-          "Inversor bidireccional que gestiona solar, red y baterías automaticamente.",
+        img: backupBoxHuawei,
+        title: "Backup Box Huawei",
+        alt: "Backup Box Huawei para respaldo",
       },
       {
-        img: BoxImg,
-        title: "Batería Lithium",
-        description:
-          "Bateria de alta capacidad con comunicación para gestion inteligente.",
+        img: autotransformadorHuawei,
+        title: "Autotransformador Huawei",
+        alt: "Autotransformador Huawei",
+      },
+      {
+        img: controladorBateriasHuawei,
+        title: "Controlador y Baterías Huawei",
+        alt: "Controlador y baterías Huawei",
+      },
+      {
+        img: cableDcFotovoltaico,
+        title: "Cable DC Fotovoltaico",
+        alt: "Cable fotovoltaico DC",
+      },
+      { img: mc4, title: "Conectores MC4", alt: "Conectores MC4" },
+      {
+        img: estructuraSoportes,
+        title: "Estructura y Soportes",
+        alt: "Estructura y soportes",
+      },
+      {
+        img: cajasProteccionesAcDc,
+        title: "Cajas y Protecciones AC/DC",
+        alt: "Cajas de protección AC y DC",
+      },
+      {
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para sistema híbrido",
       },
     ],
   },
   {
-    title: "Atado a red industrial o comercial",
-    description:
-      "Sistemas conectados a la red con net metering.Ideal para reducir costos eléctricos masivos.",
+    title: "Atado a red",
     products: [
       {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description:
-          "Panel de grado comercial con 25 años de garantía de rendimiento.",
+        img: inversorHuawei,
+        title: "Inversor Huawei",
+        alt: "Inversor Huawei para sistema atado a red",
       },
       {
-        img: InversorImg,
-        title: "Inversor String",
-        description:
-          "Inversor central de string para grandes instalaciones comerciales.",
+        img: cableDcFotovoltaico,
+        title: "Cable DC Fotovoltaico",
+        alt: "Cable fotovoltaico DC",
+      },
+      { img: mc4, title: "Conectores MC4", alt: "Conectores MC4" },
+      {
+        img: estructuraSoportes,
+        title: "Estructura y Soportes",
+        alt: "Estructura y soportes",
       },
       {
-        img: BoxImg,
-        title: "Medidor Bidireccional",
-        description:
-          "Medidor inteligente para net metering y monitoreo de energia.",
+        img: cajasProteccionesAcDc,
+        title: "Cajas y Protecciones AC/DC",
+        alt: "Cajas de protección AC y DC",
+      },
+      {
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para sistema atado a red",
       },
     ],
   },
   {
-    title: "Bombeo en DC",
-    description:
-      "Sistemas de bombeo solar con bombas DC directas. Máximo rendimiento sin inversor.",
+    title: "Bombeo DC",
     products: [
       {
-        img: InversorImg,
-        title: "Bomba Sumergible DC",
-        description:
-          "Bomba centrífuga sumergible de alta calidad para pozos profundos.",
+        img: cableDcFotovoltaico,
+        title: "Cable DC Fotovoltaico",
+        alt: "Cable fotovoltaico DC",
+      },
+      { img: mc4, title: "Conectores MC4", alt: "Conectores MC4" },
+      {
+        img: estructuraSoportes,
+        title: "Estructura y Soportes",
+        alt: "Estructura y soportes",
       },
       {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description: "Panel de voltaje compatible con bombas DC de 24V-48V.",
+        img: cajasProteccionesAcDc,
+        title: "Cajas y Protecciones AC/DC",
+        alt: "Cajas de protección AC y DC",
       },
       {
-        img: BoxImg,
-        title: "Controlador MPPT",
-        description:
-          "Controlador de máxima potencia para optimizacion del bombeo.",
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para bombeo DC",
       },
     ],
   },
-] as const;
-
-export type SolarSolutions = (typeof SOLAR_SOLUTIONS)[number];
+];

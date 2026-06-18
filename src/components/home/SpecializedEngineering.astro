@@ -13,7 +13,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       <span class="text-gray-900">INGENIERIA</span>
       <span class="text-[#004ea9]">ESPECIALIZADA</span>
     </h1>
-    <p class="text-sm lg:text-sm">Tu socio estratégico en ingeniería y apertura comercial. Ponemos a tu disposición un modelo de negocio que impulsa la viabilidad, el desarrollo y la ejecución exitosa de tus proyectos</p>
+    <p class="text-sm lg:text-sm">Lista de comprobación para levantamiento de datos / Visita tecnica</p>
 
     <div class="flex flex-row lg:flex-col lg:items-center lg:justify-center gap-2 w-full min-w-full overflow-x-auto my-4">
       {
@@ -31,18 +31,18 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
             <!-- Modal -->
             <article class="hidden lg:flex absolute top-0 left-0 w-full h-full invisible text-white">
               <div
-                class="absolute flex flex-col items-center justify-center p-4 visible top-1/2 right-[10%] -translate-y-1/2 gap-2 w-1/3 h-4/6 h-156 text-4xl transition-all duration-300 ease-out bg-[#0d57ad] border border-[#0d57ad11] group-hover:scale-105"
+                class="absolute flex flex-col items-center justify-center p-4 top-1/2 right-[10%] -translate-y-1/2 gap-2 w-1/3 h-4/6 h-auto text-4xl transition-all duration-300 ease-in bg-[#0d57ad] border border-[#0d57ad11] group-hover:scale-105 invisible group-hover:visible"
               >
                 <div class="flex flex-row items-center justify-center w-full">
                   <Image
                     src={specializedEngineering.img}
                     alt={specializedEngineering.alt}
-                    class={"w-full h-64 object-cover"}
+                    class={"w-full lg:h-56 2xl:h-64 object-cover"}
                   />
                 </div>
                 <div class="flex flex-col gap-1 w-full h-full items-center justify-start">
                   <span class="text-lg font-bold text-white">{specializedEngineering.title}</span>
-                  <div class="flex flex-col gap-2 text-sm text-gray-100 overflow-y-auto">
+                  <div class="flex flex-col gap-2 text-sm lg:text-xs 2xl:text-sm text-gray-100 overflow-y-auto">
                     {
                       specializedEngineering.description.map((block) =>
                         typeof block === "string" ? (
@@ -93,7 +93,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       href="/aplica"
       class="group flex items-center justify-start gap-2 hover:underline w-fit py-2 rounded-md"
     >
-      <span>Aplica a ser un asesor</span>
+      <span>Aplica con tu proyecto</span>
       <Icon
         name="lucide:arrow-right"
         class="group-hover:translate-x-2 transition-all duration-500"
