@@ -3,13 +3,16 @@ import { Icon } from "astro-icon/components";
 
 const STATS = [
   {
-    number: "500+",
-    label: "Proyectos Completados",
+    number: "897",
+    label: "Paneles Instalados",
     icon: "lucide:solar-panel",
   },
-  { number: "15 MW", label: "Energía Instalada", icon: "lucide:zap" },
-  { number: "50+", label: "Técnicos Certificados", icon: "lucide:users" },
-  { number: "8", label: "Años de Experiencia", icon: "lucide:calendar" },
+  { number: "550 Kw", label: "Energía Instalada", icon: "lucide:zap" },
+  {
+    number: "+75",
+    label: "Nuevos Técnicos Certificados",
+    icon: "lucide:users",
+  },
 ];
 ---
 
@@ -18,20 +21,21 @@ const STATS = [
 >
   <div class="relative z-10 text-center mb-4">
     <h2 class="text-4xl md:text-6xl font-black mb-4 uppercase">
-      <span class="text-[#004ea9]">Conoce más Sobre</span>
-      <span class="text-gray-900">Nosotros</span>
+      <span class="text-[#004ea9]">Resultados primer semestre</span>
+      <span class="text-gray-900">2026</span>
     </h2>
-    <p class="text-xl max-w-2xl mx-auto">
-      Años de experiencia creando soluciones sostenibles de energía solar
+    <p class="text-lg lg:text-xl max-w-2xl mx-auto">
+      Nuestra experiencia y modelo de negocio han creado soluciones de energía
+      solar en toda Guatemala
     </p>
   </div>
 
   <div
-    class="relative z-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-6xl px-8 cursor-default"
+    class="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl px-8 cursor-default"
   >
     {
       STATS.map((stat) => (
-        <div class="group flex flex-col items-center text-center p-4 rounded-2xl border border-black/25 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2">
+        <div class="group flex flex-col items-center text-center p-4 rounded-2xl border border-black/25 last:col-span-2 lg:last:col-span-1 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2">
           <div class="mb-2 rounded-full">
             <Icon name={stat.icon} class="w-8 h-8 text-[#004ea9]" />
           </div>

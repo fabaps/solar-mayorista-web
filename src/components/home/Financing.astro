@@ -1,36 +1,70 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import { FINANCING_ITEMS } from "@data/financing";
+import { BAC_BENEFITS, COMPANY_BENEFITS } from "@data/financing";
+
+import BacLogo from "@imgs/logos/bac-credomatic.png";
 ---
 
 <section
   id="financiamiento"
   class="bg-gray-200 flex flex-col items-start justify-center gap-2 w-full h-auto lg:h-screen lg:min-h-screen px-[10%] py-12 lg:py-[5%]"
 >
-  <h1 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
-    <span class="text-[#004ea9]">Financia tu proyecto</span>
-    <span class="text-gray-900">con BAC</span>
-  </h1>
+  <div class="flex items-start justify-between gap-2 w-full">
+    <h1 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
+      <span class="text-[#004ea9]">Financia tu proyecto</span>
+      <span class="text-gray-900">con BAC</span>
+    </h1>
+    <Image
+      src={BacLogo}
+      alt="BAC Credomatic"
+      class="w-32 h-auto object-contain mb-2 bg-gray-100 p-2 rounded-md"
+    />
+  </div>
 
-  <p class="w-full lg:w-3/4 text-sm lg:text-xl">
+  <p class="w-full lg:w-3/4 text-sm lg:text-xl mb-4">
     Accede a nuestra infraestructura financiera diseñada para impulsar el
     crecimiento de tu negocio:
   </p>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full my-4">
-    {
-      FINANCING_ITEMS.map((item) => (
-        <div class="flex items-start gap-4 rounded-md py-5">
-          <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-[#004ea9] rounded-md">
-            <Icon name={item.icon} class="text-white text-2xl" />
+  <div class="grid grid-cols-1 lg:grid-cols-2 w-full">
+    <!-- BAC benefits -->
+    <div class="flex flex-col gap-4 rounded-xl">
+      <span class="font-bold text-xl text-[#004ea9]">Beneficios BAC</span>
+      {
+        BAC_BENEFITS.map((item) => (
+          <div class="flex items-start gap-3 rounded-md">
+            <div class="shrink-0 flex items-center justify-center w-10 h-10 bg-[#004ea9] rounded-md">
+              <Icon name={item.icon} class="text-white text-xl" />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-base">{item.title}</span>
+              <span class="text-gray-600 text-sm">{item.description}</span>
+            </div>
           </div>
-          <div class="flex flex-col">
-            <span class="font-bold text-lg">{item.title}</span>
-            <span class="text-gray-600">{item.description}</span>
+        ))
+      }
+    </div>
+
+    <!-- Company benefits -->
+    <div class="flex flex-col gap-4 rounded-xl">
+      <span class="font-bold text-xl text-[#004ea9]"
+        >Beneficios Mayorista Solar</span
+      >
+      {
+        COMPANY_BENEFITS.map((item) => (
+          <div class="flex items-start gap-3 rounded-md">
+            <div class="shrink-0 flex items-center justify-center w-10 h-10 bg-[#004ea9] rounded-md">
+              <Icon name={item.icon} class="text-white text-xl" />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-base">{item.title}</span>
+              <span class="text-gray-600 text-sm">{item.description}</span>
+            </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 
   <div class="flex items-center justify-center w-full mt-2">

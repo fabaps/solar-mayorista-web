@@ -14,7 +14,7 @@ export const SPECIALIZED_ENGINEERING = [
     img: AcBombImg,
     title: "Diseño y Cuantificación de Productos",
     description:
-      "Sistemas de bombeo solar con bombas centrífugas alimentadas por paneles AC. Ideal para irrigation y reservas de agua.",
+      "Diseño y cuantificación de productos Ponemos a tu disposición nuestra herramienta de precotización; a partir de tus datos, nuestro equipo de ingeniería audita el diseño y selecciona los componentes óptimos para garantizar la máxima eficiencia en tu propuesta final.",
     products: [
       {
         img: InversorImg,
@@ -38,7 +38,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: AislateSystemImg,
-    title: "Análisis Técnico - Financiero ",
+    title: "Análisis Técnico",
     description:
       "Sistemas independientes para zonas sin red eléctrica. Incluyen baterías para almacenamiento nocturno.",
     products: [
@@ -64,7 +64,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: HibridSystemImg,
-    title: "Análisis Electrico",
+    title: "Visita Técnica (aplican criterios de selección)",
     description:
       "Combina energía solar, red eléctrica y baterías. Máxima eficiencia con respaldo continuo.",
     products: [
@@ -90,7 +90,7 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: BindSystemImg,
-    title: "Visita Técnica (Según proyecto)",
+    title: "Software Especializado",
     description:
       "Sistemas conectados a la red con net metering.Ideal para reducir costos eléctricos masivos.",
     products: [
@@ -111,31 +111,6 @@ export const SPECIALIZED_ENGINEERING = [
         title: "Medidor Bidireccional",
         description:
           "Medidor inteligente para net metering y monitoreo de energia.",
-      },
-    ],
-  },
-  {
-    img: DcBombImg,
-    title: "Software Especializado",
-    description:
-      "Sistemas de bombeo solar con bombas DC directas. Máximo rendimiento sin inversor.",
-    products: [
-      {
-        img: InversorImg,
-        title: "Bomba Sumergible DC",
-        description:
-          "Bomba centrífuga sumergible de alta calidad para pozos profundos.",
-      },
-      {
-        img: SolarPanelImg,
-        title: "Panel Solar 550W",
-        description: "Panel de voltaje compatible con bombas DC de 24V-48V.",
-      },
-      {
-        img: BoxImg,
-        title: "Controlador MPPT",
-        description:
-          "Controlador de máxima potencia para optimizacion del bombeo.",
       },
     ],
   },

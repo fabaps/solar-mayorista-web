@@ -13,7 +13,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       <span class="text-gray-900">INGENIERIA</span>
       <span class="text-[#004ea9]">ESPECIALIZADA</span>
     </h1>
-    <p class="text-md lg:text-xl">Te apoyamos en el proceso de forma técnica y financieramente.</p>
+    <p class="text-sm lg:text-sm">Tu socio estratégico en ingeniería y apertura comercial. Ponemos a tu disposición un modelo de negocio que impulsa la viabilidad, el desarrollo y la ejecución exitosa de tus proyectos</p>
 
     <div class="flex flex-row lg:flex-col lg:items-center lg:justify-center gap-2 w-full min-w-full overflow-x-auto my-4">
       {
@@ -31,7 +31,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
             <!-- Modal -->
             <article class="hidden lg:flex absolute top-0 left-0 w-full h-full invisible text-white">
               <div
-                class="absolute flex flex-col items-center justify-center visible top-1/2 right-[10%] -translate-y-1/2 gap-2 p-2 w-1/3 h-4/6 max-h-4/6 text-4xl transition-all duration-300 ease-out bg-[#0d57ad] border border-[#0d57ad11] px-3 py-2 group-hover:scale-105"
+                class="absolute flex flex-col items-center justify-center p-4 visible top-1/2 right-[10%] -translate-y-1/2 gap-2 w-1/3 h-4/6 max-h-128 text-4xl transition-all duration-300 ease-out bg-[#0d57ad] border border-[#0d57ad11] group-hover:scale-105"
               >
                 <div class="flex flex-row items-center justify-center w-full">
                   <Image
@@ -41,15 +41,15 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
                   />
                 </div>
                 <div class="flex flex-col gap-2 w-full h-full items-center justify-start">
-                  <span class="text-xl font-bold">{specializedEngineering.title}</span>
-                  <p class="text-lg text-wrap truncate">{specializedEngineering.description}</p>
+                  <span class="text-xl font-bold text-white">{specializedEngineering.title}</span>
+                  <p class="text-sm text-wrap truncate text-gray-100">{specializedEngineering.description}</p>
                 </div>
               </div>
             </article>
           </div>
 
           <div
-            class="lg:hidden flex flex-col items-center gap-3 bg-[#0d57ad] min-w-64 border border-white/15 rounded-b-lg p-4 transition-all duration-300"
+            class="lg:hidden flex flex-col items-center gap-3 bg-[#0d57ad] text-white min-w-64 border border-white/15 rounded-b-lg p-4 transition-all duration-300"
             data-card={index}
           >
             <Image
@@ -58,7 +58,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
               class="w-full h-48 object-cover rounded-md"
             />
             <span class="text-xl font-bold">{specializedEngineering.title}</span>
-            <p class="text-base text-pretty">{specializedEngineering.description}</p>
+            <p class="text-sm text-base text-pretty">{specializedEngineering.description}</p>
           </div>
         </>
         ))
