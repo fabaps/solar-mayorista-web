@@ -13,14 +13,28 @@ const STEPS = [
 
 <section class="bg-gray-100 flex flex-col w-full min-h-screen">
   <div class="flex flex-col items-center w-full">
-    <div class="bg-[#004ea9] w-full px-[10%] pt-24 pb-10 mb-4">
+    <div class="bg-[#004ea9] w-full px-[10%] pt-24 pb-6 mb-4">
       <h1 class="text-4xl lg:text-6xl font-black text-center mb-2 text-white">
         <span>Aplica</span>
       </h1>
-      <p class="text-sm lg:text-xl text-center text-gray-100">
+      <p class="text-sm lg:text-xl text-center text-gray-100 mb-6">
         Si tu proyecto aplica serás contactado por nuestro departamento de
         ingeniería
       </p>
+
+      <div class="flex items-center justify-center gap-2 text-gray-100">
+        <span>¿Te falta experiencia?</span>
+        <a
+          href="https://adepenlinea.com/"
+          class="group flex items-center justify-start gap-2 bg-white text-[#004ea9] hover:underline w-fit px-5 py-1 rounded-md"
+        >
+          <span>Capacitate en sistemas Fotovoltaicos</span>
+          <Icon
+            name="lucide:arrow-right"
+            class="group-hover:translate-x-2 transition-all duration-500"
+          />
+        </a>
+      </div>
     </div>
 
     <!-- Step indicators -->
@@ -63,7 +77,7 @@ const STEPS = [
       <StepCommercialProgress />
 
       <!-- Navigation buttons -->
-      <div class="flex items-center justify-between gap-4 my-2">
+      <div class="flex items-center justify-between gap-4 mb-2">
         <button
           type="button"
           id="prev-btn"
@@ -128,10 +142,9 @@ const STEPS = [
         "text-white",
         "bg-gray-300",
         "text-gray-500",
-        "shadow-md",
       );
       if (step <= currentStep) {
-        el.classList.add("bg-[#004ea9]", "text-white", "shadow-md");
+        el.classList.add("bg-[#004ea9]", "text-white");
       } else {
         el.classList.add("bg-gray-300", "text-gray-500");
       }
