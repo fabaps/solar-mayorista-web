@@ -18,18 +18,18 @@ export const FINANCING_CARDS: FinancingCard[] = [
     logo: { src: BacLogo, alt: "BAC Credomatic" },
   },
   {
-    title: "48 Credomatic",
-    subtitle: "Texto",
+    title: "Credomatic",
+    subtitle: "Hasta 48",
     logo: { src: CredomaticLogo, alt: "BAC Credomatic" },
   },
   {
-    title: "48 Visacuotas",
-    subtitle: "Texto",
+    title: "Visacuotas",
+    subtitle: "Hasta 48",
     logo: { src: VisaLogo, alt: "Visa" },
   },
   {
-    title: "48 Mastercuotas",
-    subtitle: "Texto",
+    title: "Mastercuotas",
+    subtitle: "Hasta 48",
     logo: { src: MastercardLogo, alt: "Mastercard logo" },
   },
 ];
