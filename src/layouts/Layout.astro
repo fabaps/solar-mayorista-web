@@ -24,7 +24,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="alternate icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -32,7 +32,10 @@ const {
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mayorista Solar Guatemala" />
-    <meta property="og:logo" content={new URL("/favicon.svg", Astro.url).href} />
+    <meta
+      property="og:logo"
+      content={new URL("/favicon.svg", Astro.url).href}
+    />
     <meta property="og:locale" content="es_GT" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

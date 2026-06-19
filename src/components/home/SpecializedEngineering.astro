@@ -10,10 +10,10 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
 >
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
     <div class="flex flex-col justify-center gap-4">
-      <h1 class="text-4xl lg:text-6xl font-black">
+      <h2 class="text-4xl lg:text-6xl font-black">
         <span class="text-gray-900">INGENIERIA</span>
         <span class="text-[#004ea9]">ESPECIALIZADA</span>
-      </h1>
+      </h2>
       <p class="text-lg lg:text-lg">
         Tu socio estratégico en ingeniería y apertura comercial. Ponemos a tu
         disposición modelos de negocio que impulsa la viabilidad, el desarrollo
@@ -21,54 +21,56 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       </p>
 
       <!-- Left: list -->
-      <div class="hidden lg:flex flex-col gap-2 w-full mt-2" id="eng-list">
+      <ul class="hidden lg:flex flex-col gap-2 w-full mt-2 list-none" id="eng-list">
         {
           SPECIALIZED_ENGINEERING.map((item, index) => (
-            <button
-              type="button"
-              data-eng-index={index}
-              data-eng-tier={item.tier}
-              class="eng-btn flex items-center gap-3 w-full text-start px-4 py-3 rounded-lg border transition-all duration-100 cursor-pointer"
-              class:list={{
-                "border-gray-300/50 text-gray-500 bg-white/40":
-                  item.tier === "business",
-                "border-[#001F54]/20 bg-[#001F54]/5 text-[#001F54]":
-                  item.tier === "pro",
-              }}
-            >
-              <Icon
-                name={item.icon}
-                class="eng-icon text-2xl shrink-0 transition-all duration-100"
-              />
-              <span class="eng-label text-lg font-medium transition-all duration-100">
-                {item.title}
-              </span>
-              <span
-                class="eng-badge ml-auto text-[10px] font-bold uppercase tracking-wider rounded px-1.5 py-0.5 transition-all duration-100"
+            <li>
+              <button
+                type="button"
+                data-eng-index={index}
+                data-eng-tier={item.tier}
+                class="eng-btn flex items-center gap-3 w-full text-start px-4 py-3 rounded-lg border transition-all duration-100 cursor-pointer"
                 class:list={{
-                  "text-[#001F54]/60": item.tier === "pro",
-                  "text-gray-400": item.tier !== "pro",
+                  "border-gray-300/50 text-gray-500 bg-white/40":
+                    item.tier === "business",
+                  "border-[#001F54]/20 bg-[#001F54]/5 text-[#001F54]":
+                    item.tier === "pro",
                 }}
               >
-                {item.tier === "pro" ? "Pro" : "Business"}
-              </span>
-            </button>
+                <Icon
+                  name={item.icon}
+                  class="eng-icon text-2xl shrink-0 transition-all duration-100"
+                />
+                <span class="eng-label text-lg font-medium transition-all duration-100">
+                  {item.title}
+                </span>
+                <span
+                  class="eng-badge ml-auto text-[10px] font-bold uppercase tracking-wider rounded px-1.5 py-0.5 transition-all duration-100"
+                  class:list={{
+                    "text-[#001F54]/60": item.tier === "pro",
+                    "text-gray-400": item.tier !== "pro",
+                  }}
+                >
+                  {item.tier === "pro" ? "Pro" : "Business"}
+                </span>
+              </button>
+            </li>
           ))
         }
-      </div>
+      </ul>
 
       <!-- Mobile: horizontal scroll -->
       <div class="flex lg:hidden flex-row gap-4 w-full overflow-x-auto">
         {
           SPECIALIZED_ENGINEERING.map((item) => (
-            <div class="flex flex-col bg-[#0d57ad] text-white rounded-xl overflow-hidden border border-white/10 max-w-64 shrink-0">
+            <article class="flex flex-col bg-[#0d57ad] text-white rounded-xl overflow-hidden border border-white/10 max-w-64 shrink-0">
               <Image
                 src={item.img}
                 alt={item.alt}
                 class="w-full h-36 object-cover"
               />
               <div class="flex flex-col gap-1 p-3">
-                <span class="font-bold">{item.title}</span>
+                <h3 class="font-bold">{item.title}</h3>
                 <div class="flex flex-col gap-1 text-xs text-gray-100 max-h-24 overflow-y-auto">
                   {item.description.map((block) =>
                     typeof block === "string" ? (
@@ -83,7 +85,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           ))
         }
       </div>
@@ -104,7 +106,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
     <div class="hidden lg:flex items-center justify-center transform-flat">
       {
         SPECIALIZED_ENGINEERING.map((item, index) => (
-          <div
+          <article
             class="eng-card hidden flex-col bg-[#0d57ad] translate-z-12 text-white rounded-xl overflow-hidden border border-white/10 w-full max-w-lg transition-all duration-500 ring-1 ring-black/50 shadow-lg shadow-black/25 [transform:perspective(800px)_rotateY(-10deg)_rotateX(0deg)_scale(1.02)] hover:[transform:perspective(800px)_rotateY(-0deg)_rotateX(0deg)_scale(1.02)]"
             data-eng-card={index}
           >
@@ -114,7 +116,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
               class="w-full h-56 object-cover"
             />
             <div class="flex flex-col gap-3 p-6 overflow-y-auto max-h-64">
-              <span class="text-xl font-bold">{item.title}</span>
+              <h3 class="text-xl font-bold">{item.title}</h3>
               <div class="flex flex-col gap-2 text-md text-gray-100">
                 {item.description.map((block) =>
                   typeof block === "string" ? (
@@ -129,7 +131,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
                 )}
               </div>
             </div>
-          </div>
+          </article>
         ))
       }
     </div>
