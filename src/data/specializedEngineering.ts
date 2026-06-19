@@ -25,7 +25,7 @@ export const SPECIALIZED_ENGINEERING = [
   {
     img: technicalAnalysisImg,
     alt: "Análisis técnico de factura eléctrica",
-    title: "Análisis Técnico",
+    title: "Análisis Económico",
     tier: "business",
     icon: "lucide:search",
     description: [
