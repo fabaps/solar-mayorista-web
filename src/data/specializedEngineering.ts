@@ -16,14 +16,18 @@ export const SPECIALIZED_ENGINEERING = [
     img: designAndQuantificationImg,
     alt: "Diseño y cuantificación de productos solares",
     title: "Diseño y Cuantificación de Productos",
+    tier: "business",
+    icon: "lucide:pen-tool",
     description: [
-      "Diseño y cuantificación de productos. Ponemos a tu disposición nuestra herramienta de precotización; a partir de tus datos, nuestro equipo de ingeniería audita el diseño y selecciona los componentes óptimos para garantizar la máxima eficiencia en tu propuesta final.",
+      "Con nuestra herramienta de precotización; nuestro equipo de ingeniería hara un analisis técnico y seleccionaran los componentes óptimos para garantizar la máxima eficiencia en tu propuesta final.",
     ] as DescriptionContent,
   },
   {
     img: technicalAnalysisImg,
     alt: "Análisis técnico de factura eléctrica",
     title: "Análisis Técnico",
+    tier: "business",
+    icon: "lucide:search",
     description: [
       "Te respaldamos en el análisis e interpretación de los historiales de consumo y facturas eléctricas de tus clientes, asegurando proyecciones de ahorro de alta precisión para tus propuestas.",
     ] as DescriptionContent,
@@ -32,6 +36,8 @@ export const SPECIALIZED_ENGINEERING = [
     img: technicalVisitImg,
     alt: "Visita técnica a proyecto solar",
     title: "Visita Técnica",
+    tier: "business",
+    icon: "lucide:clipboard-check",
     description: [
       "Ponemos a tu disposición nuestro checklist digital de visita técnica para que realices el levantamiento en sitio con total autonomía y precisión técnica. Nuestro equipo de ingeniería te brindara acompañamiento presencial en las visitas clave.",
       "*Aplican restricciones",
@@ -41,6 +47,8 @@ export const SPECIALIZED_ENGINEERING = [
     img: specializedSoftwareImg,
     alt: "Software especializado para diseño solar",
     title: "Diseño Especializado",
+    tier: "pro",
+    icon: "lucide:monitor",
     description: [
       "Es un servicio de Ingeniería Avanzada para Proyectos Comerciales e Industriales. Desarrollamos tu proyecto de principio a fin.",
       [

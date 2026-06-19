@@ -11,10 +11,6 @@ interface Project {
   images: ProjectImage[];
 }
 
-import EmersonImg1 from "@imgs/home/proyectos/emerson/img-1.webp";
-import EmersonImg2 from "@imgs/home/proyectos/emerson/img-2.webp";
-import EmersonImg3 from "@imgs/home/proyectos/emerson/img-3.webp";
-
 import GaryCanoImg1 from "@imgs/home/proyectos/gary-cano/img-1.webp";
 import GaryCanoImg2 from "@imgs/home/proyectos/gary-cano/img-2.webp";
 import GaryCanoImg3 from "@imgs/home/proyectos/gary-cano/img-3.webp";
@@ -40,15 +36,6 @@ export const PROJECTS: Project[] = [
       { src: ManuelMendezImg1, alt: "Manuel Méndez proyecto imagen 1" },
       { src: ManuelMendezImg2, alt: "Manuel Méndez proyecto imagen 2" },
       { src: ManuelMendezImg3, alt: "Manuel Méndez proyecto imagen 3" },
-    ],
-  },
-  {
-    name: "Emerson Rios",
-    title: "Proyecto Atado a Red",
-    images: [
-      { src: EmersonImg1, alt: "Emerson proyecto imagen 1" },
-      { src: EmersonImg2, alt: "Emerson proyecto imagen 2" },
-      { src: EmersonImg3, alt: "Emerson proyecto imagen 3" },
     ],
   },
 ];

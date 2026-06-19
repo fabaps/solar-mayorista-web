@@ -29,6 +29,13 @@ button {
   cursor: pointer;
 }
 
+.gradient-azul {
+  background: linear-gradient(135deg, #004ea9, #2f7de1, #4FC3F7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* infinite carousel */
 
 .carousel-hero {

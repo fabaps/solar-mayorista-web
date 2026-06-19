@@ -1,35 +1,35 @@
-export const BAC_BENEFITS = [
-  {
-    title: "Crédito sostenible",
-    description: "Plazos adaptados a tu flujo de caja.",
-    icon: "lucide:leaf",
-  },
-  {
-    title: "Para proyectos comerciales e industriales",
-    description: "Para equipos, maquinaria y tecnología.",
-    icon: "lucide:building-2",
-  },
-  {
-    title: "Proveedores autorizados",
-    description: "Somos proveedores autorizados del BAC.",
-    icon: "lucide:badge-check",
-  },
-];
+import type { ImageMetadata } from "astro";
 
-export const PAYMENT_BENEFITS = [
+import BacLogo from "@imgs/logos/bac-credomatic.png";
+import VisaLogo from "@imgs/logos/visa.png";
+import CredomaticLogo from "@imgs/logos/credomatic.png";
+import MastercardLogo from "@imgs/logos/mastercard.png";
+
+export interface FinancingCard {
+  title: string;
+  subtitle: string;
+  logo: { src: ImageMetadata; alt: string };
+}
+
+export const FINANCING_CARDS: FinancingCard[] = [
   {
-    title: "Visacuotas",
-    description: "Facilidad de pago con tu tarjeta Visa.",
-    icon: "lucide:credit-card",
+    title: "Proveedores Certificados",
+    subtitle: "Crédito Sostenible y Leasing",
+    logo: { src: BacLogo, alt: "BAC Credomatic" },
   },
   {
-    title: "Credomatic",
-    description: "Procesamos tus pagos de forma segura.",
-    icon: "lucide:shield",
+    title: "48 Credomatic",
+    subtitle: "Texto",
+    logo: { src: CredomaticLogo, alt: "BAC Credomatic" },
   },
   {
-    title: "Hasta 48 cuotas",
-    description: "Plazos cómodos que se ajustan a tu presupuesto.",
-    icon: "lucide:calendar-clock",
+    title: "48 Visacuotas",
+    subtitle: "Texto",
+    logo: { src: VisaLogo, alt: "Visa" },
+  },
+  {
+    title: "48 Mastercuotas",
+    subtitle: "Texto",
+    logo: { src: MastercardLogo, alt: "Mastercard logo" },
   },
 ];

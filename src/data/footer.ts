@@ -5,25 +5,7 @@ export const FOOTER_SECTIONS = [
     title: "Enlaces Rápidos",
     items: [
       { label: "Inicio", href: "/" },
-      { label: "Aplica", href: "/aplica" },
-      { label: "Productos Solares", href: "/productos-solares" },
-      { label: "Proyectos Solares", href: "/proyectos" },
-    ],
-  },
-  {
-    title: "Productos",
-    items: [
-      { label: "Paneles Solares", href: "/productos-solares?category=paneles" },
-      { label: "Inversores", href: "/productos-solares?category=inversores" },
-      { label: "Baterías", href: "/productos-solares?category=baterias" },
-      {
-        label: "Estructuras de Montaje",
-        href: "/productos-solares?category=estructuras",
-      },
-      {
-        label: "Kits Solares",
-        href: "/productos-solares?category=estructuras",
-      },
+      { label: "Aplica con tu proyecto", href: "/aplica" },
     ],
   },
   {
@@ -36,11 +18,11 @@ export const FOOTER_SECTIONS = [
       },
       {
         label: "+502 3091 6300",
-        href: "https://wa.me/50212345678",
+        href: "https://wa.me/50230916300",
         icon: "mdi:phone",
       },
       {
-        label: "janice@adepenlinea.com",
+        label: "javier@adepenlinea.com",
         href: "mailto:info@mayoristasolar.com",
         icon: "mdi:email",
       },

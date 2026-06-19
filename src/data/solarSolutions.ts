@@ -190,6 +190,11 @@ export const SOLAR_SOLUTIONS = [
     title: "Bombeo DC",
     products: [
       {
+        img: bombasDifful,
+        title: "Bomba Difful",
+        alt: "Bomba Difful",
+      },
+      {
         img: cableDcFotovoltaico,
         title: "Cable DC Fotovoltaico",
         alt: "Cable fotovoltaico DC",

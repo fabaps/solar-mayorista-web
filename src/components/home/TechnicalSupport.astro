@@ -5,7 +5,7 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
 
 <section
   id="soporte-tecnico"
-  class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full min-h-screen px-[10%] py-12 lg:py-[5%]"
+  class="bg-gray-200 flex flex-col items-start justify-center gap-2 w-full min-h-screen px-[5%] py-12 lg:py-[5%]"
 >
   <h1 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
     <span class="text-[#004ea9]">Soporte Técnico</span>
@@ -20,34 +20,52 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
     {
       SUPPORT_PLANS.map((plan) => (
         <div
-          class={`flex flex-col gap-2 rounded-xl p-6 border ${
+          class={`flex flex-col gap-2 rounded-xl p-6 border transition-all duration-300 ${
             plan.type === "premium"
-              ? "bg-[#004ea9] text-white border-[#004ea9]"
-              : "bg-white text-gray-900 border-black/10"
+              ? "bg-[#004ea9] text-white border-[#004ea9] [transform:perspective(600px)_rotateX(1deg)] shadow-[0_8px_25px_-10px_rgba(0,78,169,0.4)] hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(0,78,169,0.5)] hover:[transform:perspective(600px)_rotateX(0deg)]"
+              : "bg-white text-gray-900 border-black/5 shadow-[0_4px_15px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.12)]"
           }`}
         >
-          <div class="flex items-center gap-2">
-            <Icon
-              name={plan.type === "premium" ? "lucide:crown" : "lucide:shield"}
-              class={`text-3xl ${plan.type === "premium" ? "text-white" : "text-[#004ea9]"}`}
-            />
+          <div class="flex items-center gap-3">
+            <div
+              class={`flex items-center justify-center w-10 h-10 rounded-lg ${
+                plan.type === "premium" ? "bg-white/15" : "bg-[#004ea9]/10"
+              }`}
+            >
+              <Icon
+                name={
+                  plan.type === "premium" ? "lucide:crown" : "lucide:shield"
+                }
+                class={`text-xl ${plan.type === "premium" ? "text-white" : "text-[#004ea9]"}`}
+              />
+            </div>
             <span class="font-bold text-xl">{plan.title}</span>
           </div>
-          <p
-            class={`text-sm ${plan.type === "premium" ? "text-gray-100" : "text-gray-600"}`}
+
+          <div
+            class={`text-sm rounded-lg px-3 py-2 ${
+              plan.type === "premium"
+                ? "bg-white/10 text-gray-100"
+                : "bg-[#004ea9]/5 text-[#004ea9] font-medium"
+            }`}
           >
             {plan.subtitle}
-          </p>
-          <ul class="flex flex-col gap-3 mt-2">
+          </div>
+
+          <ul class="flex flex-col gap-2.5 mt-2">
             {plan.features.map((feature) => (
               <li class="flex items-start gap-2 text-sm">
                 <Icon
-                  name={
-                    plan.type === "premium" ? "lucide:circle" : "lucide:circle"
-                  }
-                  class={`mt-0.5 shrink-0 ${plan.type === "premium" ? "text-white" : "text-[#004ea9]"}`}
+                  name="lucide:circle"
+                  class={`mt-0.5 shrink-0 text-[8px] ${plan.type === "premium" ? "text-white/70" : "text-[#004ea9]/60"}`}
                 />
-                <span>{feature.split(":").length > 1 ? <><strong>{feature.split(":")[0]}:</strong>{feature.slice(feature.indexOf(":") + 1)}</> : feature}</span>
+                <span
+                  class={
+                    plan.type === "premium" ? "text-gray-100" : "text-gray-600"
+                  }
+                >
+                  {feature}
+                </span>
               </li>
             ))}
           </ul>
@@ -59,7 +77,7 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
   <div class="flex items-center justify-center w-full mt-6">
     <a
       href="/aplica"
-      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2 rounded-md"
+      class="group flex items-center gap-2 hover:underline w-fit px-5 py-2 rounded-md"
     >
       <Icon name="lucide:notepad-text" class="text-2xl text-[#004fa8]" />
       <span>Aplica con tu proyecto</span>
