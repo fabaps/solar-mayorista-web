@@ -1,0 +1,22 @@
+{
+  "name": "Mayorista Solar Guatemala",
+  "short_name": "Mayorista Solar",
+  "description": "Productos y apoyo de ingeniería para el instalador solar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#004ea9",
+  "theme_color": "#004ea9",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "es-GT",
+  "scope": "/",
+  "id": "mayorista-solar-guatemala"
+}
