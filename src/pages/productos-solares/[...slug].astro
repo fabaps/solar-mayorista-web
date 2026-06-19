@@ -16,7 +16,7 @@ const whatsappMsg = `Hola, estoy interesado en el producto: ${product.Nombre}. Â
 const whatsappUrl = `https://api.whatsapp.com/send/?phone=50230916300&text=${encodeURIComponent(whatsappMsg)}&type=phone_number&app_absent=0`;
 ---
 
-<Layout>
+<Layout title={`${product.Nombre} â€” Mayorista Solar Guatemala`} description={product.Descripcion?.slice(0, 160)} image={product.Imagen}>
   <section
     class="bg-[#004ea9] text-white flex flex-col items-start justify-start gap-2 py-24 px-[10%]"
   >
