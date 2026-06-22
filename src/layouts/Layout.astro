@@ -6,6 +6,7 @@ import Footer from "@components/layout/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
   image?: string;
   noindex?: boolean;
 }
@@ -13,6 +14,7 @@ interface Props {
 const {
   title = "Mayorista Solar Guatemala | Productos y apoyo de ingeniería para el instalador solar",
   description = "Distribuidora de equipos solares, paneles, inversores y baterías. Ingeniería especializada, soporte técnico y financiamiento para proyectos solares en Guatemala.",
+  keywords = "paneles solares, inversores solares, baterías solares, energía solar Guatemala, distribuidora solar, instaladores solares, ingeniería solar, proyectos solares, equipos solares, mayorista solar",
   image = "/og-image.jpeg",
   noindex = false,
 } = Astro.props as Props;
@@ -29,6 +31,7 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mayorista Solar Guatemala" />
