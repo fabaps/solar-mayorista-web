@@ -6,9 +6,10 @@ import { NAVBAR_ITEMS } from "@data/navbar";
 import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
 ---
 
-<div
+<nav
   id="navbar"
   class="bg-black/50 backdrop-blur-xl text-white fixed top-0 left-0 w-full flex flex-row items-center justify-between gap-2 px-[10%] py-2 transition-all duration-500 z-99"
+  aria-label="Navegación principal"
 >
   <a
     href="/"
@@ -26,50 +27,93 @@ import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
     </div>
   </a>
 
-  <div class="hidden lg:flex flex-row gap-2 items-center justify-center">
+  <ul
+    class="hidden lg:flex flex-row gap-2 items-center justify-center list-none m-0 p-0"
+  >
     {
       NAVBAR_ITEMS.map((navbarItem) => (
-        <a
-          href={navbarItem.url}
-          class="transition-all duration-500 ease-out hover:bg-white/15 rounded-md px-2 py-1 text-bold"
-        >
-          {navbarItem.name}
-        </a>
+        <li>
+          <a
+            href={navbarItem.url}
+            class="transition-all duration-500 ease-out hover:bg-white/15 rounded-md px-2 py-1 text-bold"
+          >
+            {navbarItem.name}
+          </a>
+        </li>
       ))
     }
-  </div>
+  </ul>
 
   <button
     id="menu-toggle"
     class="lg:hidden flex items-center justify-center p-2 rounded-md hover:bg-white/15 transition-all duration-300"
     aria-label="Abrir menú"
+    aria-controls="mobile-menu"
+    aria-expanded="false"
   >
     <Icon name="lucide:menu" class="w-6 h-6" id="menu-icon" />
   </button>
-</div>
+</nav>
 
 <div
   id="mobile-menu"
-  class="fixed top-0 left-0 w-full h-full bg-black/60 backdrop-blur-xl z-100 flex flex-col items-center justify-center gap-6 transition-all duration-500 opacity-0 pointer-events-none"
+  class="fixed top-0 left-0 w-full h-full bg-black/80 backdrop-blur-2xl z-100 flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
 >
-  <button
-    id="menu-close"
-    class="absolute top-6 right-[10%] p-2 text-white rounded-md hover:bg-white/15 transition-all duration-300"
-    aria-label="Cerrar menú"
+  <!-- Top bar -->
+  <div
+    class="absolute top-0 left-0 w-full flex items-center justify-between px-[10%] py-4"
   >
-    <Icon name="lucide:x" class="w-7 h-7" />
-  </button>
+    <a
+      href="/"
+      class="mobile-link flex items-center gap-2 transition-all duration-300 hover:opacity-80"
+    >
+      <Image
+        src={MayoristaSolarLogo}
+        alt="Mayorista solar logo"
+        class="w-8 h-8 object-cover bg-white p-1 rounded-full"
+      />
+      <span class="font-bold text-sm text-white">Mayorista Solar</span>
+    </a>
+    <button
+      id="menu-close"
+      class="p-2 text-white rounded-xl hover:bg-white/10 active:bg-white/20 transition-all duration-300"
+      aria-label="Cerrar menú"
+    >
+      <Icon name="lucide:x" class="w-7 h-7" />
+    </button>
+  </div>
 
-  {
-    NAVBAR_ITEMS.map((navbarItem) => (
-      <a
-        href={navbarItem.url}
-        class="mobile-link text-2xl font-bold text-white transition-all duration-300 hover:text-gray-300"
-      >
-        {navbarItem.name}
-      </a>
-    ))
-  }
+  <!-- Spacer -->
+  <div class="flex-1"></div>
+
+  <!-- Nav links -->
+  <ul class="flex flex-col items-stretch justify-center gap-3 w-full px-[5%]">
+    {
+      NAVBAR_ITEMS.map((navbarItem) => (
+        <li>
+          <a
+            href={navbarItem.url}
+            class="mobile-link block text-center w-full text-xl font-bold text-white/90 py-4 px-6 rounded-2xl border border-white/10 hover:bg-white/10 active:bg-white/15 hover:border-white/20 transition-all duration-300"
+          >
+            {navbarItem.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- Bottom CTA -->
+  <div class="w-full px-[5%] mt-8 mb-12">
+    <a
+      href="/aplica"
+      class="mobile-link block w-full text-center bg-[#004ea9] hover:bg-[#003d8a] active:bg-[#002d6a] text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300"
+    >
+      Aplica con tu proyecto
+    </a>
+  </div>
 </div>
 
 <script is:inline>
@@ -84,12 +128,14 @@ import MayoristaSolarLogo from "@imgs/logos/mayorista-solar.png";
   function openMenu() {
     mobileMenu.classList.remove("opacity-0", "pointer-events-none");
     mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+    menuToggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   }
 
   function closeMenu() {
     mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
     mobileMenu.classList.add("opacity-0", "pointer-events-none");
+    menuToggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
 

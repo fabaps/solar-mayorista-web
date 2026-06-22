@@ -9,17 +9,17 @@ import { Icon } from "astro-icon/components";
   class="bg-[#004ea9] text-white flex flex-col items-center justify-center gap-4 w-full h-screen min-h-screen px-[5%]"
 >
   <h2
-    class="text-[#ffd600] font-black text-4xl lg:text-6xl text-start w-full uppercase"
+    class="text-white font-black text-4xl lg:text-6xl text-start w-full uppercase"
   >
-    <span class="text-white">Capacitación </span>
+    Capacitación
   </h2>
-  <h2
+  <p
     class="flex gap-2 text-xl lg:text-5xl font-black text-start w-full uppercase"
   >
     <span><span class="text-[#ffd600]">A</span>dquiere</span>
     <span><span class="text-[#ffd600]">C</span>apacitate</span>
     <span><span class="text-[#ffd600]">I</span>nstala</span>
-  </h2>
+  </p>
   <p class="text-sm lg:text-xl text-start w-full">
     Metodología comprobada con 10 años de experiencia para que ejecutes tus
     proyectos de energía solar.
@@ -28,46 +28,47 @@ import { Icon } from "astro-icon/components";
   <div
     class="grid grid-cols-1 lg:grid-cols-2 items-start justify-center gap-2 w-full"
   >
-    <div
+    <article
       class="group flex flex-col items-start justify-start bg-linear-to-br from-35% from-[#004ea9AA] to-[#ffd60033] border border-white/15 px-6 py-4 w-full min-h-full"
     >
-      <span class="font-bold flex items-center gap-2 mb-2">
+      <h3 class="font-bold flex items-center gap-2 mb-2">
         <Icon name="bi:1-circle-fill" class="text-2xl shrink-0" />
         Para instalar plantas solares a tus clientes potenciales
-      </span>
-      <span>Capacita a tu equipo técnico y ejecutua tus propios proyectos.</span
-      >
-    </div>
+      </h3>
+      <p>Capacita a tu equipo técnico y ejecutua tus propios proyectos.</p>
+    </article>
 
-    <div
+    <article
       class="group flex flex-col items-start justify-start bg-linear-to-br from-35% from-[#004ea9AA] to-[#ffd60033] border border-white/15 px-6 py-4 w-full min-h-full"
     >
-      <span class="font-bold flex items-center gap-2 mb-2">
+      <h3 class="font-bold flex items-center gap-2 mb-2">
         <Icon name="bi:2-circle-fill" class="text-2xl shrink-0" />
         Para instalar una planta solar en tu empresa
-      </span>
-      <span>
+      </h3>
+      <p>
         Capacita a tu equipo técnico, optimiza recursos y
         <strong> reduce un 25% </strong>
         tu inversión inicial.
-      </span>
-    </div>
+      </p>
+    </article>
   </div>
 
-  <div class="grid grid-cols-3 gap-2 w-full h-auto">
+  <ul class="grid grid-cols-3 gap-2 w-full h-auto list-none">
     {
       ACI_METHODOLOGY_ITEMS.map((item) => (
-        <div class="flex flex-col">
-          <Image
-            src={item.img}
-            alt={item.title}
-            class={"w-full h-64 object-cover"}
-          />
-          <span class="bg-white/5 border border-white/15 w-full text-center font-bold">
-            {item.title}
-          </span>
-        </div>
+        <li>
+          <figure class="flex flex-col">
+            <Image
+              src={item.img}
+              alt={item.title}
+              class={"w-full h-64 object-cover"}
+            />
+            <figcaption class="bg-white/5 border border-white/15 w-full text-center font-bold">
+              {item.title}
+            </figcaption>
+          </figure>
+        </li>
       ))
     }
-  </div>
+  </ul>
 </section>

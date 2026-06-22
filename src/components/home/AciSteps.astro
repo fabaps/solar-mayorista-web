@@ -15,11 +15,11 @@ import AciBg from "@imgs/home/aci-metodologia/hazlo-aci-background.jpeg";
   />
   <div class="absolute top-0 left-0 w-full h-full bg-[#004fa8EE] z-1"></div>
 
-  <div class="flex flex-col items-start justify-start gap-4 z-2">
-    <h1 class="flex flex-col gap-2 font-black text-4xl lg:text-6xl uppercase">
+  <header class="flex flex-col items-start justify-start gap-4 z-2">
+    <h2 class="flex flex-col gap-2 font-black text-4xl lg:text-6xl uppercase">
       Hazlo tu, hazlo
       <span class="text-[#ffd600]">ACI</span>
-    </h1>
+    </h2>
     <p class="text-sm lg:text-xl">
       Nuestro programa "Adquiere, Capacítate, Instala" (ACI) te brinda las
       herramientas y el conocimiento para desarrollar tus proyectos solares de
@@ -29,62 +29,56 @@ import AciBg from "@imgs/home/aci-metodologia/hazlo-aci-background.jpeg";
     <div
       class="grid grid-cols-1 lg:grid-cols-2 items-start justify-center gap-2 w-full"
     >
-      <div
+      <article
         class="group flex flex-col items-start justify-start bg-white/5 border border-white/15 px-6 py-4 w-full min-h-full"
       >
-        <span class="font-bold"> FASE DE PRE-PROYECTO </span>
-        <hr class="w-full bg-white my-2" />
-        <span> Te apoyamos a abrir el negocio sin ningún costo. </span>
+        <h3 class="font-bold border-b border-white pb-2 w-full">
+          FASE DE PRE-PROYECTO
+        </h3>
+        <p class="mt-2">Te apoyamos a abrir el negocio sin ningún costo.</p>
 
-        <div
-          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
-        >
-          <Icon name="bi:1-circle-fill" class="text-2xl shrink-0" />
-          <span>Identifica tu proyecto</span>
-        </div>
-        <div
-          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
-        >
-          <Icon name="bi:2-circle-fill" class="text-2xl shrink-0" />
-          <span>Te apoyamos en diseño y planificación</span>
-        </div>
-      </div>
+        <ol class="flex flex-col gap-2 mt-4 w-full list-none">
+          <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+            <Icon name="bi:1-circle-fill" class="text-2xl shrink-0" />
+            <span>Identifica tu proyecto</span>
+          </li>
+          <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+            <Icon name="bi:2-circle-fill" class="text-2xl shrink-0" />
+            <span>Te apoyamos en diseño y planificación</span>
+          </li>
+        </ol>
+      </article>
 
-      <div
+      <article
         class="group flex flex-col items-start justify-center bg-white/5 border border-white/15 px-6 py-4 w-full"
       >
-        <span class="font-bold"> FASE EJECUCIÓN DE PROYECTO </span>
-        <hr class="w-full bg-white my-2" />
-        <span>Esta fase comienza una vez se confirme el proyecto.</span>
+        <h3 class="font-bold border-b border-white pb-2 w-full">
+          FASE EJECUCIÓN DE PROYECTO
+        </h3>
+        <p class="mt-2">Esta fase comienza una vez se confirme el proyecto.</p>
 
-        <div
-          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
-        >
-          <Icon name="bi:3-circle-fill" class="text-2xl shrink-0" />
-          <span>Adquiere tus productos con nosotros.</span>
-        </div>
-        <div
-          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
-        >
-          <Icon name="bi:4-circle-fill" class="text-2xl shrink-0" />
-          <span>Capacitamos a tu equipo técnico.</span>
-        </div>
-        <div
-          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
-        >
-          <Icon name="bi:5-circle-fill" class="text-2xl shrink-0" />
-          <span>Instala tu proyecto.</span>
-        </div>
-        <div
-          class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 mt-4 px-3 py-2 w-full"
-        >
-          <Icon name="bi:6-circle-fill" class="text-2xl shrink-0" />
-          <span>
-            Te entregamos un checklist de pruebas de calidad para certificar tu
-            instalación mediante mediciones
-          </span>
-        </div>
-      </div>
+        <ol class="flex flex-col gap-2 mt-4 w-full list-none" start="3">
+          <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+            <Icon name="bi:3-circle-fill" class="text-2xl shrink-0" />
+            <span>Adquiere tus productos con nosotros.</span>
+          </li>
+          <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+            <Icon name="bi:4-circle-fill" class="text-2xl shrink-0" />
+            <span>Capacitamos a tu equipo técnico.</span>
+          </li>
+          <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+            <Icon name="bi:5-circle-fill" class="text-2xl shrink-0" />
+            <span>Instala tu proyecto.</span>
+          </li>
+          <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+            <Icon name="bi:6-circle-fill" class="text-2xl shrink-0" />
+            <span>
+              Te entregamos un checklist de pruebas de calidad para certificar tu
+              instalación mediante mediciones
+            </span>
+          </li>
+        </ol>
+      </article>
 
       <a
         href="/aplica"
@@ -97,5 +91,5 @@ import AciBg from "@imgs/home/aci-metodologia/hazlo-aci-background.jpeg";
         />
       </a>
     </div>
-  </div>
+  </header>
 </section>

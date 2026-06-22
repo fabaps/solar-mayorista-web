@@ -14,26 +14,28 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
     <span class="text-[#004ea9]">Soluciones</span>
     <span class="text-gray-900">Solares</span>
   </h2>
-  <h2 class="text-lg lg:text-lg">
+  <p class="text-lg lg:text-lg">
     ¿Cuál es el proyecto que te está pidiendo tu cliente?
-  </h2>
+  </p>
 
-  <div
-    class="flex flex-col lg:flex-row gap-2 my-2 w-full"
+  <menu
+    class="flex flex-col lg:flex-row gap-2 my-2 w-full list-none m-0 p-0"
     id="category-buttons"
   >
     {
       SOLAR_SOLUTIONS.map((item, index) => (
-        <button
-          type="button"
-          data-index={index}
-          class="category-btn border border-[#004fa8] text-[#004fa8] rounded-md px-3 py-2 transition-colors hover:bg-[#2066b1] hover:text-white"
-        >
-          {item.title}
-        </button>
+        <li>
+          <button
+            type="button"
+            data-index={index}
+            class="category-btn border border-[#004fa8] text-[#004fa8] rounded-md px-3 py-2 transition-colors hover:bg-[#2066b1] hover:text-white"
+          >
+            {item.title}
+          </button>
+        </li>
       ))
     }
-  </div>
+  </menu>
 
   <div
     class="flex items-center justify-center gap-2 w-full mt-4 lg:py-0 lg:flex-1"
@@ -46,7 +48,7 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
           data-category-index={catIndex}
         >
           {category.products.map((item) => (
-            <div class="flex flex-col items-center gap-2 min-w-40 shrink-0">
+            <article class="flex flex-col items-center gap-2 min-w-40 shrink-0">
               <Image
                 src={item.img}
                 alt={item.alt}
@@ -54,10 +56,10 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
                   "w-32 sm:w-64 h-32 sm:h-64 object-cover transition-all duration-300 hover:scale-105"
                 }
               />
-              <span class="font-semibold text-sm text-center">
+              <h3 class="font-semibold text-sm text-center">
                 {item.title}
-              </span>
-            </div>
+              </h3>
+            </article>
           ))}
         </div>
       ))
