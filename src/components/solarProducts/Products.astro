@@ -1,0 +1,196 @@
+---
+import { Icon } from "astro-icon/components";
+import { PRODUCTS_ITEMS } from "@data/products-items";
+---
+
+<section
+  class="grid grid-cols-1 gap-6 px-[10%] pb-12 sm:grid-cols-2 lg:grid-cols-3"
+>
+  {
+    PRODUCTS_ITEMS.slice(0, 9).map((product) => (
+      <a
+        href={`/productos-solares/${product.id}`}
+        data-product-card
+        data-category={product.Categoria}
+        data-brand={product.Marca ?? ""}
+        data-search={product.Nombre.toLowerCase()}
+        class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+      >
+        <div class="flex h-56 items-center justify-center overflow-hidden bg-gray-50 p-4">
+          <img
+            src={product.Imagen}
+            alt={product.Nombre}
+            class="h-full w-full object-contain"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="flex flex-1 flex-col justify-between gap-2 p-4">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="text-lg font-bold text-gray-900">{product.Nombre}</h3>
+          </div>
+
+          {product.Marca && (
+            <span class="w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-[#004fa8]">
+              {product.Marca}
+            </span>
+          )}
+
+          <p class="line-clamp-4 text-sm leading-relaxed text-gray-600">
+            {product.Descripcion}
+          </p>
+
+          <div class="bg-[#004fa8] text-white px-2 py-1 rounded-md text-center">
+            Ver Detalles
+          </div>
+        </div>
+      </a>
+    ))
+  }
+  {
+    PRODUCTS_ITEMS.slice(9).map((product) => (
+      <a
+        href={`/productos-solares/${product.id}`}
+        data-product-card
+        data-category={product.Categoria}
+        data-brand={product.Marca ?? ""}
+        data-search={product.Nombre.toLowerCase()}
+        class="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white hidden"
+      >
+        <div class="flex h-56 items-center justify-center overflow-hidden bg-gray-50 p-4">
+          <img
+            src={product.Imagen}
+            alt={product.Nombre}
+            class="h-full w-full object-contain"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="text-lg font-bold text-gray-900">{product.Nombre}</h3>
+          </div>
+
+          {product.Marca && (
+            <span class="w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-[#004fa8]">
+              {product.Marca}
+            </span>
+          )}
+
+          <p class="line-clamp-4 text-sm leading-relaxed text-gray-600">
+            {product.Descripcion}
+          </p>
+
+          <div class="bg-[#004fa8] text-white px-2 py-1 rounded-md text-center">
+            Ver Detalles
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</section>
+
+<div
+  id="empty-state"
+  class="hidden flex-col items-center justify-center px-[10%] py-20 text-gray-500"
+>
+  <Icon name="lucide:package-x" class="mb-4 h-12 w-12" />
+  <p class="text-xl font-semibold">No se encontraron productos</p>
+  <p class="mt-1 text-sm">Intentá con otra combinación de filtros</p>
+</div>
+
+<div class="flex justify-center px-[10%] pb-12">
+  <button
+    id="show-more-btn"
+    class="hidden rounded-md border border-[#004fa8] px-6 py-3 font-semibold text-[#004fa8] transition-colors hover:bg-[#004fa8] hover:text-white"
+  >
+    Ver más productos
+  </button>
+</div>
+
+<script>
+  const ITEMS_PER_PAGE = 9;
+  let visibleLimit = ITEMS_PER_PAGE;
+
+  const searchInput = document.getElementById("search-input");
+  const categorySelect = document.getElementById("category-select");
+  const brandSelect = document.getElementById("brand-select");
+  const products = [...document.querySelectorAll("[data-product-card]")];
+  const emptyState = document.getElementById("empty-state");
+  const showMoreBtn = document.getElementById("show-more-btn");
+
+  function filterAndPaginate() {
+    const search = searchInput.value.toLowerCase().trim();
+    const category = categorySelect.value;
+    const brand = brandSelect.value;
+
+    let matchingCount = 0;
+
+    products.forEach((card) => {
+      const matchSearch = !search || card.dataset.search?.includes(search);
+      const matchCategory = !category || card.dataset.category === category;
+      const matchBrand = !brand || card.dataset.brand === brand;
+      const matches = matchSearch && matchCategory && matchBrand;
+
+      if (matches) {
+        matchingCount++;
+        card.classList.toggle("hidden", matchingCount > visibleLimit);
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+
+    if (emptyState) {
+      emptyState.classList.toggle("hidden", matchingCount > 0);
+    }
+
+    if (showMoreBtn) {
+      const hasMore = matchingCount > visibleLimit;
+      showMoreBtn.classList.toggle("hidden", !hasMore);
+    }
+  }
+
+  function onFilterChange() {
+    visibleLimit = ITEMS_PER_PAGE;
+    filterAndPaginate();
+  }
+
+  showMoreBtn.addEventListener("click", () => {
+    visibleLimit += ITEMS_PER_PAGE;
+    filterAndPaginate();
+  });
+
+  searchInput.addEventListener("input", onFilterChange);
+  categorySelect.addEventListener("change", onFilterChange);
+  brandSelect.addEventListener("change", onFilterChange);
+
+  function readUrlAndFilter() {
+    const params = new URLSearchParams(window.location.search);
+    const urlCategory = params.get("category");
+    if (urlCategory && categorySelect) {
+      const normalizedUrl = urlCategory.toLowerCase().replace(/\s+/g, "-");
+      for (const option of categorySelect.options) {
+        if (!option.value) continue;
+        const normalizedOption = option.value
+          .toLowerCase()
+          .replace(/\s+/g, "-");
+        if (
+          normalizedOption === normalizedUrl ||
+          normalizedOption.startsWith(normalizedUrl) ||
+          normalizedUrl.startsWith(normalizedOption)
+        ) {
+          categorySelect.value = option.value;
+          break;
+        }
+      }
+    }
+    filterAndPaginate();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", readUrlAndFilter);
+  } else {
+    readUrlAndFilter();
+  }
+  document.addEventListener("astro:page-load", readUrlAndFilter);
+</script>
