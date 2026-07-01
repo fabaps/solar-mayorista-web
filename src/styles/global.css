@@ -29,8 +29,25 @@ button {
   cursor: pointer;
 }
 
-.gradient-azul {
-  background: linear-gradient(135deg, #004ea9, #2f7de1, #4FC3F7);
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scroll-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.gradient-blue {
+  background: linear-gradient(145deg, #004ea9, #2979DA, #004ea9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-yellow {
+  background: linear-gradient(25deg, #FFD700, #FFD700, #F3E5AB, #FFD700, #F3E5AB);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

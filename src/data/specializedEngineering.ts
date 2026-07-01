@@ -46,7 +46,7 @@ export const SPECIALIZED_ENGINEERING = [
   {
     img: specializedSoftwareImg,
     alt: "Software especializado para diseño solar",
-    title: "Diseño Especializado",
+    title: "Co-Desarrollo",
     tier: "pro",
     icon: "lucide:monitor",
     description: [

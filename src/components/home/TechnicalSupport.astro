@@ -9,12 +9,12 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
 >
   <header>
     <h2 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
-      <span class="text-[#004ea9]">Soporte Técnico</span>
+      <span class="gradient-blue">Soporte Técnico</span>
       <span class="text-gray-900">Post Venta</span>
     </h2>
     <p class="w-full lg:w-3/4 text-sm lg:text-xl mb-4">
-      Nuestro equipo de expertos está listo para brindarte el mejor acompañamiento
-      y asegurar el éxito de tus proyectos solares.
+      Nuestro equipo de expertos está listo para brindarte el mejor
+      acompañamiento y asegurar el éxito de tus proyectos solares.
     </p>
   </header>
 
@@ -22,10 +22,10 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
     {
       SUPPORT_PLANS.map((plan) => (
         <article
-          class={`flex flex-col gap-2 rounded-xl p-6 border transition-all duration-300 ${
+          class={`flex flex-col gap-2 rounded-xl p-6 transition-all duration-300 ${
             plan.type === "premium"
-              ? "bg-[#004ea9] text-white border-[#004ea9] [transform:perspective(600px)_rotateX(1deg)] shadow-[0_8px_25px_-10px_rgba(0,78,169,0.4)] hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(0,78,169,0.5)] hover:[transform:perspective(600px)_rotateX(0deg)]"
-              : "bg-white text-gray-900 border-black/5 shadow-[0_4px_15px_-8px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.12)]"
+              ? "bg-[#004ea9] text-white"
+              : "bg-white text-gray-900"
           }`}
         >
           <header class="flex items-center gap-3">

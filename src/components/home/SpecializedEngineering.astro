@@ -6,22 +6,27 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
 
 <section
   id="ingenieria-especializada"
-  class="relative bg-gray-200 w-full h-screen px-[5%] py-12 lg:py-[5%]"
+  class="relative bg-gray-200 w-full h-screen px-[5%] py-6 lg:py-[5%]"
 >
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
     <div class="flex flex-col justify-center gap-4">
-      <h2 class="text-4xl lg:text-6xl font-black">
-        <span class="text-gray-900">INGENIERIA</span>
-        <span class="text-[#004ea9]">ESPECIALIZADA</span>
+      <h2 class="flex flex-col text-4xl lg:text-6xl font-black">
+        <span class="gradient-blue">INGENIERÍA</span>
+        <span class="text-gray-900">ESPECIALIZADA</span>
       </h2>
-      <p class="text-lg lg:text-lg">
-        Tu socio estratégico en ingeniería y apertura comercial. Ponemos a tu
-        disposición modelos de negocio que impulsa la viabilidad, el desarrollo
-        y la ejecución exitosa de tus proyectos.
+      <p class="flex flex-col text-md lg:text-lg">
+        <span>Tu socio estratégico en ingeniería y apertura comercial.</span>
+        <span>
+          Ponemos a tu disposición <strong>dos modelos de negocio</strong> que impulsa
+          la viabilidad, el desarrollo y la ejecución exitosa de tus proyectos.
+        </span>
       </p>
 
       <!-- Left: list -->
-      <ul class="hidden lg:flex flex-col gap-2 w-full mt-2 list-none" id="eng-list">
+      <ul
+        class="hidden lg:flex flex-col gap-2 w-full mt-2 list-none"
+        id="eng-list"
+      >
         {
           SPECIALIZED_ENGINEERING.map((item, index) => (
             <li>
@@ -47,8 +52,8 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
                 <span
                   class="eng-badge ml-auto text-[10px] font-bold uppercase tracking-wider rounded px-1.5 py-0.5 transition-all duration-100"
                   class:list={{
-                    "text-[#001F54]/60": item.tier === "pro",
-                    "text-gray-400": item.tier !== "pro",
+                    "bg-[#001F5433] text-[#001F54]/60": item.tier === "pro",
+                    "bg-gray-200 text-gray-400": item.tier !== "pro",
                   }}
                 >
                   {item.tier === "pro" ? "Pro" : "Business"}
@@ -60,18 +65,18 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       </ul>
 
       <!-- Mobile: horizontal scroll -->
-      <div class="flex lg:hidden flex-row gap-4 w-full overflow-x-auto">
+      <div class="flex lg:hidden flex-row gap-4 w-full overflow-x-auto flex-1">
         {
           SPECIALIZED_ENGINEERING.map((item) => (
-            <article class="flex flex-col bg-[#0d57ad] text-white rounded-xl overflow-hidden border border-white/10 max-w-64 shrink-0">
+            <article class="flex flex-col bg-[#0d57ad] text-white rounded-xl overflow-hidden border border-white/10 max-w-64 shrink-0 h-128">
               <Image
                 src={item.img}
                 alt={item.alt}
                 class="w-full h-36 object-cover"
               />
               <div class="flex flex-col gap-1 p-3">
-                <h3 class="font-bold">{item.title}</h3>
-                <div class="flex flex-col gap-1 text-xs text-gray-100 max-h-24 overflow-y-auto">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <div class="flex flex-col gap-1 text-md text-gray-100 max-h-auto overflow-y-auto">
                   {item.description.map((block) =>
                     typeof block === "string" ? (
                       <p>{block}</p>
@@ -103,11 +108,11 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
     </div>
 
     <!-- Right: card display -->
-    <div class="hidden lg:flex items-center justify-center transform-flat">
+    <div class="hidden lg:flex items-center justify-center">
       {
         SPECIALIZED_ENGINEERING.map((item, index) => (
           <article
-            class="eng-card hidden flex-col bg-[#0d57ad] translate-z-12 text-white rounded-xl overflow-hidden border border-white/10 w-full max-w-lg transition-all duration-500 ring-1 ring-black/50 shadow-lg shadow-black/25 [transform:perspective(800px)_rotateY(-10deg)_rotateX(0deg)_scale(1.02)] hover:[transform:perspective(800px)_rotateY(-0deg)_rotateX(0deg)_scale(1.02)]"
+            class="eng-card hidden flex-col bg-[#0d57ad] text-white rounded-xl overflow-hidden border border-white/10 w-full max-w-lg ring-1 ring-black/50 shadow-lg shadow-black/25"
             data-eng-card={index}
           >
             <Image
@@ -160,7 +165,8 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
           btn.classList.add(isPro ? "bg-[#001F54]" : "bg-[#004ea9]");
           icon?.classList.add("text-white");
           icon?.classList.remove("text-gray-500", "text-[#001F54]");
-          label?.classList.remove("text-gray-500", "text-[#001F54]");
+          badge?.classList.remove(!isPro && "bg-gray-200");
+          badge?.classList.add(!isPro && "bg-[#004ea9]");
           badge?.classList.add("text-white/70");
           badge?.classList.remove("text-[#001F54]/60");
         } else {
@@ -176,9 +182,9 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
             isPro ? "border-[#001F54]/20" : "border-gray-300/50",
           );
           icon?.classList.remove("text-white");
-          label?.classList.add(isPro ? "text-[#001F54]" : "text-gray-500");
           badge?.classList.remove("text-white/70");
-          badge?.classList.add("text-[#001F54]/60");
+          badge?.classList.add(!isPro && "bg-gray-200");
+          badge?.classList.add(!isPro && "text-[#001F54]/60");
         }
       });
 
