@@ -110,12 +110,21 @@ const STEPS = [
           <span>Enviar por correo</span>
         </button>
       </div>
+
+      <div
+        id="form-status"
+        class="hidden text-center text-sm font-semibold px-4 py-3 mt-2"
+      >
+        Solicitud enviada con éxito.
+      </div>
     </form>
   </div>
 </section>
 
 <script>
-  const EMAIL = "javier@adepenlinea.com";
+  const FUNCTION_URL =
+    "https://us-central1-adep-bfc12.cloudfunctions.net/mayoristaSolarApplicationToJoin";
+
   const form = document.getElementById("aplica-form");
   const steps = document.querySelectorAll(".step-section");
   const stepIndicators = document.querySelectorAll(".step-indicator");
@@ -126,8 +135,24 @@ const STEPS = [
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
   const submitBtn = document.getElementById("submit-btn");
+  const formStatus = document.getElementById("form-status");
   let currentStep = 1;
   const totalSteps = 3;
+
+  function setStatus(type, message) {
+    formStatus.classList.remove(
+      "hidden",
+      "bg-[#004fa833]",
+      "text-blue-700",
+      "bg-red-100",
+      "text-red-700",
+    );
+    formStatus.classList.add(
+      type === "success" ? "bg-[#004fa833]" : "bg-red-100",
+      type === "success" ? "text-[#004fa8]" : "text-red-700",
+    );
+    formStatus.textContent = message;
+  }
 
   function updateStepUI() {
     steps.forEach((el) => {
@@ -230,72 +255,56 @@ const STEPS = [
     }
   });
 
-  form?.addEventListener("submit", (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    formStatus.classList.add("hidden");
 
     if (!validateStep(currentStep)) return;
 
     const fd = new FormData(form);
-    const name = fd.get("name")?.toString().trim() || "";
-    const email = fd.get("email")?.toString().trim() || "";
-    const phone = fd.get("phone")?.toString().trim() || "";
-    const projectType = fd.get("project-type")?.toString().trim() || "";
-    const location = fd.get("location")?.toString().trim() || "";
-    const solutionType = fd.get("solution-type")?.toString().trim() || "";
-    const clientWants = fd.get("client-wants")?.toString().trim() || "";
-    const commercialStatus =
-      fd.get("commercial-status")?.toString().trim() || "";
-    const budget = fd.get("budget")?.toString().trim() || "";
-    const workedBefore = fd.get("worked-before")?.toString().trim() || "";
-    const whoContacted = fd.get("who-contacted")?.toString().trim() || "";
-    const hasQuotes = fd.get("has-quotes")?.toString().trim() || "";
-    const knowsInvestment = fd.get("knows-investment")?.toString().trim() || "";
-    const paymentMethod = fd.get("payment-method")?.toString().trim() || "";
-    const doneSolarProject =
-      fd.get("done-solar-project")?.toString().trim() || "";
-
-    const solutionLabels = {
-      "bombeo-ac": "Bombeo en AC",
-      "bombeo-dc": "Bombeo en DC",
-      "solar-hibrido": "Solar Híbrido",
-      aislado: "Sistema Aislado",
-      "atado-red": "Sistema Atado a Red",
-    };
-    const clientWantsLabels = {
-      ahorro: "Ahorro",
-      energia: "Energía",
-      "bombear-agua": "Bombear agua",
+    const payload = {
+      name: fd.get("name")?.toString().trim() || "",
+      email: fd.get("email")?.toString().trim() || "",
+      phone: fd.get("phone")?.toString().trim() || "",
+      projectType: fd.get("project-type")?.toString().trim() || "",
+      location: fd.get("location")?.toString().trim() || "",
+      solutionType: fd.get("solution-type")?.toString().trim() || "",
+      clientWants: fd.get("client-wants")?.toString().trim() || "",
+      commercialStatus: fd.get("commercial-status")?.toString().trim() || "",
+      budget: fd.get("budget")?.toString().trim() || "",
+      workedBefore: fd.get("worked-before")?.toString().trim() || "",
+      whoContacted: fd.get("who-contacted")?.toString().trim() || "",
+      hasQuotes: fd.get("has-quotes")?.toString().trim() || "",
+      knowsInvestment: fd.get("knows-investment")?.toString().trim() || "",
+      paymentMethod: fd.get("payment-method")?.toString().trim() || "",
+      doneSolarProject: fd.get("done-solar-project")?.toString().trim() || "",
     };
 
-    const subject = `Nueva solicitud - Aplica Solar Mayorista - ${name}`;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = "Enviando...";
 
-    const body = [
-      `NUEVA SOLICITUD - APLICA SOLAR MAYORISTA`,
-      ``,
-      `--- DATOS PERSONALES ---`,
-      `Nombre: ${name}`,
-      `Email: ${email}`,
-      `Teléfono: ${phone}`,
-      ``,
-      `--- PRE COTIZA ---`,
-      `Tipo de proyecto: ${projectType}`,
-      `Ubicación: ${location}`,
-      `Solución: ${solutionLabels[solutionType] || solutionType}`,
-      `Cliente quiere: ${clientWantsLabels[clientWants] || clientWants}`,
-      ``,
-      `--- AVANCE COMERCIAL ---`,
-      `Estado comercial: ${commercialStatus}%`,
-      `Rango de precio: Q${Number(budget).toLocaleString()}`,
-      `Cliente trabajado antes: ${workedBefore}`,
-      `Quién contactó: ${whoContacted}`,
-      `Cotizaciones: ${hasQuotes}`,
-      `Sabe inversión: ${knowsInvestment}`,
-      `Método de pago: ${paymentMethod}`,
-      `Ha hecho proyecto solar: ${doneSolarProject}`,
-    ].join("\n");
+    try {
+      const res = await fetch(FUNCTION_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    const mailtoUrl = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
+      if (!res.ok) {
+        const err = await res.text();
+        throw new Error(err);
+      }
+
+      setStatus("success", "Solicitud enviada con éxito.");
+      form.reset();
+      currentStep = 1;
+      updateStepUI();
+    } catch (err) {
+      setStatus("error", "Error al enviar la solicitud. Intenta de nuevo.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = "Enviar por correo";
+    }
   });
 
   updateStepUI();

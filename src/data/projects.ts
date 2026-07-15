@@ -38,4 +38,13 @@ export const PROJECTS: Project[] = [
       { src: ManuelMendezImg3, alt: "Manuel Méndez proyecto imagen 3" },
     ],
   },
+  {
+    name: "Gary Cano",
+    title: "Proyecto de Bombeo Solar",
+    images: [
+      { src: GaryCanoImg1, alt: "Gary Cano proyecto imagen 1" },
+      { src: GaryCanoImg2, alt: "Gary Cano proyecto imagen 2" },
+      { src: GaryCanoImg3, alt: "Gary Cano proyecto imagen 3" },
+    ],
+  },
 ];

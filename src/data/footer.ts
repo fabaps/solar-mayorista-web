@@ -17,8 +17,8 @@ export const FOOTER_SECTIONS = [
         icon: "mdi:map-marker",
       },
       {
-        label: "+502 3091 6300",
-        href: "https://wa.me/50230916300",
+        label: "+502 4609 0412",
+        href: "https://wa.me/50246090412",
         icon: "mdi:phone",
       },
       {

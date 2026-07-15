@@ -1,94 +1,193 @@
 ---
 import { Image } from "astro:assets";
 import { PROJECTS } from "@data/projects";
+import { Icon } from "astro-icon/components";
 ---
 
 <section
   id="proyectos"
   class="bg-gray-100 flex flex-col items-start justify-start gap-2 w-full min-h-screen px-[5%] py-12 lg:py-[5%]"
 >
-  <header class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-4 lg:gap-0 w-full mb-4">
+  <header
+    class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-4 lg:gap-0 w-full mb-4"
+  >
     <h2 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
       <span class="gradient-blue">Historias</span>
       <span class="text-gray-900">Destacadas</span>
     </h2>
   </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full mt-4">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mt-4">
     {
       PROJECTS.map((project, i) => (
-        <article class="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-black/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_-10px_rgba(0,78,169,0.3)]">
-          <!-- Main image -->
-          <figure class="relative overflow-hidden">
+        <article class="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-black/5 transition-all duration-500">
+          <figure class="relative overflow-hidden h-96">
             <Image
               src={project.images[0].src}
               alt={project.images[0].alt}
-              class="w-full h-56 object-cover transition-all duration-700 group-hover:scale-105"
+              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <figcaption class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-              <h3 class="text-white text-lg font-bold drop-shadow-lg">{project.title}</h3>
-              <a
-                href={`#project-${i}`}
-                class="text-white text-sm font-medium bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition-colors"
-              >
-                Ver fotos
-              </a>
+            <figcaption class="absolute bottom-0 left-0 flex items-center justify-between w-full">
+              <div class="flex flex-col gap-2 items-start justify-center bg-white/5 backdrop-blur-xs rounded-b-xl w-full">
+                <h3 class="text-white text-lg font-bold drop-shadow-lg px-2 pt-2">
+                  {project.title}
+                </h3>
+
+                <div class="flex items-center justify-center gap-2">
+                  <div class="flex gap-2 flex-1 bg-white p-2 rounded-tr-xl">
+                    <Image
+                      src={project.images[1].src}
+                      alt={project.images[1].alt}
+                      class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
+                    />
+                    <Image
+                      src={project.images[2].src}
+                      alt={project.images[2].alt}
+                      class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
+                    />
+                  </div>
+                  <button
+                    class="open-modal w-24 h-16 text-white flex items-center justify-center text-sm font-medium bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                    data-project={i}
+                  >
+                    Más
+                  </button>
+                </div>
+              </div>
             </figcaption>
           </figure>
-
-          <!-- Bottom: secondary images + name -->
-          <footer class="flex gap-3 p-4 items-center">
-            <div class="flex gap-2 flex-1">
-              <Image
-                src={project.images[1].src}
-                alt={project.images[1].alt}
-                class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
-              />
-              <Image
-                src={project.images[2].src}
-                alt={project.images[2].alt}
-                class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
-              />
-            </div>
-            <div class="flex items-center gap-2 text-gray-700 font-medium text-sm shrink-0">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#004ea9]" />
-              {project.name}
-            </div>
-          </footer>
         </article>
       ))
     }
   </div>
 </section>
 
-<!-- Modals -->
-{
-  PROJECTS.map((project, i) => (
-    <div id={`project-${i}`} class="modal">
-      <div class="modal-overlay">
-        <a href="#proyectos" class="modal-close" aria-label="Cerrar">&times;</a>
-        <div class="modal-content">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
-          <div class="grid grid-cols-1 gap-4">
-            {project.images.map((img) => (
-              <Image
-                src={img.src}
-                alt={img.alt}
-                class="w-full rounded-xl object-cover max-h-[70vh]"
-              />
-            ))}
-          </div>
-          <p class="text-gray-500 text-sm mt-4">{project.name}</p>
-        </div>
+<!-- Modal -->
+<div id="modal-overlay" class="modal-hidden">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-box">
+    <button class="modal-close-btn" id="modal-close">
+      <Icon name="lucide:x" class="text-2xl" />
+    </button>
+    <div class="modal-image-wrapper">
+      <button class="modal-arrow left" id="modal-prev" aria-label="Anterior">
+        <Icon name="lucide:chevron-left" class="text-xl" />
+      </button>
+      <div class="modal-image-container" id="modal-image-container">
+        {
+          PROJECTS.map((project, i) =>
+            project.images.map((img, j) => (
+              <div class="modal-slide" data-project={i} data-image={j}>
+                <Image src={img.src} alt={img.alt} class="modal-img" />
+              </div>
+            )),
+          )
+        }
       </div>
+      <button class="modal-arrow right" id="modal-next" aria-label="Siguiente">
+        <Icon name="lucide:chevron-right" class="text-xl" />
+      </button>
     </div>
-  ))
-}
+    <div class="modal-counter" id="modal-counter">1 / 3</div>
+    <div class="modal-title" id="modal-title"></div>
+  </div>
+</div>
+
+<!-- Data -->
+<script
+  is:inline
+  define:vars={{
+    projectData: PROJECTS.map((p) => ({
+      title: p.title,
+      name: p.name,
+      count: p.images.length,
+    })),
+  }}
+>
+  (function () {
+    let overlay = document.getElementById("modal-overlay");
+    let backdrop = document.getElementById("modal-backdrop");
+    let closeBtn = document.getElementById("modal-close");
+    let container = document.getElementById("modal-image-container");
+    let counter = document.getElementById("modal-counter");
+    let titleEl = document.getElementById("modal-title");
+    let prevBtn = document.getElementById("modal-prev");
+    let nextBtn = document.getElementById("modal-next");
+    let slides = container.querySelectorAll(".modal-slide");
+    let curProject = 0;
+    let curImage = 0;
+
+    function showSlide() {
+      slides.forEach(function (s) {
+        const p = parseInt(s.getAttribute("data-project"));
+        const i = parseInt(s.getAttribute("data-image"));
+        if (p === curProject && i === curImage) {
+          s.classList.add("active");
+        } else {
+          s.classList.remove("active");
+        }
+      });
+      var project = projectData[curProject];
+      counter.textContent = curImage + 1 + " / " + project.count;
+      titleEl.textContent = project.title;
+    }
+
+    function openModal(projectIdx) {
+      curProject = projectIdx;
+      curImage = 0;
+      showSlide();
+      overlay.classList.remove("modal-hidden");
+      overlay.classList.add("modal-visible");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      overlay.classList.remove("modal-visible");
+      overlay.classList.add("modal-hidden");
+      document.body.style.overflow = "";
+    }
+
+    function prevImage() {
+      var count = projectData[curProject].count;
+      curImage = (curImage - 1 + count) % count;
+      showSlide();
+    }
+
+    function nextImage() {
+      var count = projectData[curProject].count;
+      curImage = (curImage + 1) % count;
+      showSlide();
+    }
+
+    document.querySelectorAll(".open-modal").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        openModal(parseInt(this.getAttribute("data-project")));
+      });
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", closeModal);
+    prevBtn.addEventListener("click", prevImage);
+    nextBtn.addEventListener("click", nextImage);
+
+    document.addEventListener("keydown", function (e) {
+      if (!overlay.classList.contains("modal-visible")) return;
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+    });
+  })();
+</script>
 
 <style>
-  .modal {
+  .modal-hidden {
     display: none;
+  }
+  .modal-visible {
+    display: flex;
+  }
+
+  #modal-overlay {
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -96,57 +195,116 @@ import { PROJECTS } from "@data/projects";
     justify-content: center;
   }
 
-  .modal:target {
-    display: flex;
-  }
-
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .modal-close {
+  #modal-backdrop {
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 2.5rem;
-    line-height: 1;
-    color: white;
-    text-decoration: none;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-box {
+    position: relative;
     z-index: 10;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-  }
-
-  .modal-close:hover {
-    opacity: 1;
-  }
-
-  .modal-content {
-    background: white;
     border-radius: 1rem;
-    padding: 2rem;
-    max-width: 800px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    animation: modalIn 0.2s ease-out;
+    padding: 1.5rem;
+    max-width: 900px;
+    width: 90%;
+    animation: fadeIn 0.2s ease-out;
   }
 
-  @keyframes modalIn {
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: scale(0.95) translateY(10px);
+      transform: scale(0.95);
     }
     to {
       opacity: 1;
-      transform: scale(1) translateY(0);
+      transform: scale(1);
     }
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    line-height: 1;
+  }
+  .modal-close-btn:hover {
+    opacity: 1;
+  }
+
+  .modal-image-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .modal-image-container {
+    flex: 1;
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    position: relative;
+  }
+
+  .modal-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-slide.active {
+    display: flex;
+  }
+
+  .modal-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .modal-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .modal-arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .modal-counter {
+    margin-top: 0.75rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+  }
+
+  .modal-title {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 </style>

@@ -13,10 +13,14 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 
 const whatsappMsg = `Hola, estoy interesado en el producto: ${product.Nombre}. ¿Podrían brindarme más información?`;
-const whatsappUrl = `https://api.whatsapp.com/send/?phone=50230916300&text=${encodeURIComponent(whatsappMsg)}&type=phone_number&app_absent=0`;
+const whatsappUrl = `https://api.whatsapp.com/send/?phone=50246090412&text=${encodeURIComponent(whatsappMsg)}&type=phone_number&app_absent=0`;
 ---
 
-<Layout title={`${product.Nombre} — Mayorista Solar Guatemala`} description={product.Descripcion?.slice(0, 160)} image={product.Imagen}>
+<Layout
+  title={`${product.Nombre} — Mayorista Solar Guatemala`}
+  description={product.Descripcion?.slice(0, 160)}
+  image={product.Imagen}
+>
   <section
     class="bg-[#004ea9] text-white flex flex-col items-start justify-start gap-2 py-24 px-[10%]"
   >
