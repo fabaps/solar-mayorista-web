@@ -28,7 +28,7 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
           <button
             type="button"
             data-index={index}
-            class="category-btn border border-[#004fa8] text-[#004fa8] rounded-md px-3 py-2 transition-colors hover:bg-[#2066b1] hover:text-white"
+            class="category-btn w-full border border-[#004fa8] text-[#004fa8] rounded-md px-3 py-2 transition-colors hover:bg-[#2066b1] hover:text-white"
           >
             {item.title}
           </button>
@@ -52,7 +52,16 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
             class="scroll-arrow scroll-left shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-white/80 border border-gray-200 text-gray-600 hover:bg-white hover:text-[#004ea9] shadow-sm transition-all cursor-pointer"
             aria-label="Desplazar a la izquierda"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
           </button>
           <div class="flex flex-row overflow-x-auto gap-8 w-full pb-2 scroll-hide">
             {category.products.map((item) => (
@@ -73,7 +82,16 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
             class="scroll-arrow scroll-right shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-white/80 border border-gray-200 text-gray-600 hover:bg-white hover:text-[#004ea9] shadow-sm transition-all cursor-pointer"
             aria-label="Desplazar a la derecha"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
           </button>
         </div>
       ))
