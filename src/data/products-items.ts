@@ -1,4 +1,15 @@
-export const PRODUCTS_ITEMS = [
+export interface ProductItem {
+  readonly id: string;
+  readonly Nombre: string;
+  readonly Categoria: string;
+  readonly Marca: string;
+  readonly Descripcion: string;
+  readonly Imagen: string;
+  readonly FichaTecnica: string | null;
+  readonly isOutstanding?: boolean;
+}
+
+export const PRODUCTS_ITEMS: ProductItem[] = [
   {
     id: "panel-solar-bifacial-canadian-solar-610w-cs6.1-72-tb-615",
     Nombre: "Panel solar bifacial Canadian Solar 610W CS6.1-72 TB-615",
@@ -882,6 +893,4 @@ export const PRODUCTS_ITEMS = [
       "https://m.media-amazon.com/images/I/41iz0woqLDL._AC_UF894,1000_QL80_.jpg",
     FichaTecnica: null,
   },
-] as const;
-
-export type ProductItem = (typeof PRODUCTS_ITEMS)[number];
+];
