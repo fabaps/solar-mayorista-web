@@ -69,13 +69,20 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       <!-- Mobile: horizontal scroll -->
       <div class="flex lg:hidden flex-row gap-4 w-full overflow-x-auto">
         {
-          SPECIALIZED_ENGINEERING.map((item) => (
-            <article class="flex flex-col bg-[#0d57ad] text-white rounded-md overflow-hidden border border-white/10 max-w-9/10 shrink-0 max-h-148">
-              <Image
-                src={item.img}
-                alt={item.alt}
-                class="w-full min-h-56 h-56 lg:min-h-36 lg:h-36 object-cover"
-              />
+          SPECIALIZED_ENGINEERING.toReversed().map((item) => (
+            <article class="flex flex-col bg-[#0d57ad] text-white rounded-lg overflow-hidden border-2 border-white/10 max-w-9/10 shrink-0 max-h-148">
+              <div class="relative">
+                <Image
+                  src={item.img}
+                  alt={item.alt}
+                  class="w-full min-h-56 h-56 object-cover grayscale-25"
+                />
+
+                <div class="absolute top-0 right-0 bg-[#004fa8] px-4 py-1 rounded-bl-xl">
+                  <span>{item.tier === "pro" ? "Pro" : "Business"}</span>
+                </div>
+              </div>
+
               <div class="flex flex-col gap-1 p-3">
                 <h3 class="text-lg font-bold">{item.title}</h3>
                 <div class="flex flex-col gap-1 text-md text-gray-100 max-h-64 overflow-y-auto">
