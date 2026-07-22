@@ -70,7 +70,7 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       <div class="lg:hidden flex flex-col gap-4">
         <div class="flex flex-row gap-4 w-full overflow-x-auto">
           {
-            SPECIALIZED_ENGINEERING.map((item) => (
+            SPECIALIZED_ENGINEERING.slice(0, 3).map((item) => (
               <article class="flex flex-col bg-[#0d57ad] text-white rounded-md overflow-hidden border border-white/10 max-w-4/5 shrink-0 max-h-64">
                 <Image
                   src={item.img}
