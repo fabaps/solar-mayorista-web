@@ -3,10 +3,15 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "@components/solarProducts/Hero.astro";
 import Filters from "@components/solarProducts/Filters.astro";
 import Products from "@components/solarProducts/Products.astro";
+import OutstandingProducts from "@components/solarProducts/OutstandingProducts.astro";
 ---
 
-<Layout noindex={true}>
+<Layout
+  title="Mayorista Solar Guatemala | Productos Destacados"
+  description="Red de asesores fotovoltaicos en Guatemala. Ingeniería especializada, capacitación, acompañamiento técnico, equipos certificados y financiamiento para impulsar tus proyectos solares."
+>
   <Hero />
+  <OutstandingProducts />
   <Filters />
   <Products />
 </Layout>

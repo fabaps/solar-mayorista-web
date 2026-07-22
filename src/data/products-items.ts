@@ -22,6 +22,7 @@ export const PRODUCTS_ITEMS = [
       "https://ineldec.com/wp-content/uploads/2024/08/PANEL-SOLAR-TSM-DE19R-575W.jpg",
     FichaTecnica:
       "https://ineldec.com/wp-content/uploads/2024/01/FICHA-TECNICA-PANEL-SOLAR-TSM-DE19R-575W.pdf",
+    isOutstanding: true,
   },
   {
     id: "panel-solar-bifacial-ja-solar-610w-jam66d45-610-lb",
@@ -34,6 +35,7 @@ export const PRODUCTS_ITEMS = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRHAiNbWKoVnS3YUpxdbG0jmoyGao7ZhJiA&s",
     FichaTecnica:
       "https://www.jasolar.com/uploadfile/fujian/2025/0121/a16a37f6beb1d61.pdf",
+    isOutstanding: true,
   },
   {
     id: "inversor-canadian-solar-5k-csi-5k-s22002-e",
@@ -351,6 +353,7 @@ export const PRODUCTS_ITEMS = [
     Imagen:
       "https://latam.growatt.com/upload/image/20230609/b75bd8576f767bae33b67e4a8c1789d9.png",
     FichaTecnica: null,
+    isOutstanding: true,
   },
   {
     id: "antena-para-micro-inversor-neo",

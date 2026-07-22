@@ -9,7 +9,7 @@ const brands = [
 ];
 ---
 
-<div class="flex flex-wrap items-center gap-4 px-[10%] py-6">
+<div class="flex flex-wrap items-center gap-4 px-[5%] py-6 mt-6">
   <input
     type="search"
     id="search-input"
@@ -18,14 +18,14 @@ const brands = [
   />
   <select
     id="category-select"
-    class="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-[#004fa8] focus:outline-none"
+    class="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-[#004fa8] focus:outline-none w-full lg:w-fit"
   >
     <option value="">Todas las categorías</option>
     {categories.map((cat) => <option value={cat}>{cat}</option>)}
   </select>
   <select
     id="brand-select"
-    class="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-[#004fa8] focus:outline-none"
+    class="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-[#004fa8] focus:outline-none w-full lg:w-fit"
   >
     <option value="">Todas las marcas</option>
     {brands.map((brand) => <option value={brand}>{brand}</option>)}
