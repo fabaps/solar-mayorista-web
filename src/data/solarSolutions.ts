@@ -22,14 +22,14 @@ export const SOLAR_SOLUTIONS = [
     title: "Bombeo en AC",
     products: [
       {
-        img: variadoresFrecuencia,
-        title: "Variadores de Frecuencia",
-        alt: "Variador de frecuencia para bomba de agua",
-      },
-      {
         img: panelesJaSolar,
         title: "Paneles JA Solar",
         alt: "Paneles solares JA Solar para bombeo en AC",
+      },
+      {
+        img: variadoresFrecuencia,
+        title: "Variadores de Frecuencia",
+        alt: "Variador de frecuencia para bomba de agua",
       },
       {
         img: cableDcFotovoltaico,
@@ -67,14 +67,9 @@ export const SOLAR_SOLUTIONS = [
     title: "Sistema aislado de la Red",
     products: [
       {
-        img: inversorHuawei,
-        title: "Inversor Huawei",
-        alt: "Inversor Huawei para sistema aislado",
-      },
-      {
-        img: controladorBateriaHuawei,
-        title: "Controlador y Batería Huawei",
-        alt: "Controlador y batería Huawei para almacenamiento",
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para sistema aislado",
       },
       {
         img: inversorSolarPowerBox,
@@ -85,6 +80,16 @@ export const SOLAR_SOLUTIONS = [
         img: bateriasPowerBox,
         title: "Baterías Power Box",
         alt: "Baterías Power Box para almacenamiento",
+      },
+      {
+        img: inversorHuawei,
+        title: "Inversor Huawei",
+        alt: "Inversor Huawei para sistema aislado",
+      },
+      {
+        img: controladorBateriasHuawei,
+        title: "Controlador y Batería Huawei",
+        alt: "Controlador y batería Huawei para almacenamiento",
       },
       {
         img: cableDcFotovoltaico,
@@ -102,16 +107,16 @@ export const SOLAR_SOLUTIONS = [
         title: "Cajas y Protecciones AC/DC",
         alt: "Cajas de protección AC y DC",
       },
-      {
-        img: panelesJaSolar,
-        title: "Paneles JA Solar",
-        alt: "Paneles JA Solar para sistema aislado",
-      },
     ],
   },
   {
     title: "Sistema híbrido",
     products: [
+      {
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para sistema híbrido",
+      },
       {
         img: inversorHuawei,
         title: "Inversor Huawei",
@@ -148,16 +153,16 @@ export const SOLAR_SOLUTIONS = [
         title: "Cajas y Protecciones AC/DC",
         alt: "Cajas de protección AC y DC",
       },
-      {
-        img: panelesJaSolar,
-        title: "Paneles JA Solar",
-        alt: "Paneles JA Solar para sistema híbrido",
-      },
     ],
   },
   {
     title: "Atado a red",
     products: [
+      {
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para sistema atado a red",
+      },
       {
         img: inversorHuawei,
         title: "Inversor Huawei",
@@ -179,11 +184,6 @@ export const SOLAR_SOLUTIONS = [
         title: "Cajas y Protecciones AC/DC",
         alt: "Cajas de protección AC y DC",
       },
-      {
-        img: panelesJaSolar,
-        title: "Paneles JA Solar",
-        alt: "Paneles JA Solar para sistema atado a red",
-      },
     ],
   },
   {
@@ -193,6 +193,11 @@ export const SOLAR_SOLUTIONS = [
         img: bombasDifful,
         title: "Bomba Difful",
         alt: "Bomba Difful",
+      },
+      {
+        img: panelesJaSolar,
+        title: "Paneles JA Solar",
+        alt: "Paneles JA Solar para bombeo DC",
       },
       {
         img: cableDcFotovoltaico,
@@ -209,11 +214,6 @@ export const SOLAR_SOLUTIONS = [
         img: cajasProteccionesAcDc,
         title: "Cajas y Protecciones AC/DC",
         alt: "Cajas de protección AC y DC",
-      },
-      {
-        img: panelesJaSolar,
-        title: "Paneles JA Solar",
-        alt: "Paneles JA Solar para bombeo DC",
       },
     ],
   },
