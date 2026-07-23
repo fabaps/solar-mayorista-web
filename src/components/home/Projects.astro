@@ -25,6 +25,9 @@ import { Icon } from "astro-icon/components";
             <Image
               src={project.images[0].src}
               alt={project.images[0].alt}
+              loading={"lazy"}
+              fetchpriority={"auto"}
+              decoding={"async"}
               class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
             />
             <figcaption class="absolute bottom-0 left-0 flex items-center justify-between w-full">
@@ -38,11 +41,17 @@ import { Icon } from "astro-icon/components";
                     <Image
                       src={project.images[1].src}
                       alt={project.images[1].alt}
+                      loading={"lazy"}
+                      fetchpriority={"auto"}
+                      decoding={"async"}
                       class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
                     />
                     <Image
                       src={project.images[2].src}
                       alt={project.images[2].alt}
+                      loading={"lazy"}
+                      fetchpriority={"auto"}
+                      decoding={"async"}
                       class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
                     />
                   </div>
@@ -78,7 +87,14 @@ import { Icon } from "astro-icon/components";
           PROJECTS.map((project, i) =>
             project.images.map((img, j) => (
               <div class="modal-slide" data-project={i} data-image={j}>
-                <Image src={img.src} alt={img.alt} class="modal-img" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  loading={"lazy"}
+                  fetchpriority={"auto"}
+                  decoding={"async"}
+                  class="modal-img"
+                />
               </div>
             )),
           )

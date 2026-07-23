@@ -25,6 +25,9 @@ import BottomCards from "./BottomCards.astro";
       <Image
         src={CarouselImg}
         alt="Imagen de fondo"
+        loading={"eager"}
+        fetchpriority={"high"}
+        decoding={"async"}
         class="w-full min-w-full h-full min-h-full max-h-full object-cover grayscale-25 mask-r-from-10% mask-r-to-100%"
       />
       <div

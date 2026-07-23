@@ -3,15 +3,27 @@ import { Image } from "astro:assets";
 import Img1 from "@imgs/home/carousel/img-1.webp";
 import Img2 from "@imgs/home/carousel/img-2.webp";
 import Img3 from "@imgs/home/carousel/img-3.webp";
-import Img4 from "@imgs/home/carousel/img-4.webp";
-import Img5 from "@imgs/home/carousel/img-5.webp";
+import Img4 from "@imgs/home/carousel/img-7.webp";
+import Img5 from "@imgs/home/carousel/img-10.webp";
 import Img6 from "@imgs/home/carousel/img-6.webp";
-import Img7 from "@imgs/home/carousel/img-7.webp";
-import Img8 from "@imgs/home/carousel/img-8.webp";
-import Img9 from "@imgs/home/carousel/img-9.webp";
-import Img10 from "@imgs/home/carousel/img-10.webp";
 
-const { hidden = "" } = Astro.props as props;
+interface Props {
+  hidden?: string;
+}
+
+const { hidden = "" } = Astro.props;
+
+const TOP_IMAGES = [
+  { src: Img1, alt: "Parque Solar" },
+  { src: Img2, alt: "Montacargas cargando contenedores con paneles solares" },
+  { src: Img3, alt: "Técnico instalador solar" },
+];
+
+const BOTTOM_IMAGES = [
+  { src: Img4, alt: "Parque solar en desarrollo" },
+  { src: Img5, alt: "Camiones con contenedores que llevan paneles solares" },
+  { src: Img6, alt: "Personas instaladoras de paneles solares" },
+];
 ---
 
 <section
@@ -21,41 +33,64 @@ const { hidden = "" } = Astro.props as props;
     class="absolute top-0 left-0 w-full h-full bg-linear-to-r from-black via-black/5 to-inherit z-9"
   >
   </div>
+
   <!-- TOP CAROUSEL -->
   <div class="carousel-hero">
     <div class="group-carousel group-carousel-top">
-      <Image src={Img1} alt="Imagen 1 del carrusel superior" />
-      <Image src={Img2} alt="Imagen 2 del carrusel superior" />
-      <Image src={Img3} alt="Imagen 3 del carrusel superior" />
-      <Image src={Img4} alt="Imagen 4 del carrusel superior" />
-      <Image src={Img5} alt="Imagen 5 del carrusel superior" />
+      {
+        TOP_IMAGES.map((img) => (
+          <Image
+            src={img.src}
+            alt={img.alt}
+            loading={"lazy"}
+            fetchpriority={"auto"}
+            decoding="async"
+          />
+        ))
+      }
     </div>
-
-    <div class="group-carousel group-carousel-top" aria-hidden>
-      <Image src={Img1} alt="Imagen 1 del carrusel superior" />
-      <Image src={Img2} alt="Imagen 2 del carrusel superior" />
-      <Image src={Img3} alt="Imagen 3 del carrusel superior" />
-      <Image src={Img4} alt="Imagen 4 del carrusel superior" />
-      <Image src={Img5} alt="Imagen 5 del carrusel superior" />
+    <div class="group-carousel group-carousel-top" aria-hidden="true">
+      {
+        TOP_IMAGES.map((img) => (
+          <Image
+            src={img.src}
+            alt={img.alt}
+            loading={"lazy"}
+            fetchpriority={"auto"}
+            decoding="async"
+          />
+        ))
+      }
     </div>
   </div>
 
   <!-- BOTTOM CAROUSEL -->
   <div class="carousel-hero">
     <div class="group-carousel group-carousel-bottom">
-      <Image src={Img6} alt="Imagen 1 del carrusel inferior" />
-      <Image src={Img7} alt="Imagen 2 del carrusel inferior" />
-      <Image src={Img8} alt="Imagen 3 del carrusel inferior" />
-      <Image src={Img9} alt="Imagen 4 del carrusel inferior" />
-      <Image src={Img10} alt="Imagen 5 del carrusel inferior" />
+      {
+        BOTTOM_IMAGES.map((img) => (
+          <Image
+            src={img.src}
+            alt={img.alt}
+            loading={"lazy"}
+            fetchpriority={"auto"}
+            decoding="async"
+          />
+        ))
+      }
     </div>
-
-    <div class="group-carousel group-carousel-bottom" aria-hidden>
-      <Image src={Img6} alt="Imagen 1 del carrusel inferior" />
-      <Image src={Img7} alt="Imagen 2 del carrusel inferior" />
-      <Image src={Img8} alt="Imagen 3 del carrusel inferior" />
-      <Image src={Img9} alt="Imagen 4 del carrusel inferior" />
-      <Image src={Img10} alt="Imagen 5 del carrusel inferior" />
+    <div class="group-carousel group-carousel-bottom" aria-hidden="true">
+      {
+        BOTTOM_IMAGES.map((img) => (
+          <Image
+            src={img.src}
+            alt={img.alt}
+            loading={"lazy"}
+            fetchpriority={"auto"}
+            decoding="async"
+          />
+        ))
+      }
     </div>
   </div>
 </section>

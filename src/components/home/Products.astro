@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import { SOLAR_SOLUTIONS } from "@data/solarSolutions";
-import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
 ---
 
 <section
@@ -84,6 +83,9 @@ import CanadianSolarLogo from "@imgs/logos/canadian-solar.png";
                 <Image
                   src={item.img}
                   alt={item.alt}
+                  loading={"lazy"}
+                  fetchpriority={"auto"}
+                  decoding={"async"}
                   class={
                     "w-32 sm:w-64 h-32 sm:h-64 object-cover transition-all duration-300 hover:scale-105"
                   }
