@@ -29,17 +29,25 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
       <div
         class="flex items-center justify-center border-2 border-[#004ea9] w-fit"
       >
-        <button class="bg-[#004ea9] text-gray-100 w-32">Pro</button>
-        <button class="w-32">Business</button>
+        <button data-filter="pro" class="bg-[#004ea9] text-gray-100 w-24"
+          >Pro</button
+        >
+        <button data-filter="business" class="w-24">Business</button>
       </div>
 
-      {
-        SPECIALIZED_ENGINEERING.filter((se) => se.tier === "pro").map(
-          (item) => (
-            <div class="relative bg-[#004ea9] flex felx-col">
+      <div class="grid grid-cols-3 gap-2">
+        {
+          SPECIALIZED_ENGINEERING.map((item) => (
+            <div
+              class:list={[
+                "relative bg-[#004ea9] flex felx-col w-full",
+                item.tier === "pro" && "col-span-3",
+              ]}
+              data-tier={item.tier}
+            >
               <Image
                 src={item.img}
-                alt={"Imagen de fondo de un parque solar"}
+                alt={item.alt}
                 class="absolute top-0 left-0 w-full h-full object-cover grayscale-50 will-change-transform"
               />
               <div class="absolute top-0 left-0 w-full h-full bg-radial-[at_50%_75%] from-[#004ea9BB] from-40% to-[#004ea9] backdrop-blur-xs" />
@@ -47,25 +55,36 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
               {item.subImgs && (
                 <div class="absolute top-0 right-0 flex items-center justify-center gap-4 w-fit h-auto bg-white/25 px-6 py-1">
                   {item.subImgs.map((subImg) => (
-                    <Image
-                      src={subImg}
-                      alt={"Imagen de fondo de un parque solar"}
-                      class="w-28 h-auto"
-                    />
+                    <Image src={subImg} alt={"Logo"} class="w-28 h-auto" />
                   ))}
                 </div>
               )}
 
-              <div class="relative w-full px-6 pt-8 pb-6">
+              <div
+                class:list={[
+                  "relative w-full",
+                  item.tier === "pro" ? "px-6 pt-8 pb-6" : "p-4",
+                ]}
+              >
                 <span class="text-2xl text-gray-200 font-bold w-full">
                   {item.title}
                 </span>
-                <span set:html={item.description} class="text-gray-300" />
+                {item.description.map((block) =>
+                  typeof block === "string" ? (
+                    <div set:html={block} class="text-gray-300" />
+                  ) : (
+                    <ul class="list-disc list-inside grid grid-cols-2 gap-2 my-1 text-gray-300">
+                      {block.map((li) => (
+                        <li>{li}</li>
+                      ))}
+                    </ul>
+                  ),
+                )}
               </div>
             </div>
-          ),
-        )
-      }
+          ))
+        }
+      </div>
     </div>
 
     <a
@@ -82,63 +101,23 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
 </section>
 
 <script is:inline>
-  const buttons = document.querySelectorAll(".eng-btn");
-  const cards = document.querySelectorAll(".eng-card");
+  const filterBtns = document.querySelectorAll("[data-filter]");
+  const items = document.querySelectorAll("[data-tier]");
 
-  function activate(index) {
-    buttons.forEach((btn, i) => {
-      const icon = btn.querySelector(".eng-icon");
-      const label = btn.querySelector(".eng-label");
-      const badge = btn.querySelector(".eng-badge");
-      const isPro = btn.dataset.engTier === "pro";
-      if (i === index) {
-        btn.classList.add("text-white", "border-transparent");
-        btn.classList.remove(
-          "bg-white/40",
-          "text-gray-500",
-          "border-gray-300/50",
-          "bg-[#001F54]/5",
-          "text-[#001F54]",
-          "border-[#001F54]/20",
-        );
-        btn.classList.add(isPro ? "bg-[#001F54]" : "bg-[#004ea9]");
-        icon?.classList.add("text-white");
-        icon?.classList.remove("text-gray-500", "text-[#001F54]");
-        badge?.classList.remove(!isPro && "bg-gray-200");
-        badge?.classList.add(!isPro && "bg-[#004ea9]");
-        badge?.classList.add("text-white/70");
-        badge?.classList.remove("text-[#001F54]/60");
-      } else {
-        btn.classList.remove(
-          "bg-[#004ea9]",
-          "bg-[#001F54]",
-          "text-white",
-          "border-transparent",
-        );
-        btn.classList.add(
-          isPro ? "bg-[#001F54]/5" : "bg-white/40",
-          isPro ? "text-[#001F54]" : "text-gray-500",
-          isPro ? "border-[#001F54]/20" : "border-gray-300/50",
-        );
-        icon?.classList.remove("text-white");
-        badge?.classList.remove("text-white/70");
-        badge?.classList.add(!isPro && "bg-gray-200");
-        badge?.classList.add(!isPro && "text-[#001F54]/60");
-      }
-    });
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
 
-    cards.forEach((card, i) => {
-      card.classList.toggle("hidden", i !== index);
-      card.classList.toggle("flex", i === index);
-    });
-  }
+      filterBtns.forEach((b) => {
+        b.classList.toggle("bg-[#004ea9]", b === btn);
+        b.classList.toggle("text-gray-100", b === btn);
+      });
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("mouseenter", () => {
-      const index = Number(btn.dataset.engIndex);
-      activate(index);
+      items.forEach((item) => {
+        item.classList.toggle("hidden", item.dataset.tier !== filter);
+      });
     });
   });
 
-  if (buttons.length > 0) activate(0);
+  filterBtns[0]?.click();
 </script>

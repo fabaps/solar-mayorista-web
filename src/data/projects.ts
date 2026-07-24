@@ -8,6 +8,8 @@ interface ProjectImage {
 interface Project {
   name: string;
   title: string;
+  date: string;
+  description: string;
   images: ProjectImage[];
 }
 
@@ -23,6 +25,9 @@ export const PROJECTS: Project[] = [
   {
     name: "Gary Cano",
     title: "Proyecto de Bombeo Solar",
+    description:
+      "Sistema de bombeo solar fotovoltaico para riego agrícola, con capacidad de 5.5 kWp y almacenamiento de 10,000 litros diarios.",
+    date: "2026-03-15",
     images: [
       { src: GaryCanoImg1, alt: "Gary Cano proyecto imagen 1" },
       { src: GaryCanoImg2, alt: "Gary Cano proyecto imagen 2" },
@@ -32,6 +37,9 @@ export const PROJECTS: Project[] = [
   {
     name: "Manuel Mendez",
     title: "Proyecto Residencial Atado a Red",
+    description:
+      "Instalación fotovoltaica residencial de 3.6 kWp conectada a red, con inversor SUN2000-4KTL-L1 y 9 paneles de 400W.",
+    date: "2026-06-22",
     images: [
       { src: ManuelMendezImg1, alt: "Manuel Méndez proyecto imagen 1" },
       { src: ManuelMendezImg2, alt: "Manuel Méndez proyecto imagen 2" },

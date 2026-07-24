@@ -17,10 +17,10 @@ import { Icon } from "astro-icon/components";
     </h2>
   </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mt-4">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mt-4">
     {
       PROJECTS.map((project, i) => (
-        <article class="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-black/5 transition-all duration-500">
+        <article class="group relative flex flex-col bg-white overflow-hidden border border-black/5 transition-all duration-500">
           <figure class="relative overflow-hidden h-96">
             <Image
               src={project.images[0].src}
@@ -30,40 +30,31 @@ import { Icon } from "astro-icon/components";
               decoding={"async"}
               class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
             />
-            <figcaption class="absolute bottom-0 left-0 flex items-center justify-between w-full">
-              <div class="flex flex-col gap-2 items-start justify-center bg-white/5 backdrop-blur-xs rounded-b-xl w-full">
-                <h3 class="text-white text-lg font-bold drop-shadow-lg px-2 pt-2">
-                  {project.title}
-                </h3>
+            <div class="absolute top-2 left-2 flex flex-row items-center justify-center gap-2">
+              <button class="bg-white/25 backdrop-blur-xs hover:bg-white/15 rounded-full p-2">
+                <Icon name={"lucide:play"} class={"text-xl text-gray-200"} />
+              </button>
+              <button
+                class="open-modal bg-white/25 backdrop-blur-xs hover:bg-white/15 rounded-full p-2"
+                data-project={i}
+              >
+                <Icon name={"lucide:image"} class={"text-xl text-gray-200"} />
+              </button>
+            </div>
+            <div class="absolute top-2 right-2 flex flex-row items-center justify-center gap-2">
+              <button class="text-gray-200 bg-radial-[at_50%_25%] from-[#004ea9CC] from-40% to-[#004ea9] backdrop-blur-xs hover:bg-white/15 flex items-center justify-center text-sm font-medium px-3 py-1.5 transition-colors text-nowrap hover:underline">
+                {project.date}
+              </button>
+            </div>
 
-                <div class="flex items-center justify-center gap-2">
-                  <div class="flex gap-2 flex-1 bg-gray-100 p-2 rounded-tr-xl">
-                    <Image
-                      src={project.images[1].src}
-                      alt={project.images[1].alt}
-                      loading={"lazy"}
-                      fetchpriority={"auto"}
-                      decoding={"async"}
-                      class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
-                    />
-                    <Image
-                      src={project.images[2].src}
-                      alt={project.images[2].alt}
-                      loading={"lazy"}
-                      fetchpriority={"auto"}
-                      decoding={"async"}
-                      class="w-24 h-16 object-cover rounded-lg transition-all duration-300 group-hover:shadow-md"
-                    />
-                  </div>
-                  <button
-                    class="open-modal w-24 h-16 text-white flex items-center justify-center text-sm font-medium bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
-                    data-project={i}
-                  >
-                    Más
-                  </button>
-                </div>
-              </div>
-            </figcaption>
+            <div class="absolute bottom-0 left-0 flex flex-col items-center justify-center px-4 py-2 bg-radial-[at_50%_25%] from-[#004ea9CC] from-40% to-[#004ea9] backdrop-blur-xs w-full">
+              <h3 class="text-gray-100 text-lg font-bold drop-shadow-lg">
+                {project.title}
+              </h3>
+              <span class="text-gray-200 text-center">
+                {project.description}
+              </span>
+            </div>
           </figure>
         </article>
       ))
