@@ -12,7 +12,11 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
   <Image
     src={BgParallaxImg}
     alt={"Imagen de fondo de un parque solar"}
-    class="absolute top-0 left-0 w-full h-full grayscale-50 will-change-transform"
+    loading={"lazy"}
+    fetchpriority={"auto"}
+    decoding={"async"}
+    data-speed={0.235}
+    class="effect-parallax-image absolute -top-12/8 left-0 w-full h-[130%] grayscale-50 will-change-transform"
   />
   <div
     class="absolute top-0 left-0 w-full h-full bg-radial-[at_50%_25%] from-[#004ea9AA] from-40% to-[#06183D] backdrop-blur-xs"
@@ -60,10 +64,10 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
                 class="text-xl text-white"
               />
             </div>
-            <h3 class="font-bold text-xl text-gray-100">{plan.title}</h3>
+            <h3 class="font-bold text-xl 2xl:text-2xl text-gray-100">{plan.title}</h3>
           </header>
 
-          <p class="text-sm px-3 py-2 bg-white/10 text-gray-100">
+          <p class="text-sm px-3 py-2 bg-white/10 text-gray-100 2xl:text-lg">
             {plan.subtitle}
           </p>
 
@@ -75,7 +79,7 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
                   class="shrink-0 text-[8px] text-white/70"}
                 />
                 <span
-                  class="text-gray-100"
+                  class="text-gray-100 2xl:text-lg"
                 >
                   {feature}
                 </span>
@@ -87,12 +91,11 @@ import { SUPPORT_PLANS } from "@data/technicalSupport";
     }
   </div>
 
-  <div class="flex items-center justify-center w-full mt-6">
+  <div class="relative flex items-center justify-center w-full mt-6 z-1">
     <a
       href="/aplica"
-      class="group flex items-center gap-2 hover:underline w-fit px-5 py-2 rounded-md"
+      class="group flex items-center gap-2 hover:underline w-fit px-5 py-2 rounded-md text-gray-200"
     >
-      <Icon name="lucide:notepad-text" class="text-2xl text-[#004fa8]" />
       <span>Aplica con tu proyecto</span>
       <Icon
         name="lucide:arrow-right"

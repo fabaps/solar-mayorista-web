@@ -6,7 +6,7 @@ import { FINANCING_CARDS } from "@data/financing";
 
 <section
   id="financiamiento"
-  class="bg-gray-100 flex flex-col items-start justify-center gap-2 w-full lg:h-screen min-h-auto lg:min-h-auto px-[5%] py-12 lg:py-[5%]"
+  class="relative bg-gray-100 flex flex-col items-start justify-center gap-2 w-full lg:h-screen min-h-auto lg:min-h-auto px-[5%] py-12 lg:py-[5%] z-1"
 >
   <header class="flex items-start justify-between gap-2 w-full">
     <h2 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
@@ -29,6 +29,9 @@ import { FINANCING_CARDS } from "@data/financing";
               <Image
                 src={card.logo.src}
                 alt={card.logo.alt}
+                loading={"lazy"}
+                fetchpriority={"auto"}
+                decoding={"async"}
                 class="h-8 w-auto object-contain"
               />
               <h3 class="font-bold text-sm uppercase tracking-wide text-gray-900 leading-tight">

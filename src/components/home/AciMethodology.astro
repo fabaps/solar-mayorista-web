@@ -13,6 +13,9 @@ import BgParallaxImg from "@imgs/home/estadisticas/fondo.jpg";
   <Image
     src={BgParallaxImg}
     alt={"Imagen de fondo de un parque solar"}
+    loading={"lazy"}
+    fetchpriority={"auto"}
+    decoding={"async"}
     data-speed={0.2}
     class="effect-parallax-image absolute -top-1/1 left-0 w-full h-auto grayscale-50 will-change-transform"
   />
