@@ -7,10 +7,10 @@ import { SOLAR_SOLUTIONS } from "@data/solarSolutions";
 
 <section
   id="soluciones-solares"
-  class="bg-gray-200 flex flex-col items-start justify-center gap-2 w-full lg:h-screen px-[5%] py-[5%]"
+  class="relative bg-gray-200 flex flex-col items-start justify-center gap-2 w-full lg:h-screen px-[5%] py-[5%] z-1"
 >
   <h2 class="flex flex-col gap-2 text-4xl lg:text-6xl font-black uppercase">
-    <span class="gradient-blue">Soluciones</span>
+    <span class="text-[#004fa8]">Soluciones</span>
     <span class="text-gray-900">Solares</span>
   </h2>
   <div
@@ -42,7 +42,7 @@ import { SOLAR_SOLUTIONS } from "@data/solarSolutions";
           <button
             type="button"
             data-index={index}
-            class="category-btn w-full border border-[#004fa8] text-[#004fa8] rounded-md px-3 py-2 transition-colors hover:bg-[#2066b1] hover:text-white"
+            class="category-btn w-full border border-[#004fa8] text-[#004fa8] px-3 py-2 transition-colors hover:bg-[#004fa8] hover:text-white"
           >
             {item.title}
           </button>

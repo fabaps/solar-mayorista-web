@@ -1,27 +1,31 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import BgParallaxImg from "@imgs/home/estadisticas/fondo.jpg";
 
-import AciBg from "@imgs/home/aci-metodologia/hazlo-aci-background.jpeg";
+import { METHODOLOGY_PHASES } from "@data/methodologyPhases.ts";
 ---
 
 <section
-  class="relative bg-[#004ea9] text-white flex flex-col items-center justify-center gap-8 w-full lg:h-screen lg:min-h-screen px-[5%] py-12 lg:py-0"
+  class="relative text-white flex flex-col items-center justify-center gap-8 w-full lg:h-screen lg:min-h-screen px-[5%] py-12 lg:py-0"
 >
-  <img
-    src={"https://smartspain.es/wp-content/uploads/2022/08/solar-electric-farm-with-panels-for-producing-clean-ecologic-energy-in-pissouri-cyprus.jpg"}
-    alt={"ACI fondo"}
-    class={"absolute top-0 left-0 w-full h-full object-cover z-1"}
+  <Image
+    src={BgParallaxImg}
+    alt={"Imagen de fondo de un parque solar"}
+    class="absolute top-0 left-0 w-full h-full grayscale-50 will-change-transform"
   />
-  <div class="absolute top-0 left-0 w-full h-full bg-[#004fa8EE] z-1"></div>
+  <div
+    class="absolute top-0 left-0 w-full h-full bg-radial-[at_50%_25%] from-[#004ea9AA] from-40% to-[#06183D] backdrop-blur-xs"
+  >
+  </div>
 
   <header class="flex flex-col items-start justify-start gap-4 z-2">
     <h2
-      class="flex flex-col gap-2 font-black text-4xl lg:text-6xl uppercase gradient-yellow"
+      class="flex flex-col gap-2 font-black text-4xl lg:text-6xl uppercase text-gray-100"
     >
       Tu Ruta de Ejecución
     </h2>
-    <p class="text-sm lg:text-xl 2xl:text-2xl">
+    <p class="text-sm lg:text-xl 2xl:text-2xl text-gray-200">
       Nuestro modelo de negocio te brinda las herramientas y conocimientos para
       que co-desarrollemos proyectos solares de manera exitosa
     </p>
@@ -29,83 +33,25 @@ import AciBg from "@imgs/home/aci-metodologia/hazlo-aci-background.jpeg";
     <div
       class="grid grid-cols-1 lg:grid-cols-2 items-start justify-center gap-4 lg:gap-2 w-full"
     >
-      <article
-        class="group flex flex-col items-start justify-start bg-white/5 border border-white/15 px-6 py-4 w-full min-h-full 2xl:text-xl"
-      >
-        <h3 class="font-bold border-b border-white pb-2 w-full 2xl:text-xl">
-          FASE DE PRE-PROYECTO
-        </h3>
-        <p class="mt-2 2xl:text-lg">
-          Te apoyamos a abrir el negocio sin ningún costo.
-        </p>
+      {
+        METHODOLOGY_PHASES.map((phase) => (
+          <article class="group flex flex-col items-start justify-start bg-linear-to-br from-35% from-black/15 to-white/15 backdrop-blur-sm border border-white/15 px-6 py-4 w-full min-h-full 2xl:text-xl">
+            <h3 class="font-bold border-b border-white pb-2 w-full 2xl:text-xl">
+              {phase.title}
+            </h3>
+            <p class="mt-2 2xl:text-lg">{phase.description}</p>
 
-        <ol class="flex flex-col gap-2 mt-4 w-full list-none">
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:1-circle-fill" class="text-2xl shrink-0" />
-            <span>Identifica tu proyecto</span>
-          </li>
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:2-circle-fill" class="text-2xl shrink-0" />
-            <span>
-              Identificación de tu modelo de negocio
-              <span class="bg-white/25 text-xs rounded-xs px-2 py-1"
-                >BUSSISNES</span
-              >
-              <span class="bg-white/25 text-xs rounded-xs px-2 py-1">PRO</span>
-            </span>
-          </li>
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:3-circle-fill" class="text-2xl shrink-0" />
-            <span>Co-desarrollo de ingeieria y apertura comercial</span>
-          </li>
-        </ol>
-      </article>
-
-      <article
-        class="group flex flex-col items-start justify-center bg-white/5 border border-white/15 px-6 py-4 w-full 2xl:text-xl"
-      >
-        <h3 class="font-bold border-b border-white pb-2 w-full">
-          FASE EJECUCIÓN DE PROYECTO
-        </h3>
-        <p class="mt-2">Esta fase comienza una vez se confirme el proyecto.</p>
-
-        <ol class="flex flex-col gap-2 mt-4 w-full list-none" start="3">
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:3-circle-fill" class="text-2xl shrink-0" />
-            <span>Adquiere tus productos con nosotros.</span>
-          </li>
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:4-circle-fill" class="text-2xl shrink-0" />
-            <span>Capacitamos a tu equipo técnico.</span>
-          </li>
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:5-circle-fill" class="text-2xl shrink-0" />
-            <span>Instala tu proyecto.</span>
-          </li>
-          <li
-            class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full"
-          >
-            <Icon name="bi:6-circle-fill" class="text-2xl shrink-0" />
-            <span>
-              Te entregamos un checklist de pruebas de calidad para verificar tu
-              instalación y obtener soporte post-venta premium
-            </span>
-          </li>
-        </ol>
-      </article>
-
+            <ol class="flex flex-col gap-2 mt-4 w-full list-none">
+              {phase.steps.map((step) => (
+                <li class="flex items-center justify-start gap-2 bg-linear-to-l from-white/25 to-white/5 px-3 py-2 w-full">
+                  <Icon name={step.icon} class="text-2xl shrink-0" />
+                  <span>{step.label}</span>
+                </li>
+              ))}
+            </ol>
+          </article>
+        ))
+      }
       <a
         href="/aplica"
         class="group flex items-center justify-start gap-2 hover:underline w-fit py-2 rounded-md"

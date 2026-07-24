@@ -40,7 +40,7 @@ button {
 }
 
 .gradient-blue {
-  background: linear-gradient(145deg, #004ea9, #2979DA, #004ea9);
+  background: linear-gradient(0deg, #2979DA, #004ea9);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

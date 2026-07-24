@@ -3,11 +3,14 @@ import type { ImageMetadata } from "astro";
 import designAndQuantificationImg from "@imgs/home/ingenieria-especializada/diseño-y-cuantificacion-de-productos.webp";
 import technicalAnalysisImg from "@imgs/home/ingenieria-especializada/foto-de-factura.jpeg";
 import technicalVisitImg from "@imgs/home/ingenieria-especializada/visita-tecnica.jpg";
-import specializedSoftwareImg from "@imgs/home/ingenieria-especializada/software-especializado.png";
+import specializedSoftwareImg from "@imgs/home/ingenieria-especializada/software.jpeg";
 
 import solarPanelImg from "@imgs/home/productos/panel-solar.png";
 import inverterImg from "@imgs/home/productos/inversor.png";
 import junctionBoxImg from "@imgs/home/productos/caja-sobreponer.webp";
+
+import HomerProLogo from "@imgs/logos/homer-pro.png";
+import PvSystLogo from "@imgs/logos/pvsyst.png";
 
 export type DescriptionContent = (string | string[])[];
 
@@ -45,23 +48,24 @@ export const SPECIALIZED_ENGINEERING = [
   },
   {
     img: specializedSoftwareImg,
+    subImgs: [HomerProLogo, PvSystLogo],
     alt: "Software especializado para diseño solar",
     title: "Co-Desarrollo",
     tier: "pro",
     icon: "lucide:monitor",
     description: [
-      "Es un servicio de Ingeniería Avanzada para Proyectos Comerciales e Industriales. Desarrollamos tu proyecto de principio a fin.",
-      [
-        "Recolección de datos",
-        "Visita técnica",
-        "Diseño con software especializado",
-        "Análisis eléctrico",
-        "Estudio financiero",
-        "Presentación ejecutiva y comercial",
-        "Seguimiento y supervisión del proyecto",
-        "Comisionamiento",
-      ],
-      "Este servicio integral está enfocado exclusivamente en proyectos que califiquen bajo nuestros criterios de selección como proyectos de la categoría comercial - industrial.",
+      "<p>Es un servicio de Ingeniería Avanzada para Proyectos Comerciales e Industriales. Desarrollamos tu proyecto de principio a fin.</p>",
+      `<ul class="list-disc list-inside grid grid-cols-2 gap-2 my-1 *:bg-linear-to-l *:from-white/25 *:to-white/5 *:px-2">
+        <li>Recolección de datos</li>
+        <li>Visita técnica</li>
+        <li>Diseño con software especializado</li>
+        <li>Análisis eléctrico</li>
+        <li>Estudio financiero</li>
+        <li>Presentación ejecutiva y comercial</li>
+        <li>Seguimiento y supervisión del proyecto</li>
+        <li>Comisionamiento</li>
+      </ul>`,
+      "<p>Este servicio integral está enfocado exclusivamente en proyectos que califiquen bajo nuestros criterios de selección como proyectos de la categoría comercial - industrial.</p>",
     ] as DescriptionContent,
   },
 ];

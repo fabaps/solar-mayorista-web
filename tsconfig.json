@@ -14,6 +14,7 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@data/*": ["src/data/*"],
 			"@imgs/*": ["src/assets/imgs/*"],
+			"@scripts/*": ["src/scripts/*"],
 			"@videos/*": ["src/assets/videos/*"],
 			"@fonts/*": ["src/assets/fonts/*"]
 		},

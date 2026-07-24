@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import BgParallaxImg from "@imgs/home/estadisticas/fondo.jpg";
 
 const STATS = [
   {
@@ -17,63 +19,48 @@ const STATS = [
 ---
 
 <section
-  class="relative bg-gray-100 flex flex-col items-center justify-center w-full h-auto text-black py-12"
-  aria-labelledby="stats-heading"
+  class="relative bg-[#06183D] flex flex-col items-center justify-center w-full h-auto text-black py-12 overflow-hidden"
 >
+  <Image
+    src={BgParallaxImg}
+    alt={"Imagen de fondo de un parque solar"}
+    class="effect-parallax-image absolute -top-4/5 left-0 w-full h-auto object-cover grayscale-50 will-change-transform"
+  />
+  <div
+    class="absolute top-0 left-0 w-full h-full bg-radial-[at_50%_75%] from-[#004ea966] from-40% to-[#06183D] backdrop-blur-xs"
+  >
+  </div>
+
   <header class="relative z-10 text-center mb-4">
     <h2
       id="stats-heading"
       class="text-4xl md:text-6xl font-black mb-4 uppercase"
     >
-      <span class="gradient-blue">Resultados 1er semestre</span>
-      <span class="text-gray-900">
+      <span class="text-gray-100">Resultados 1er semestre</span>
+      <span class="text-gray-300/50">
         <time datetime="2026">2026</time>
       </span>
     </h2>
-    <p class="text-lg lg:text-xl max-w-2xl mx-auto">
+    <p
+      class="text-gray-200 text-base lg:text-xl max-w-2xl mx-auto px-[2.5%] lg:px-0"
+    >
       Con la red de asesores y nuestro modelo de negocio hemos creado soluciones
       de energía solar en toda Guatemala
     </p>
   </header>
 
   <dl
-    class="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl px-8 cursor-default"
+    class="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 lg:gap-0 w-full max-w-6xl px-8 cursor-default"
   >
     {
       STATS.map((stat) => (
-        <div class="group flex flex-col items-center text-center p-4 rounded-2xl border border-black/25 last:col-span-2 lg:last:col-span-1 transition-all duration-500 hover:bg-white/20 hover:scale-105 hover:-translate-y-2">
-          <div class="mb-2 rounded-full">
-            <Icon
-              name={stat.icon}
-              class="w-8 h-8 text-[#004ea9]"
-              aria-hidden="true"
-            />
-          </div>
-          <dt class="text-lg lg:text-3xl font-bold mb-0 lg:mb-2 text-gray-800">
+        <div class="group flex flex-col items-center text-center p-4 last:col-span-2 lg:last:col-span-1">
+          <dt class="text-2xl lg:text-3xl font-bold mb-0 lg:mb-2 text-gray-100">
             {stat.number}
           </dt>
-          <dd class="text-sm md:text-base">{stat.label}</dd>
+          <dd class="text-sm md:text-base text-gray-200">{stat.label}</dd>
         </div>
       ))
     }
   </dl>
-
-  <nav class="relative z-10 mt-4 flex flex-col items-center gap-4">
-    <a
-      href="/aplica"
-      class="group flex items-center justify-start gap-2 hover:underline bg-white/15 w-fit px-5 py-2 rounded-md"
-    >
-      <Icon
-        name="lucide:notepad-text"
-        class="text-2xl text-[#004fa8]"
-        aria-hidden="true"
-      />
-      <span>Aplica ahora</span>
-      <Icon
-        name="lucide:arrow-right"
-        class="group-hover:translate-x-2 transition-all duration-500"
-        aria-hidden="true"
-      />
-    </a>
-  </nav>
 </section>

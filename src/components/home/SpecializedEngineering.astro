@@ -6,216 +6,139 @@ import { SPECIALIZED_ENGINEERING } from "@data/specializedEngineering";
 
 <section
   id="ingenieria-especializada"
-  class="relative bg-gray-200 w-full lg:h-screen px-[5%] py-6 lg:py-[5%]"
+  class="relative bg-gray-200 w-full lg:h-screen px-[5%] z-1"
 >
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 h-full">
-    <div class="flex flex-col justify-center gap-4">
-      <h2 class="flex flex-col text-4xl lg:text-6xl font-black">
-        <span class="gradient-blue">INGENIERÍA</span>
-        <span class="text-gray-900">ESPECIALIZADA</span>
-      </h2>
-      <p class="flex flex-col text-md lg:text-lg">
-        <span>Tu socio estratégico en ingeniería y apertura comercial.</span>
-        <span>
-          Ponemos a tu disposición <strong>dos modelos de negocio</strong> que impulsa
-          la viabilidad, el desarrollo y la ejecución exitosa de tus proyectos.
-        </span>
-      </p>
-
-      <!-- Left: list -->
-      <ul
-        class="hidden lg:flex flex-col gap-2 w-full mt-2 list-none"
-        id="eng-list"
+  <div class="flex flex-col items-center justify-center w-full h-full">
+    <h2 class="text-4xl lg:text-6xl font-black">
+      <span class="text-[#004fa8]">INGENIERÍA</span>
+      <span class="text-gray-900">ESPECIALIZADA</span>
+    </h2>
+    <p
+      class="flex flex-col items-center justify-center text-center text-md lg:text-lg max-w-2xl mx-auto"
+    >
+      <span class="text-black/50"
+        >Somos tu socio estratégico en ingeniería y apertura comercial.</span
       >
-        {
-          SPECIALIZED_ENGINEERING.map((item, index) => (
-            <li>
-              <button
-                type="button"
-                data-eng-index={index}
-                data-eng-tier={item.tier}
-                class="eng-btn flex items-center gap-3 w-full text-start px-4 py-3 rounded-lg border transition-all duration-100 cursor-pointer"
-                class:list={{
-                  "border-gray-300/50 text-gray-500 bg-white/40":
-                    item.tier === "business",
-                  "border-[#001F54]/20 bg-[#001F54]/5 text-[#001F54]":
-                    item.tier === "pro",
-                }}
-              >
-                <Icon
-                  name={item.icon}
-                  class="eng-icon text-2xl shrink-0 transition-all duration-100"
-                />
-                <span class="eng-label text-lg font-medium transition-all duration-100">
-                  {item.title}
-                </span>
-                <span
-                  class="eng-badge ml-auto text-[10px] font-bold uppercase tracking-wider rounded-md px-1.5 py-0.5 transition-all duration-100"
-                  class:list={{
-                    "border bg-[#001F5433] text-[#001F54]/60":
-                      item.tier === "pro",
-                    "opacity-50 border bg-gray-200 text-gray-600":
-                      item.tier !== "pro",
-                  }}
-                >
-                  {item.tier === "pro" ? "Pro" : "Business"}
-                </span>
-              </button>
-            </li>
-          ))
-        }
-      </ul>
+      <span>
+        Ponemos a tu disposición <strong>dos modelos de negocio</strong> que impulsa
+        la viabilidad, el desarrollo y la ejecución exitosa de tus proyectos.
+      </span>
+    </p>
 
-      <!-- Mobile: horizontal scroll -->
-      <div class="flex lg:hidden flex-row gap-4 w-full overflow-x-auto">
-        {
-          SPECIALIZED_ENGINEERING.toReversed().map((item) => (
-            <article class="flex flex-col bg-[#0d57ad] text-white rounded-lg overflow-hidden border-2 border-white/10 max-w-9/10 shrink-0 max-h-148">
-              <div class="relative">
-                <Image
-                  src={item.img}
-                  alt={item.alt}
-                  loading={"lazy"}
-                  fetchpriority={"auto"}
-                  decoding={"async"}
-                  class="w-full min-h-56 h-56 object-cover grayscale-25"
-                />
-
-                <div class="absolute top-0 right-0 bg-[#004fa8] px-4 py-1 rounded-bl-xl">
-                  <span>{item.tier === "pro" ? "Pro" : "Business"}</span>
-                </div>
-              </div>
-
-              <div class="flex flex-col gap-1 p-3">
-                <h3 class="text-lg font-bold">{item.title}</h3>
-                <div class="flex flex-col gap-1 text-md text-gray-100 max-h-64 overflow-y-auto">
-                  {item.description.map((block) =>
-                    typeof block === "string" ? (
-                      <p>{block}</p>
-                    ) : (
-                      <ul class="list-disc list-inside">
-                        {block.map((li) => (
-                          <li>{li}</li>
-                        ))}
-                      </ul>
-                    ),
-                  )}
-                </div>
-              </div>
-            </article>
-          ))
-        }
+    <div class="flex flex-col items-center justify-center gap-4 w-full mt-4">
+      <div
+        class="flex items-center justify-center border-2 border-[#004ea9] w-fit"
+      >
+        <button class="bg-[#004ea9] text-gray-100 w-32">Pro</button>
+        <button class="w-32">Business</button>
       </div>
 
-      <a
-        href="/aplica"
-        class="group flex items-center gap-2 hover:underline w-fit py-2 rounded-md tetx-gray-200"
-      >
-        <span>Aplica con tu proyecto</span>
-        <Icon
-          name="lucide:arrow-right"
-          class="group-hover:translate-x-2 transition-all duration-500"
-        />
-      </a>
-    </div>
-
-    <!-- Right: card display -->
-    <div class="hidden lg:flex items-center justify-center">
       {
-        SPECIALIZED_ENGINEERING.map((item, index) => (
-          <article
-            class="eng-card hidden flex-col bg-[#0d57ad] text-white rounded-xl overflow-hidden border border-white/10 w-full max-w-lg ring-1 ring-black/50 shadow-lg shadow-black/25"
-            data-eng-card={index}
-          >
-            <Image
-              src={item.img}
-              alt={item.alt}
-              loading={"lazy"}
-              fetchpriority={"auto"}
-              decoding={"async"}
-              class="w-full h-56 object-cover"
-            />
-            <div class="flex flex-col gap-3 p-3 overflow-y-auto max-h-64 scroll-hide">
-              <h3 class="text-xl font-bold">{item.title}</h3>
-              <div class="flex flex-col gap-2 text-md text-gray-100">
-                {item.description.map((block) =>
-                  typeof block === "string" ? (
-                    <p>{block}</p>
-                  ) : (
-                    <ul class="list-disc list-inside">
-                      {block.map((li) => (
-                        <li>{li}</li>
-                      ))}
-                    </ul>
-                  ),
-                )}
+        SPECIALIZED_ENGINEERING.filter((se) => se.tier === "pro").map(
+          (item) => (
+            <div class="relative bg-[#004ea9] flex felx-col">
+              <Image
+                src={item.img}
+                alt={"Imagen de fondo de un parque solar"}
+                class="absolute top-0 left-0 w-full h-full object-cover grayscale-50 will-change-transform"
+              />
+              <div class="absolute top-0 left-0 w-full h-full bg-radial-[at_50%_75%] from-[#004ea9BB] from-40% to-[#004ea9] backdrop-blur-xs" />
+
+              {item.subImgs && (
+                <div class="absolute top-0 right-0 flex items-center justify-center gap-4 w-fit h-auto bg-white/25 px-6 py-1">
+                  {item.subImgs.map((subImg) => (
+                    <Image
+                      src={subImg}
+                      alt={"Imagen de fondo de un parque solar"}
+                      class="w-28 h-auto"
+                    />
+                  ))}
+                </div>
+              )}
+
+              <div class="relative w-full px-6 pt-8 pb-6">
+                <span class="text-2xl text-gray-200 font-bold w-full">
+                  {item.title}
+                </span>
+                <span set:html={item.description} class="text-gray-300" />
               </div>
             </div>
-          </article>
-        ))
+          ),
+        )
       }
     </div>
+
+    <a
+      href="/aplica"
+      class="group flex items-center gap-2 hover:underline w-fit py-2 rounded-md tetx-gray-200"
+    >
+      <span>Aplica con tu proyecto</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-2 transition-all duration-500"
+      />
+    </a>
   </div>
+</section>
 
-  <script is:inline>
-    const buttons = document.querySelectorAll(".eng-btn");
-    const cards = document.querySelectorAll(".eng-card");
+<script is:inline>
+  const buttons = document.querySelectorAll(".eng-btn");
+  const cards = document.querySelectorAll(".eng-card");
 
-    function activate(index) {
-      buttons.forEach((btn, i) => {
-        const icon = btn.querySelector(".eng-icon");
-        const label = btn.querySelector(".eng-label");
-        const badge = btn.querySelector(".eng-badge");
-        const isPro = btn.dataset.engTier === "pro";
-        if (i === index) {
-          btn.classList.add("text-white", "border-transparent");
-          btn.classList.remove(
-            "bg-white/40",
-            "text-gray-500",
-            "border-gray-300/50",
-            "bg-[#001F54]/5",
-            "text-[#001F54]",
-            "border-[#001F54]/20",
-          );
-          btn.classList.add(isPro ? "bg-[#001F54]" : "bg-[#004ea9]");
-          icon?.classList.add("text-white");
-          icon?.classList.remove("text-gray-500", "text-[#001F54]");
-          badge?.classList.remove(!isPro && "bg-gray-200");
-          badge?.classList.add(!isPro && "bg-[#004ea9]");
-          badge?.classList.add("text-white/70");
-          badge?.classList.remove("text-[#001F54]/60");
-        } else {
-          btn.classList.remove(
-            "bg-[#004ea9]",
-            "bg-[#001F54]",
-            "text-white",
-            "border-transparent",
-          );
-          btn.classList.add(
-            isPro ? "bg-[#001F54]/5" : "bg-white/40",
-            isPro ? "text-[#001F54]" : "text-gray-500",
-            isPro ? "border-[#001F54]/20" : "border-gray-300/50",
-          );
-          icon?.classList.remove("text-white");
-          badge?.classList.remove("text-white/70");
-          badge?.classList.add(!isPro && "bg-gray-200");
-          badge?.classList.add(!isPro && "text-[#001F54]/60");
-        }
-      });
-
-      cards.forEach((card, i) => {
-        card.classList.toggle("hidden", i !== index);
-        card.classList.toggle("flex", i === index);
-      });
-    }
-
-    buttons.forEach((btn) => {
-      btn.addEventListener("mouseenter", () => {
-        const index = Number(btn.dataset.engIndex);
-        activate(index);
-      });
+  function activate(index) {
+    buttons.forEach((btn, i) => {
+      const icon = btn.querySelector(".eng-icon");
+      const label = btn.querySelector(".eng-label");
+      const badge = btn.querySelector(".eng-badge");
+      const isPro = btn.dataset.engTier === "pro";
+      if (i === index) {
+        btn.classList.add("text-white", "border-transparent");
+        btn.classList.remove(
+          "bg-white/40",
+          "text-gray-500",
+          "border-gray-300/50",
+          "bg-[#001F54]/5",
+          "text-[#001F54]",
+          "border-[#001F54]/20",
+        );
+        btn.classList.add(isPro ? "bg-[#001F54]" : "bg-[#004ea9]");
+        icon?.classList.add("text-white");
+        icon?.classList.remove("text-gray-500", "text-[#001F54]");
+        badge?.classList.remove(!isPro && "bg-gray-200");
+        badge?.classList.add(!isPro && "bg-[#004ea9]");
+        badge?.classList.add("text-white/70");
+        badge?.classList.remove("text-[#001F54]/60");
+      } else {
+        btn.classList.remove(
+          "bg-[#004ea9]",
+          "bg-[#001F54]",
+          "text-white",
+          "border-transparent",
+        );
+        btn.classList.add(
+          isPro ? "bg-[#001F54]/5" : "bg-white/40",
+          isPro ? "text-[#001F54]" : "text-gray-500",
+          isPro ? "border-[#001F54]/20" : "border-gray-300/50",
+        );
+        icon?.classList.remove("text-white");
+        badge?.classList.remove("text-white/70");
+        badge?.classList.add(!isPro && "bg-gray-200");
+        badge?.classList.add(!isPro && "text-[#001F54]/60");
+      }
     });
 
-    if (buttons.length > 0) activate(0);
-  </script>
-</section>
+    cards.forEach((card, i) => {
+      card.classList.toggle("hidden", i !== index);
+      card.classList.toggle("flex", i === index);
+    });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("mouseenter", () => {
+      const index = Number(btn.dataset.engIndex);
+      activate(index);
+    });
+  });
+
+  if (buttons.length > 0) activate(0);
+</script>

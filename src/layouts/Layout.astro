@@ -64,6 +64,10 @@ const {
     <meta name="twitter:image" content={new URL(image, Astro.url).href} />
 
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <script>
+      import "@scripts/parallaxImage.ts";
+    </script>
   </head>
   <body>
     <Navbar />
